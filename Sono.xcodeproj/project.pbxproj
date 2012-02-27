@@ -42,7 +42,7 @@
 		5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		5A0F6AEB14FBDB3500D45EA4 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
 		5A0F6AEC14FBDB3500D45EA4 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
-		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = EditPatientViewController.h; sourceTree = "<group>"; };
+		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
