@@ -18,6 +18,7 @@
 		5A0F6ADF14FBD48B00D45EA4 /* Sono.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F6ADD14FBD48B00D45EA4 /* Sono.xcdatamodeld */; };
 		5A0F6AE214FBD48B00D45EA4 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F6AE114FBD48B00D45EA4 /* MasterViewController.m */; };
 		5A0F6AE514FBD48B00D45EA4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */; };
+		5A0F6AED14FBDB3500D45EA4 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F6AEC14FBDB3500D45EA4 /* Patient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		5A0F6AE114FBD48B00D45EA4 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		5A0F6AE314FBD48B00D45EA4 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		5A0F6AEB14FBDB3500D45EA4 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		5A0F6AEC14FBDB3500D45EA4 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,7 @@
 		5A0F6ACE14FBD48A00D45EA4 /* Sono */ = {
 			isa = PBXGroup;
 			children = (
+				5A0F6AEE14FBDB3A00D45EA4 /* Model */,
 				5A0F6AD714FBD48B00D45EA4 /* AppDelegate.h */,
 				5A0F6AD814FBD48B00D45EA4 /* AppDelegate.m */,
 				5A0F6ADA14FBD48B00D45EA4 /* MainStoryboard.storyboard */,
@@ -108,6 +112,15 @@
 				5A0F6AD614FBD48B00D45EA4 /* Sono-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A0F6AEE14FBDB3A00D45EA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A0F6AEB14FBDB3500D45EA4 /* Patient.h */,
+				5A0F6AEC14FBDB3500D45EA4 /* Patient.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +191,7 @@
 				5A0F6ADF14FBD48B00D45EA4 /* Sono.xcdatamodeld in Sources */,
 				5A0F6AE214FBD48B00D45EA4 /* MasterViewController.m in Sources */,
 				5A0F6AE514FBD48B00D45EA4 /* DetailViewController.m in Sources */,
+				5A0F6AED14FBDB3500D45EA4 /* Patient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
