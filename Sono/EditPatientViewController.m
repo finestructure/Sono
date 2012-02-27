@@ -8,6 +8,8 @@
 
 #import "EditPatientViewController.h"
 
+#import "AppDelegate.h"
+
 @interface EditPatientViewController ()
 
 @end
@@ -22,6 +24,24 @@
 @synthesize gebHeftField = _gebHeftField;
 @synthesize famBelastungField = _famBelastungField;
 @synthesize praenatDiagField = _praenatDiagField;
+
+
+# pragma mark - Worker
+
+
+- (void)save {
+  self.detailItem.firstName = self.firstNameField.text;
+  self.detailItem.lastName = self.lastNameField.text;
+  //  self.detailItem.birthDate = self.birthDateField.text;
+  self.detailItem.patientId = self.patientIdField.text;
+  self.detailItem.gebheftId = self.gebHeftField.text;
+  self.detailItem.famBelastung = [NSNumber numberWithBool:[self.famBelastungField.text isEqualToString:@"YES"]];
+  self.detailItem.praenatDiag = self.praenatDiagField.text;
+  
+  UIApplication *app = [UIApplication sharedApplication];
+  AppDelegate *delegate = app.delegate;
+  [delegate saveContext];
+}
 
 
 #pragma mark - Managing the detail item
@@ -56,7 +76,7 @@
 
 
 - (void)viewWillDisappear:(BOOL)animated {
-  NSLog(@"in here - save me!");
+  [self save];
 }
 
 
