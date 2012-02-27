@@ -16,13 +16,13 @@
 @implementation DetailViewController
 
 @synthesize detailItem = _detailItem;
-@synthesize lastNameTextField = _lastNameTextField;
-@synthesize firstNameTextField = _firstNameTextField;
-@synthesize birthDateTextField = _birthDateTextField;
-@synthesize patientIdTextField = _patientIdTextField;
-@synthesize gebHeftTextField = _gebHeftTextField;
-@synthesize famBelastungTextField = _famBelastungTextField;
-@synthesize praenatDiagTextField = _praenatDiagTextField;
+@synthesize lastNameField = _lastNameField;
+@synthesize firstNameField = _firstNameField;
+@synthesize birthDateField = _birthDateField;
+@synthesize patientIdField = _patientIdField;
+@synthesize gebHeftField = _gebHeftField;
+@synthesize famBelastungField = _famBelastungField;
+@synthesize praenatDiagField = _praenatDiagField;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
@@ -46,13 +46,13 @@
     // Update the user interface for the detail item.
 
   if (self.detailItem) {
-    self.firstNameTextField.text = self.detailItem.firstName;
-    self.lastNameTextField.text = self.detailItem.lastName;
-    self.birthDateTextField.text = self.detailItem.birthDate.description;
-    self.patientIdTextField.text = self.detailItem.patientId;
-    self.gebHeftTextField.text = self.detailItem.gebheftId;
-    self.famBelastungTextField.text = self.detailItem.famBelastung.description;
-    self.praenatDiagTextField.text = self.detailItem.praenatDiag;
+    self.firstNameField.text = self.detailItem.firstName;
+    self.lastNameField.text = self.detailItem.lastName;
+    self.birthDateField.text = self.detailItem.birthDate.description;
+    self.patientIdField.text = self.detailItem.patientId;
+    self.gebHeftField.text = self.detailItem.gebheftId;
+    self.famBelastungField.text = self.detailItem.famBelastung.description;
+    self.praenatDiagField.text = self.detailItem.praenatDiag;
   }
 }
 
@@ -65,13 +65,13 @@
 
 - (void)viewDidUnload
 {
-  [self setLastNameTextField:nil];
-  [self setFirstNameTextField:nil];
-  [self setBirthDateTextField:nil];
-  [self setPatientIdTextField:nil];
-  [self setGebHeftTextField:nil];
-  [self setFamBelastungTextField:nil];
-  [self setPraenatDiagTextField:nil];
+  [self setLastNameField:nil];
+  [self setFirstNameField:nil];
+  [self setBirthDateField:nil];
+  [self setPatientIdField:nil];
+  [self setGebHeftField:nil];
+  [self setFamBelastungField:nil];
+  [self setPraenatDiagField:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
