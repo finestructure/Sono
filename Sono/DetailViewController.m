@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 
+#import "EditPatientViewController.h"
+
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
@@ -55,6 +57,10 @@
     self.praenatDiagField.text = self.detailItem.praenatDiag;
   }
 }
+
+
+#pragma mark - Init
+
 
 - (void)viewDidLoad
 {
@@ -105,6 +111,8 @@
 {
 	if ([segue.identifier isEqualToString:@"EditPatient"]) {
     NSLog(@"segue EditPatient");
+    EditPatientViewController *vc = segue.destinationViewController;
+    vc.detailItem = self.detailItem;
   }
 }
 

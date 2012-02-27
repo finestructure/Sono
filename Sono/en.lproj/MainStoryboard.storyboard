@@ -295,6 +295,15 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Patient bearbeiten" id="8uc-7M-ly0"/>
+                    <connections>
+                        <outlet property="birthDateField" destination="mdX-Yg-pdx" id="DaP-f7-8QO"/>
+                        <outlet property="famBelastungField" destination="L1l-2F-cOx" id="Sxp-s2-PZ8"/>
+                        <outlet property="firstNameField" destination="4bZ-gF-EVd" id="UM4-Ed-lwn"/>
+                        <outlet property="gebHeftField" destination="3kA-Jh-w1m" id="cn9-eq-3jb"/>
+                        <outlet property="lastNameField" destination="Hvx-NQ-t6V" id="u8Y-3U-tSl"/>
+                        <outlet property="patientIdField" destination="GFh-RN-wDl" id="ogt-kB-9T6"/>
+                        <outlet property="praenatDiagField" destination="yHu-gU-rB2" id="3Bv-p7-xY0"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1311" y="248"/>
@@ -373,6 +382,35 @@
             <point key="canvasLocation" x="-366" y="248"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="birthDateField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="famBelastungField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstNameField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gebHeftField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lastNameField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientIdField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="praenatDiagField" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EditPatientViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPatientViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="birthDateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="famBelastungField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="firstNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="gebHeftField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="patientIdField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="praenatDiagField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
