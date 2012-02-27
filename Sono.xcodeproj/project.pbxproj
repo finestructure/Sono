@@ -19,6 +19,7 @@
 		5A0F6AE214FBD48B00D45EA4 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F6AE114FBD48B00D45EA4 /* MasterViewController.m */; };
 		5A0F6AE514FBD48B00D45EA4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */; };
 		5A0F6AED14FBDB3500D45EA4 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F6AEC14FBDB3500D45EA4 /* Patient.m */; };
+		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		5A0F6AEB14FBDB3500D45EA4 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
 		5A0F6AEC14FBDB3500D45EA4 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = EditPatientViewController.h; sourceTree = "<group>"; };
+		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */,
 				5A0F6ADD14FBD48B00D45EA4 /* Sono.xcdatamodeld */,
 				5A0F6ACF14FBD48B00D45EA4 /* Supporting Files */,
+				5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */,
+				5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */,
 			);
 			path = Sono;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				5A0F6AE214FBD48B00D45EA4 /* MasterViewController.m in Sources */,
 				5A0F6AE514FBD48B00D45EA4 /* DetailViewController.m in Sources */,
 				5A0F6AED14FBDB3500D45EA4 /* Patient.m in Sources */,
+				5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

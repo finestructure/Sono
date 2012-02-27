@@ -20,11 +20,11 @@
             </objects>
             <point key="canvasLocation" x="448" y="-630"/>
         </scene>
-        <!--Detail View Controller - Detail-->
+        <!--Detail View Controller - Patient-->
         <scene sceneID="16">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="" title="Detail" id="4" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="" title="Patient" id="4" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="26">
                         <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,7 +143,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="b6t-Ig-E9N" kind="push" id="ddS-Sf-Ghq"/>
+                                            <segue destination="b6t-Ig-E9N" kind="push" identifier="EditPatient" id="ddS-Sf-Ghq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -183,11 +183,11 @@
             </objects>
             <point key="canvasLocation" x="448" y="248"/>
         </scene>
-        <!--View Controller - Stammdaten Bearbeiten-->
+        <!--Edit Patient View Controller - Patient Bearbeiten-->
         <scene sceneID="Ozk-a9-7o0">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNy-IC-k50" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Stammdaten Bearbeiten" id="b6t-Ig-E9N" sceneMemberID="viewController">
+                <viewController title="Patient Bearbeiten" id="b6t-Ig-E9N" customClass="EditPatientViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGO-Kr-6Jb">
                         <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -377,14 +377,17 @@
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="birthDateTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="famBelastungTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="gebHeftTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="patientIdTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="praenatDiagTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birthDateField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="famBelastungField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstNameField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gebHeftField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lastNameField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientIdField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="praenatDiagField" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="EditPatientViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPatientViewController.h"/>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>

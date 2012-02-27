@@ -97,4 +97,16 @@
     self.masterPopoverController = nil;
 }
 
+
+#pragma mark - Segue related
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"EditPatient"]) {
+    NSLog(@"segue EditPatient");
+  }
+}
+
+
 @end
