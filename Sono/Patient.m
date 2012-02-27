@@ -30,6 +30,7 @@
     NSMutableString *name = [NSMutableString stringWithString:@""];
     [name appendString:self.firstName];
     if (self.lastName != nil) {
+      [name appendString:@" "];
       [name appendString:self.lastName];
     }
     return name;

@@ -16,12 +16,18 @@
 @implementation DetailViewController
 
 @synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
+@synthesize lastNameTextField = _lastNameTextField;
+@synthesize firstNameTextField = _firstNameTextField;
+@synthesize birthDateTextField = _birthDateTextField;
+@synthesize patientIdTextField = _patientIdTextField;
+@synthesize gebHeftTextField = _gebHeftTextField;
+@synthesize famBelastungTextField = _famBelastungTextField;
+@synthesize praenatDiagTextField = _praenatDiagTextField;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setDetailItem:(Patient *)newDetailItem
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
@@ -40,7 +46,13 @@
     // Update the user interface for the detail item.
 
   if (self.detailItem) {
-      self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+    self.firstNameTextField.text = self.detailItem.firstName;
+    self.lastNameTextField.text = self.detailItem.lastName;
+    self.birthDateTextField.text = self.detailItem.birthDate.description;
+    self.patientIdTextField.text = self.detailItem.patientId;
+    self.gebHeftTextField.text = self.detailItem.gebheftId;
+    self.famBelastungTextField.text = self.detailItem.famBelastung.description;
+    self.praenatDiagTextField.text = self.detailItem.praenatDiag;
   }
 }
 
@@ -53,9 +65,15 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-  self.detailDescriptionLabel = nil;
+  [self setLastNameTextField:nil];
+  [self setFirstNameTextField:nil];
+  [self setBirthDateTextField:nil];
+  [self setPatientIdTextField:nil];
+  [self setGebHeftTextField:nil];
+  [self setFamBelastungTextField:nil];
+  [self setPraenatDiagTextField:nil];
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

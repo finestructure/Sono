@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Patient.h"
+
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Patient *detailItem;
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *birthDateTextField;
+@property (weak, nonatomic) IBOutlet UITextField *patientIdTextField;
+@property (weak, nonatomic) IBOutlet UITextField *gebHeftTextField;
+@property (weak, nonatomic) IBOutlet UITextField *famBelastungTextField;
+@property (weak, nonatomic) IBOutlet UITextField *praenatDiagTextField;
 
 @end
