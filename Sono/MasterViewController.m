@@ -37,6 +37,14 @@
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
   self.navigationItem.rightBarButtonItem = addButton;
   self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+  
+  // select first row (if available)
+  if (self.fetchedResultsController.sections.count > 0) {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+    Patient *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    self.detailViewController.detailItem = object;
+  }
 }
 
 - (void)viewDidUnload
