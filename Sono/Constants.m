@@ -66,4 +66,39 @@
 }
 
 
+- (NSArray *)praenatDiagValues {
+  static NSArray *values = nil;
+  
+  if (values) {
+    return values;
+  }
+  
+  @synchronized(self) {
+    if (! values) {
+      values = [NSArray arrayWithObjects:
+                @"ja, unauffällig",
+                @"nicht durchgeführt",
+                @"ja, auffällig",
+                @"Kopf/WS auffällig",
+                @"Thorax auffällig",
+                @"Abdomen auffällig",
+                @"Extremitäten auffällig",
+                @"Wachstumsretardierung",
+                @"Nieren auffällig (allg.)",
+                @"Zystennieren/Nierenzysten",
+                @"Hydronephrose",
+                @"Tumor i. Nierenlager",
+                @"Oligohydramnion",
+                @"Polyhydramnion",
+                @"sonstige Fehlbildung",
+                @"keine Angabe",
+                @"siehe Freitext",
+                nil];
+    }
+  }
+  
+  return values;
+}
+
+
 @end

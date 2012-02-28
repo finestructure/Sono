@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * gender;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * patientId;
-@property (nonatomic, retain) NSString * praenatDiag;
+@property (nonatomic, retain) NSNumber * praenatDiag;
 
 @property (readonly) NSString *fullName;
 

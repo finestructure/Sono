@@ -9,7 +9,6 @@
 #import "EditPatientViewController.h"
 
 #import "AppDelegate.h"
-#import "DropdownButton.h"
 #import "Constants.h"
 
 
@@ -26,6 +25,7 @@
 @synthesize patientIdField = _patientIdField;
 @synthesize gebHeftField = _gebHeftField;
 @synthesize famBelastungPicker = _famBelastungPicker;
+@synthesize praenatDiagPicker = _praenatDiagPicker;
 
 
 # pragma mark - Worker
@@ -74,6 +74,7 @@
     self.patientIdField.text = self.detailItem.patientId;
     self.gebHeftField.text = self.detailItem.gebheftId;
     self.famBelastungPicker.selectedRow = self.detailItem.famBelastung.integerValue;
+    self.praenatDiagPicker.selectedRow = self.detailItem.praenatDiag.integerValue;
   }
 }
 
@@ -104,6 +105,8 @@
   [super viewDidLoad];
   self.famBelastungPicker.values = [[Constants sharedInstance] booleanValues];
   self.famBelastungPicker.delegate = self;
+  self.praenatDiagPicker.values = [[Constants sharedInstance] praenatDiagValues];
+  self.praenatDiagPicker.delegate = self;
 	// Do any additional setup after loading the view, typically from a nib.
   [self configureView];
 }
@@ -111,6 +114,7 @@
 - (void)viewDidUnload
 {
   [self setFamBelastungPicker:nil];
+  [self setPraenatDiagPicker:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -124,8 +128,12 @@
 #pragma mark - UIPickerViewDelegate
 
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-  self.detailItem.famBelastung = [NSNumber numberWithInt:row];
+- (void)dropdownButton:(DropdownButton *)dropdownButton didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+  if (dropdownButton == self.famBelastungPicker) {
+    self.detailItem.famBelastung = [NSNumber numberWithInt:row];
+  } else if (dropdownButton == self.praenatDiagPicker) {
+    self.detailItem.praenatDiag = [NSNumber numberWithInt:row];
+  }
   [self configureView];
 }
 

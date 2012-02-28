@@ -12,6 +12,7 @@
 
 @property (readonly) NSString *version;
 @property (readonly) NSArray *booleanValues;
+@property (readonly) NSArray *praenatDiagValues;
 
 + (Constants *)sharedInstance;
 

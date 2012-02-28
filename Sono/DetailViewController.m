@@ -60,7 +60,9 @@
     NSString *text = [[[Constants sharedInstance] booleanValues] objectAtIndex:index];
     self.famBelastungField.text = text;
     
-    self.praenatDiagField.text = self.detailItem.praenatDiag;
+    index = self.detailItem.praenatDiag.integerValue;
+    text = [[[Constants sharedInstance] praenatDiagValues] objectAtIndex:index];
+    self.praenatDiagField.text = text;
   }
 }
 

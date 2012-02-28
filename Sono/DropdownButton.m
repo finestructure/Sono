@@ -107,8 +107,8 @@
 
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-  if ([self.delegate respondsToSelector:@selector(pickerView:didSelectRow:inComponent:)]) {
-    [self.delegate pickerView:pickerView didSelectRow:row inComponent:component];
+  if ([self.delegate respondsToSelector:@selector(dropdownButton:didSelectRow:inComponent:)]) {
+    [self.delegate dropdownButton:self didSelectRow:row inComponent:component];
   }
   [self.popover dismissPopoverAnimated:YES];
 }

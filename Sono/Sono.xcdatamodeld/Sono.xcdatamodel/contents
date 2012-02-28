@@ -8,7 +8,7 @@
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="patientId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="praenatDiag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="praenatDiag" optional="YES" attributeType="Integer 16" defaultValueString="15" syncable="YES"/>
     </entity>
     <elements>
         <element name="Patient" positionX="160" positionY="192" width="128" height="165"/>
