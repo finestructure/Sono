@@ -9,6 +9,8 @@
 #import "EditPatientViewController.h"
 
 #import "AppDelegate.h"
+#import "DropdownButton.h"
+
 
 @interface EditPatientViewController ()
 
@@ -22,8 +24,7 @@
 @synthesize birthDateField = _birthDateField;
 @synthesize patientIdField = _patientIdField;
 @synthesize gebHeftField = _gebHeftField;
-@synthesize famBelastungField = _famBelastungField;
-@synthesize praenatDiagField = _praenatDiagField;
+@synthesize famBelastungPicker = _famBelastungPicker;
 
 
 # pragma mark - Worker
@@ -35,12 +36,17 @@
   //  self.detailItem.birthDate = self.birthDateField.text;
   self.detailItem.patientId = self.patientIdField.text;
   self.detailItem.gebheftId = self.gebHeftField.text;
-  self.detailItem.famBelastung = [NSNumber numberWithBool:[self.famBelastungField.text isEqualToString:@"YES"]];
-  self.detailItem.praenatDiag = self.praenatDiagField.text;
   
   UIApplication *app = [UIApplication sharedApplication];
   AppDelegate *delegate = app.delegate;
   [delegate saveContext];
+}
+
+
+#pragma mark - Actions
+
+
+- (IBAction)famBelastungButtonPressed:(id)sender {
 }
 
 
@@ -66,8 +72,6 @@
     self.birthDateField.text = self.detailItem.birthDate.description;
     self.patientIdField.text = self.detailItem.patientId;
     self.gebHeftField.text = self.detailItem.gebheftId;
-    self.famBelastungField.text = self.detailItem.famBelastung.description;
-    self.praenatDiagField.text = self.detailItem.praenatDiag;
   }
 }
 
@@ -95,13 +99,16 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  self.famBelastungPicker.values = [NSArray arrayWithObjects:@"Ja", @"Nein", @"keine Angabe", nil];
+  self.famBelastungPicker.delegate = self;
 	// Do any additional setup after loading the view, typically from a nib.
   [self configureView];
 }
 
 - (void)viewDidUnload
 {
+  [self setFamBelastungPicker:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -109,6 +116,14 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+
+#pragma mark - UIPickerViewDelegate
+
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+  NSLog(@"selected: %d", row);
 }
 
 @end

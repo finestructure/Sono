@@ -10,7 +10,9 @@
 
 #import "Patient.h"
 
-@interface EditPatientViewController : UIViewController
+@class DropdownButton;
+
+@interface EditPatientViewController : UIViewController<UIPickerViewDelegate>
 
 @property (strong, nonatomic) Patient *detailItem;
 
@@ -19,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *birthDateField;
 @property (weak, nonatomic) IBOutlet UITextField *patientIdField;
 @property (weak, nonatomic) IBOutlet UITextField *gebHeftField;
-@property (weak, nonatomic) IBOutlet UITextField *famBelastungField;
-@property (weak, nonatomic) IBOutlet UITextField *praenatDiagField;
+@property (weak, nonatomic) IBOutlet DropdownButton *famBelastungPicker;
+
+- (IBAction)famBelastungButtonPressed:(id)sender;
 
 @end

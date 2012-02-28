@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DropdownButton : UIButton
+@interface DropdownButton : UIButton<UIPickerViewDelegate, UIPickerViewDataSource, UIPopoverControllerDelegate>
+
+@property (nonatomic, weak) id<UIPickerViewDelegate> delegate;
+@property (nonatomic, retain) UIPopoverController *popover;
+@property (nonatomic, retain) NSArray *values;
+@property (assign) CGFloat pickerContentWidth;
 
 @end
