@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "DataStore.h"
 
 
 @interface EditPatientViewController ()
@@ -38,9 +39,7 @@
   self.detailItem.patientId = self.patientIdField.text;
   self.detailItem.gebheftId = self.gebHeftField.text;
   
-  UIApplication *app = [UIApplication sharedApplication];
-  AppDelegate *delegate = app.delegate;
-  [delegate saveContext];
+  [[DataStore sharedInstance] saveContext];
 }
 
 

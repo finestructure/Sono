@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "DataStore.h"
 #import "Patient.h"
 
 @interface MasterViewController ()
@@ -18,8 +19,8 @@
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController;
-@synthesize fetchedResultsController = __fetchedResultsController;
-@synthesize managedObjectContext = __managedObjectContext;
+@synthesize patients = _patients;
+
 
 - (void)awakeFromNib
 {
@@ -38,14 +39,22 @@
   self.navigationItem.rightBarButtonItem = addButton;
   self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
   
+  NSArray *sortDescriptors = [NSArray arrayWithObjects:
+                              [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES], 
+                              [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES], 
+                              nil];
+
+  self.patients = [[DataStore sharedInstance] fetchEntity:@"Patient" sortDescriptor:sortDescriptors delegate:self];
+  
   // select first row (if available)
-  if (self.fetchedResultsController.fetchedObjects.count > 0) {
+  if (self.patients.fetchedObjects.count > 0) {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
-    Patient *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    Patient *object = [self.patients objectAtIndexPath:indexPath];
     self.detailViewController.detailItem = object;
   }
 }
+
 
 - (void)viewDidUnload
 {
@@ -53,41 +62,37 @@
     // Release any retained subviews of the main view.
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   return YES;
 }
 
+
 - (void)insertNewObject:(id)sender
 {
-  NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-  NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-  Patient *newObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+  Patient *newObject = [[DataStore sharedInstance] insertNewObject:@"Patient"];
   newObject.firstName = @"Neuer";
   newObject.lastName = @"Patient";
-    
-  // Save the context.
-  NSError *error = nil;
-  if (![context save:&error]) {
-    // Replace this implementation with code to handle the error appropriately.
-    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    abort();
-  }
+  [[DataStore sharedInstance] saveContext];
 }
+
 
 #pragma mark - Table View
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return [[self.fetchedResultsController sections] count];
+  return [[self.patients sections] count];
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+  id <NSFetchedResultsSectionInfo> sectionInfo = [[self.patients sections] objectAtIndex:section];
   return [sectionInfo numberOfObjects];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -96,128 +101,93 @@
   return cell;
 }
 
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-        
-        NSError *error = nil;
-        if (![context save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [[DataStore sharedInstance] deleteObject:[self.patients objectAtIndexPath:indexPath]];
+    [[DataStore sharedInstance] saveContext];
     }   
 }
 
+
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // The table view should not be re-orderable.
-    return NO;
+  // The table view should not be re-orderable.
+  return NO;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Patient *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    self.detailViewController.detailItem = object;
+  Patient *object = [self.patients objectAtIndexPath:indexPath];
+  self.detailViewController.detailItem = object;
 }
 
-#pragma mark - Fetched results controller
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (__fetchedResultsController != nil) {
-        return __fetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Patient" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:NO];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-    
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-	     // Replace this implementation with code to handle the error appropriately.
-	     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    
-    return __fetchedResultsController;
-}    
+#pragma mark - NSFetchedResultsControllerDelegate
+
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView beginUpdates];
+  [self.tableView beginUpdates];
 }
+
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
+  switch(type) {
+    case NSFetchedResultsChangeInsert:
+      [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+      
+    case NSFetchedResultsChangeDelete:
+      [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+  }
 }
+
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-    UITableView *tableView = self.tableView;
-    
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
+  UITableView *tableView = self.tableView;
+  
+  switch(type) {
+    case NSFetchedResultsChangeInsert:
+      [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+      
+    case NSFetchedResultsChangeDelete:
+      [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+      
+    case NSFetchedResultsChangeUpdate:
+      [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+      break;
+      
+    case NSFetchedResultsChangeMove:
+      [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
+      break;
+  }
 }
+
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView endUpdates];
+  [self.tableView endUpdates];
 }
+
 
 /*
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
@@ -229,10 +199,12 @@
 }
  */
 
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    Patient *p = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Patient *p = [self.patients objectAtIndexPath:indexPath];
     cell.textLabel.text = p.fullName;
 }
+
 
 @end
