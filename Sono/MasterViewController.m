@@ -91,9 +91,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
   [self configureCell:cell atIndexPath:indexPath];
-    return cell;
+  return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

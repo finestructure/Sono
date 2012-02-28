@@ -21,6 +21,7 @@
 - (void)setAppearance {
   UIColor *color1 = [UIColor colorWithRed:52/255. green:35/255. blue:38/255. alpha:1];
   [[UINavigationBar appearance] setTintColor:color1];
+  [[UILabel appearanceWhenContainedIn:[UITableViewCell class], nil] setTextColor:color1];
 }
 
 
