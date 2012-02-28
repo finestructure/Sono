@@ -39,7 +39,7 @@
   self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
   
   // select first row (if available)
-  if (self.fetchedResultsController.sections.count > 0) {
+  if (self.fetchedResultsController.fetchedObjects.count > 0) {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
     Patient *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
