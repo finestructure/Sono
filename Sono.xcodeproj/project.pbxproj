@@ -113,11 +113,11 @@
 			children = (
 				5A389F5814FCDE15001F7C04 /* Constants.h */,
 				5A389F5914FCDE15001F7C04 /* Constants.m */,
+				5A7E1D0114FCF40C00B93367 /* DataStore.h */,
+				5A7E1D0214FCF40C00B93367 /* DataStore.m */,
 				5A0F6AEE14FBDB3A00D45EA4 /* Model */,
 				5A0F6AD714FBD48B00D45EA4 /* AppDelegate.h */,
 				5A0F6AD814FBD48B00D45EA4 /* AppDelegate.m */,
-				5A7E1D0114FCF40C00B93367 /* DataStore.h */,
-				5A7E1D0214FCF40C00B93367 /* DataStore.m */,
 				5A0F6ADA14FBD48B00D45EA4 /* MainStoryboard.storyboard */,
 				5A0F6AE014FBD48B00D45EA4 /* MasterViewController.h */,
 				5A0F6AE114FBD48B00D45EA4 /* MasterViewController.m */,
