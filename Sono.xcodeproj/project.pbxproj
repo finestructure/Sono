@@ -25,6 +25,7 @@
 		5A389F5614FCCE26001F7C04 /* DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5514FCCE26001F7C04 /* DropdownButton.m */; };
 		5A389F5A14FCDE15001F7C04 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5914FCDE15001F7C04 /* Constants.m */; };
 		5A7E1D0014FCF27F00B93367 /* Examination.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1CFF14FCF27F00B93367 /* Examination.m */; };
+		5A7E1D0314FCF40C00B93367 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D0214FCF40C00B93367 /* DataStore.m */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		5A389F5914FCDE15001F7C04 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		5A7E1CFE14FCF27F00B93367 /* Examination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examination.h; sourceTree = "<group>"; };
 		5A7E1CFF14FCF27F00B93367 /* Examination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examination.m; sourceTree = "<group>"; };
+		5A7E1D0114FCF40C00B93367 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		5A7E1D0214FCF40C00B93367 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,14 +111,13 @@
 		5A0F6ACE14FBD48A00D45EA4 /* Sono */ = {
 			isa = PBXGroup;
 			children = (
-				5A0F6ADD14FBD48B00D45EA4 /* Sono.xcdatamodeld */,
-				5A7E1CFE14FCF27F00B93367 /* Examination.h */,
-				5A7E1CFF14FCF27F00B93367 /* Examination.m */,
 				5A389F5814FCDE15001F7C04 /* Constants.h */,
 				5A389F5914FCDE15001F7C04 /* Constants.m */,
 				5A0F6AEE14FBDB3A00D45EA4 /* Model */,
 				5A0F6AD714FBD48B00D45EA4 /* AppDelegate.h */,
 				5A0F6AD814FBD48B00D45EA4 /* AppDelegate.m */,
+				5A7E1D0114FCF40C00B93367 /* DataStore.h */,
+				5A7E1D0214FCF40C00B93367 /* DataStore.m */,
 				5A0F6ADA14FBD48B00D45EA4 /* MainStoryboard.storyboard */,
 				5A0F6AE014FBD48B00D45EA4 /* MasterViewController.h */,
 				5A0F6AE114FBD48B00D45EA4 /* MasterViewController.m */,
@@ -146,6 +148,9 @@
 		5A0F6AEE14FBDB3A00D45EA4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5A0F6ADD14FBD48B00D45EA4 /* Sono.xcdatamodeld */,
+				5A7E1CFE14FCF27F00B93367 /* Examination.h */,
+				5A7E1CFF14FCF27F00B93367 /* Examination.m */,
 				5A0F6AEB14FBDB3500D45EA4 /* Patient.h */,
 				5A0F6AEC14FBDB3500D45EA4 /* Patient.m */,
 			);
@@ -246,6 +251,7 @@
 				5A389F5614FCCE26001F7C04 /* DropdownButton.m in Sources */,
 				5A389F5A14FCDE15001F7C04 /* Constants.m in Sources */,
 				5A7E1D0014FCF27F00B93367 /* Examination.m in Sources */,
+				5A7E1D0314FCF40C00B93367 /* DataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
