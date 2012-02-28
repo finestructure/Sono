@@ -29,6 +29,7 @@
 @synthesize gebHeftField = _gebHeftField;
 @synthesize famBelastungField = _famBelastungField;
 @synthesize praenatDiagField = _praenatDiagField;
+@synthesize tableView = _tableView;
 @synthesize masterPopoverController = _masterPopoverController;
 
 
@@ -77,8 +78,10 @@
 - (IBAction)insertNewObject:(id)sender
 {
   Examination *newObject = [[DataStore sharedInstance] insertNewObject:@"Examination"];
-  newObject.patient = self.detailItem;
   newObject.examinationDate = [NSDate date];
+  [self.detailItem addExaminationsObject:newObject];
+  [[DataStore sharedInstance] saveContext];
+  [self.tableView reloadData];
 }
 
 
@@ -109,6 +112,7 @@
   [self setGebHeftField:nil];
   [self setFamBelastungField:nil];
   [self setPraenatDiagField:nil];
+  [self setTableView:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
@@ -145,6 +149,68 @@
     EditPatientViewController *vc = segue.destinationViewController;
     vc.detailItem = self.detailItem;
   }
+}
+
+
+#pragma mark - Table View
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+  return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+  NSOrderedSet *e = self.detailItem.examinations;
+  NSLog(@"examinations count: %d", e.count);
+  return e.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+  [self configureCell:cell atIndexPath:indexPath];
+  return cell;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // Return NO if you do not want the specified item to be editable.
+  return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [self.detailItem removeObjectFromExaminationsAtIndex:indexPath.row];
+    [[DataStore sharedInstance] saveContext];
+  }   
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // The table view should not be re-orderable.
+  return NO;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//  Examination *object = [self.detailItem.examinations objectAtIndex:indexPath.row];
+#warning Implement me!
+}
+
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+  Examination *e = [self.detailItem.examinations objectAtIndex:indexPath.row];
+  cell.textLabel.text = e.examinationDate.description;
 }
 
 
