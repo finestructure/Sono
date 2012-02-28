@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1170" systemVersion="11D50b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Examination" representedClassName="Examination" syncable="YES">
+        <attribute name="examinationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="examiner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="patient" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="examinations" inverseEntity="Patient" syncable="YES"/>
+    </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES">
         <attribute name="birthDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="famBelastung" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -9,8 +17,10 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="patientId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="praenatDiag" optional="YES" attributeType="Integer 16" defaultValueString="15" syncable="YES"/>
+        <relationship name="examinations" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Examination" inverseName="patient" inverseEntity="Examination" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Patient" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="Patient" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="Examination" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>
