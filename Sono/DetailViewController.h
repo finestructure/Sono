@@ -22,4 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *famBelastungField;
 @property (weak, nonatomic) IBOutlet UILabel *praenatDiagField;
 
+- (IBAction)addButtonPressed:(id)sender;
+
 @end
