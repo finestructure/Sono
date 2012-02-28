@@ -17,19 +17,30 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
+
+- (void)setAppearance {
+  UIColor *color1 = [UIColor colorWithRed:52/255. green:35/255. blue:38/255. alpha:1];
+  [[UINavigationBar appearance] setTintColor:color1];
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+  // Override point for customization after application launch.
   UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
   UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
   splitViewController.delegate = (id)navigationController.topViewController;
-
+  
   UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
   MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
   controller.managedObjectContext = self.managedObjectContext;
-    return YES;
+  
+  [self setAppearance];
+
+  return YES;
 }
-							
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
   // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
