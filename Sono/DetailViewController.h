@@ -14,8 +14,6 @@
 
 @property (strong, nonatomic) Patient *detailItem;
 
-@property (weak, nonatomic) IBOutlet UIView *detailBox;
-
 @property (weak, nonatomic) IBOutlet UILabel *lastNameField;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameField;
 @property (weak, nonatomic) IBOutlet UILabel *birthDateField;

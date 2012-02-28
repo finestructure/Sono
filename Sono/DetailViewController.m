@@ -8,8 +8,8 @@
 
 #import "DetailViewController.h"
 
-#import <QuartzCore/QuartzCore.h>
 #import "EditPatientViewController.h"
+
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -26,7 +26,6 @@
 @synthesize gebHeftField = _gebHeftField;
 @synthesize famBelastungField = _famBelastungField;
 @synthesize praenatDiagField = _praenatDiagField;
-@synthesize detailBox = _detailBox;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
@@ -74,12 +73,9 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
   [self configureView];
-  
-  [self.detailBox.layer setCornerRadius:8.0f];
-  [self.detailBox.layer setMasksToBounds:YES];
 }
 
 - (void)viewDidUnload
@@ -91,7 +87,6 @@
   [self setGebHeftField:nil];
   [self setFamBelastungField:nil];
   [self setPraenatDiagField:nil];
-  [self setDetailBox:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
