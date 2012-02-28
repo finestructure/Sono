@@ -22,6 +22,7 @@
 		5A389F4A14FCBBBA001F7C04 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F4914FCBBBA001F7C04 /* RoundedView.m */; };
 		5A389F5214FCCDF0001F7C04 /* dropdown_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A389F5014FCCDF0001F7C04 /* dropdown_button.png */; };
 		5A389F5314FCCDF0001F7C04 /* dropdown_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A389F5114FCCDF0001F7C04 /* dropdown_button_pressed.png */; };
+		5A389F5614FCCE26001F7C04 /* DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5514FCCE26001F7C04 /* DropdownButton.m */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		5A389F4914FCBBBA001F7C04 /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
 		5A389F5014FCCDF0001F7C04 /* dropdown_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown_button.png; sourceTree = "<group>"; };
 		5A389F5114FCCDF0001F7C04 /* dropdown_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown_button_pressed.png; sourceTree = "<group>"; };
+		5A389F5414FCCE25001F7C04 /* DropdownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownButton.h; sourceTree = "<group>"; };
+		5A389F5514FCCE26001F7C04 /* DropdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownButton.m; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +115,7 @@
 				5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */,
 				5A389F4814FCBBBA001F7C04 /* RoundedView.h */,
 				5A389F4914FCBBBA001F7C04 /* RoundedView.m */,
+				5A389F5714FCCE37001F7C04 /* Controls */,
 				5A389F4F14FCCDEF001F7C04 /* Resources */,
 				5A0F6ACF14FBD48B00D45EA4 /* Supporting Files */,
 			);
@@ -145,6 +149,15 @@
 				5A389F5114FCCDF0001F7C04 /* dropdown_button_pressed.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5A389F5714FCCE37001F7C04 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				5A389F5414FCCE25001F7C04 /* DropdownButton.h */,
+				5A389F5514FCCE26001F7C04 /* DropdownButton.m */,
+			);
+			name = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +233,7 @@
 				5A0F6AED14FBDB3500D45EA4 /* Patient.m in Sources */,
 				5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */,
 				5A389F4A14FCBBBA001F7C04 /* RoundedView.m in Sources */,
+				5A389F5614FCCE26001F7C04 /* DropdownButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
