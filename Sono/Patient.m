@@ -22,4 +22,10 @@
 @dynamic praenatDiag;
 @dynamic examinations;
 
+- (void)addExaminationsObject:(Examination *)value {
+  NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.examinations];
+  [tempSet addObject:value];
+  self.examinations = tempSet;
+}
+
 @end
