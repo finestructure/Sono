@@ -15,4 +15,6 @@
 @property (nonatomic, retain) NSArray *values;
 @property (assign) CGFloat pickerContentWidth;
 
+- (void)selectIndex:(NSUInteger)index;
+
 @end

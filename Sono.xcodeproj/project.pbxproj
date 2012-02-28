@@ -23,6 +23,7 @@
 		5A389F5214FCCDF0001F7C04 /* dropdown_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A389F5014FCCDF0001F7C04 /* dropdown_button.png */; };
 		5A389F5314FCCDF0001F7C04 /* dropdown_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A389F5114FCCDF0001F7C04 /* dropdown_button_pressed.png */; };
 		5A389F5614FCCE26001F7C04 /* DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5514FCCE26001F7C04 /* DropdownButton.m */; };
+		5A389F5A14FCDE15001F7C04 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5914FCDE15001F7C04 /* Constants.m */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		5A389F5114FCCDF0001F7C04 /* dropdown_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown_button_pressed.png; sourceTree = "<group>"; };
 		5A389F5414FCCE25001F7C04 /* DropdownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownButton.h; sourceTree = "<group>"; };
 		5A389F5514FCCE26001F7C04 /* DropdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownButton.m; sourceTree = "<group>"; };
+		5A389F5814FCDE15001F7C04 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5A389F5914FCDE15001F7C04 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +105,8 @@
 		5A0F6ACE14FBD48A00D45EA4 /* Sono */ = {
 			isa = PBXGroup;
 			children = (
+				5A389F5814FCDE15001F7C04 /* Constants.h */,
+				5A389F5914FCDE15001F7C04 /* Constants.m */,
 				5A0F6AEE14FBDB3A00D45EA4 /* Model */,
 				5A0F6AD714FBD48B00D45EA4 /* AppDelegate.h */,
 				5A0F6AD814FBD48B00D45EA4 /* AppDelegate.m */,
@@ -234,6 +239,7 @@
 				5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */,
 				5A389F4A14FCBBBA001F7C04 /* RoundedView.m in Sources */,
 				5A389F5614FCCE26001F7C04 /* DropdownButton.m in Sources */,
+				5A389F5A14FCDE15001F7C04 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

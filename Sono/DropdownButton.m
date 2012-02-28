@@ -45,6 +45,11 @@
 }
 
 
+- (void)selectIndex:(NSUInteger)index {
+  self.titleLabel.text = [self.values objectAtIndex:index];
+}
+
+
 #pragma mark - Action
 
 

@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "DropdownButton.h"
+#import "Constants.h"
 
 
 @interface EditPatientViewController ()
@@ -72,6 +73,7 @@
     self.birthDateField.text = self.detailItem.birthDate.description;
     self.patientIdField.text = self.detailItem.patientId;
     self.gebHeftField.text = self.detailItem.gebheftId;
+    [self.famBelastungPicker selectIndex:self.detailItem.famBelastung.integerValue];
   }
 }
 
@@ -100,7 +102,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.famBelastungPicker.values = [NSArray arrayWithObjects:@"Ja", @"Nein", @"keine Angabe", nil];
+  self.famBelastungPicker.values = [[Constants sharedInstance] booleanValues];
   self.famBelastungPicker.delegate = self;
 	// Do any additional setup after loading the view, typically from a nib.
   [self configureView];
@@ -124,6 +126,8 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
   NSLog(@"selected: %d", row);
+  self.detailItem.famBelastung = [NSNumber numberWithInt:row];
+  [self configureView];
 }
 
 @end
