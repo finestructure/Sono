@@ -181,6 +181,7 @@
                     <navigationItem key="navigationItem" title="Patient" id="53"/>
                     <connections>
                         <outlet property="birthDateField" destination="BAQ-Ej-Cc5" id="LdB-Dz-K2X"/>
+                        <outlet property="detailBox" destination="pCT-kT-jQc" id="0f6-28-0bG"/>
                         <outlet property="famBelastungField" destination="h3r-pN-BWF" id="PDH-ec-cg3"/>
                         <outlet property="firstNameField" destination="lI5-hN-UK6" id="GBt-6v-dnZ"/>
                         <outlet property="gebHeftField" destination="8Xs-2K-A3c" id="DEA-Fp-cZS"/>
@@ -396,6 +397,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="birthDateField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailBox" candidateClass="UIView"/>
                 <relationship kind="outlet" name="famBelastungField" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="firstNameField" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gebHeftField" candidateClass="UILabel"/>
