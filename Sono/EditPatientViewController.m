@@ -73,7 +73,7 @@
     self.birthDateField.text = self.detailItem.birthDate.description;
     self.patientIdField.text = self.detailItem.patientId;
     self.gebHeftField.text = self.detailItem.gebheftId;
-    [self.famBelastungPicker selectIndex:self.detailItem.famBelastung.integerValue];
+    self.famBelastungPicker.selectedRow = self.detailItem.famBelastung.integerValue;
   }
 }
 
@@ -125,7 +125,6 @@
 
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-  NSLog(@"selected: %d", row);
   self.detailItem.famBelastung = [NSNumber numberWithInt:row];
   [self configureView];
 }

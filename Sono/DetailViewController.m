@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 #import "EditPatientViewController.h"
+#import "Constants.h"
 
 
 @interface DetailViewController ()
@@ -54,7 +55,11 @@
     self.birthDateField.text = self.detailItem.birthDate.description;
     self.patientIdField.text = self.detailItem.patientId;
     self.gebHeftField.text = self.detailItem.gebheftId;
-    self.famBelastungField.text = self.detailItem.famBelastung.description;
+    
+    NSInteger index = self.detailItem.famBelastung.integerValue;
+    NSString *text = [[[Constants sharedInstance] booleanValues] objectAtIndex:index];
+    self.famBelastungField.text = text;
+    
     self.praenatDiagField.text = self.detailItem.praenatDiag;
   }
 }

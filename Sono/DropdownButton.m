@@ -8,6 +8,14 @@
 
 #import "DropdownButton.h"
 
+
+@interface DropdownButton () {
+  NSInteger _selectedRow;
+}
+@end
+
+
+
 @implementation DropdownButton
 
 @synthesize popover = _popover;
@@ -45,8 +53,16 @@
 }
 
 
-- (void)selectIndex:(NSUInteger)index {
-  self.titleLabel.text = [self.values objectAtIndex:index];
+- (void)setSelectedRow:(NSInteger)aRow {
+  NSString *title = [self.values objectAtIndex:aRow];
+  [self setTitle:title forState:UIControlStateNormal];
+  [self setTitle:title forState:UIControlStateHighlighted];
+  _selectedRow = aRow;
+}
+
+
+- (NSInteger)selectedRow {
+  return _selectedRow;
 }
 
 
@@ -61,6 +77,7 @@
   picker.delegate = self;
   picker.dataSource = self;
   picker.showsSelectionIndicator = YES;
+  [picker selectRow:_selectedRow inComponent:0 animated:NO];
   CGRect frame = picker.frame;
   frame.size.width = self.pickerContentWidth + 30;
   picker.frame = frame;
@@ -93,6 +110,7 @@
   if ([self.delegate respondsToSelector:@selector(pickerView:didSelectRow:inComponent:)]) {
     [self.delegate pickerView:pickerView didSelectRow:row inComponent:component];
   }
+  [self.popover dismissPopoverAnimated:YES];
 }
 
 
