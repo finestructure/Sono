@@ -20,7 +20,7 @@
         <relationship name="examinations" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Examination" inverseName="patient" inverseEntity="Examination" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Patient" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="Patient" positionX="160" positionY="192" width="128" height="165"/>
         <element name="Examination" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>
