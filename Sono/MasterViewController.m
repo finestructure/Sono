@@ -11,6 +11,8 @@
 #import "DetailViewController.h"
 #import "DataStore.h"
 #import "Patient.h"
+#import "Patient+Additions.h"
+
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
