@@ -9,7 +9,6 @@
 #import "EditExaminationViewController.h"
 #import "DataStore.h"
 #import "Utils.h"
-#import "DateDropDown.h"
 #import "Examination.h"
 #import "Examination+Additions.h"
 #import "Patient+Additions.h"
@@ -44,8 +43,8 @@
   
   self.patientDescriptionLabel.text = [NSString stringWithFormat:@"%@, geboren am %@", patient.fullName, [[Utils sharedInstance] shortDate:patient.birthDate]];
 
-  self.detailItem.height = [f numberFromString:self.heightField.text];
-  self.detailItem.weight = [f numberFromString:self.weightField.text];
+  [self.detailItem setHeightFromString:self.heightField.text];
+  [self.detailItem setWeightFromString:self.weightField.text];
   self.detailItem.examiner = self.examinerField.text;
   self.detailItem.location = self.locationField.text;
   
@@ -110,6 +109,11 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  self.examinationDatePicker.delegate = self;
+  
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Untersuchung" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
+  self.navigationItem.leftBarButtonItem = backButton;
+  
   [self configureView];
 }
 

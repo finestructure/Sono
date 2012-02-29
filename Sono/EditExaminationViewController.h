@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class Examination;
-@class DateDropDown;
+#import "DateDropDown.h"
 
-@interface EditExaminationViewController : UIViewController
+@class Examination;
+
+
+@interface EditExaminationViewController : UIViewController<DateDropdownDelegate>
 
 @property (strong, nonatomic) Examination *detailItem;
 

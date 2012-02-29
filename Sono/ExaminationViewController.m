@@ -60,6 +60,14 @@
 }
 
 
+#pragma mark - View delegates
+
+
+- (void)viewWillAppear:(BOOL)animated {
+  [self configureView];
+}
+
+
 #pragma mark - Init
 
 

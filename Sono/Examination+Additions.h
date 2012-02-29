@@ -15,4 +15,7 @@
 - (NSString *)heightAsString;
 - (NSString *)weightAsString;
 
+- (void)setHeightFromString:(NSString *)value;
+- (void)setWeightFromString:(NSString *)value;
+
 @end
