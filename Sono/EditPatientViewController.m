@@ -46,7 +46,9 @@
 #pragma mark - Actions
 
 
-- (IBAction)famBelastungButtonPressed:(id)sender {
+- (IBAction)saveButtonPressed:(id)sender {
+  [self save];
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -78,7 +80,7 @@
 }
 
 
-#pragma mark View delegates
+#pragma mark - View delegates
 
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -135,5 +137,6 @@
   }
   [self configureView];
 }
+
 
 @end

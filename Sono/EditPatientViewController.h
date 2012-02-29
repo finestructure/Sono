@@ -23,4 +23,6 @@
 @property (weak, nonatomic) IBOutlet DropdownButton *famBelastungPicker;
 @property (weak, nonatomic) IBOutlet DropdownButton *praenatDiagPicker;
 
+- (IBAction)saveButtonPressed:(id)sender;
+
 @end
