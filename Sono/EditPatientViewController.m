@@ -35,7 +35,6 @@
 - (void)save {
   self.detailItem.firstName = self.firstNameField.text;
   self.detailItem.lastName = self.lastNameField.text;
-  //  self.detailItem.birthDate = self.birthDateField.text;
   self.detailItem.patientId = self.patientIdField.text;
   self.detailItem.gebheftId = self.gebHeftField.text;
   
@@ -75,8 +74,7 @@
     self.gebHeftField.text = self.detailItem.gebheftId;
     self.famBelastungPicker.selectedRow = self.detailItem.famBelastung.integerValue;
     self.praenatDiagPicker.selectedRow = self.detailItem.praenatDiag.integerValue;
-    
-#warning Set birth date!
+    self.birthDatePicker.selectedDate = self.detailItem.birthDate;
   }
 }
 
@@ -109,18 +107,21 @@
   self.famBelastungPicker.delegate = self;
   self.praenatDiagPicker.values = [[Constants sharedInstance] praenatDiagValues];
   self.praenatDiagPicker.delegate = self;
+  self.birthDatePicker.delegate = self;
 	// Do any additional setup after loading the view, typically from a nib.
   [self configureView];
 }
+
 
 - (void)viewDidUnload
 {
   [self setFamBelastungPicker:nil];
   [self setPraenatDiagPicker:nil];
   [self setBirthDatePicker:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
 }
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -128,7 +129,7 @@
 }
 
 
-#pragma mark - UIPickerViewDelegate
+#pragma mark - DropdownButtonDelegate
 
 
 - (void)dropdownButton:(DropdownButton *)dropdownButton didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
@@ -137,6 +138,15 @@
   } else if (dropdownButton == self.praenatDiagPicker) {
     self.detailItem.praenatDiag = [NSNumber numberWithInt:row];
   }
+  [self configureView];
+}
+
+
+#pragma mark - DateDropdownDelegate
+
+
+- (void)dateDropDown:(DateDropDown *)dateDropDown didSelectDate:(NSDate *)date {
+  self.detailItem.birthDate = date;
   [self configureView];
 }
 

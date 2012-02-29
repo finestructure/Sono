@@ -13,7 +13,7 @@
 #import "DateDropDown.h"
 
 
-@interface EditPatientViewController : UIViewController<DropdownButtonDelegate>
+@interface EditPatientViewController : UIViewController<DropdownButtonDelegate, DateDropdownDelegate>
 
 @property (strong, nonatomic) Patient *detailItem;
 

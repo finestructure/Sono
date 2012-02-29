@@ -9,12 +9,20 @@
 #import "DateDropDown.h"
 
 #import "DatePopupController.h"
+#import "Constants.h"
+
+
+@interface DateDropDown () {
+  NSDate *_selectedDate;
+}
+
+@end
+
 
 @implementation DateDropDown
 
 @synthesize delegate = _delegate;
 @synthesize popover = _popover;
-@synthesize selectedDate = _selectedDate;
 @synthesize datePopupController = _datePopupController;
 
 
@@ -43,6 +51,22 @@
   }
   return self;
 }
+
+
+- (void)setSelectedDate:(NSDate *)selectedDate {
+  NSString *title = [[Constants sharedInstance] shortDate:selectedDate];
+  [self setTitle:title forState:UIControlStateNormal];
+  [self setTitle:title forState:UIControlStateHighlighted];
+  _selectedDate = selectedDate;
+}
+
+
+- (NSDate *)selectedDate {
+  return _selectedDate;
+}
+
+
+#pragma mark - Action
 
 
 - (void)buttonPressed:(id)sender {
