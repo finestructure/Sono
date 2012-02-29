@@ -9,7 +9,7 @@
 #import "DateDropDown.h"
 
 #import "DatePopupController.h"
-#import "Constants.h"
+#import "Utils.h"
 
 
 @interface DateDropDown () {
@@ -54,7 +54,7 @@
 
 
 - (void)setSelectedDate:(NSDate *)selectedDate {
-  NSString *title = [[Constants sharedInstance] shortDate:selectedDate];
+  NSString *title = [[Utils sharedInstance] shortDate:selectedDate];
   [self setTitle:title forState:UIControlStateNormal];
   [self setTitle:title forState:UIControlStateHighlighted];
   _selectedDate = selectedDate;

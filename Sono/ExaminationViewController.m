@@ -10,7 +10,7 @@
 
 #import "Examination.h"
 #import "Patient+Additions.h"
-#import "Constants.h"
+#import "Utils.h"
 
 
 @interface ExaminationViewController ()
@@ -45,9 +45,9 @@
   if (self.detailItem) {
     Patient *patient = self.detailItem.patient;
     
-    self.patientDescriptionLabel.text = [NSString stringWithFormat:@"%@, geboren am %@", patient.fullName, [[Constants sharedInstance] shortDate:patient.birthDate]];
+    self.patientDescriptionLabel.text = [NSString stringWithFormat:@"%@, geboren am %@", patient.fullName, [[Utils sharedInstance] shortDate:patient.birthDate]];
     
-    self.examinationDateLabel.text = [[Constants sharedInstance] shortDate:self.detailItem.examinationDate];
+    self.examinationDateLabel.text = [[Utils sharedInstance] shortDate:self.detailItem.examinationDate];
     
     NSTimeInterval age = [self.detailItem.examinationDate timeIntervalSinceDate:patient.birthDate];
     int ageInDays = age / 86400.; // 86400 seconds per day

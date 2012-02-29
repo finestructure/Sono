@@ -14,4 +14,8 @@
 + (Utils *)sharedInstance;
 
 
+- (NSString *)shortDate:(NSDate *)date;
+- (NSString *)mediumDate:(NSDate *)date;
+
+
 @end

@@ -28,6 +28,27 @@
 }
 
 
+- (NSString *)shortDate:(NSDate *)date {
+  static NSDateFormatter *dateFormatter = nil;
+  if (dateFormatter == nil) {
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+  }
+  return [dateFormatter stringFromDate:date];
+}
+
+
+- (NSString *)mediumDate:(NSDate *)date {
+  static NSDateFormatter *dateFormatter = nil;
+  if (dateFormatter == nil) {
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+  }
+  return [dateFormatter stringFromDate:date];
+}
+
+
 - (void)showError:(NSError *)error {
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"General error dialog title") message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
   [alert show];

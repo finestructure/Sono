@@ -11,6 +11,7 @@
 #import "EditPatientViewController.h"
 #import "ExaminationViewController.h"
 #import "Constants.h"
+#import "Utils.h"
 #import "Examination.h"
 #import "DataStore.h"
 
@@ -58,7 +59,7 @@
   if (self.detailItem) {
     self.firstNameField.text = self.detailItem.firstName;
     self.lastNameField.text = self.detailItem.lastName;
-    self.birthDateField.text = [[Constants sharedInstance] shortDate:self.detailItem.birthDate];
+    self.birthDateField.text = [[Utils sharedInstance] shortDate:self.detailItem.birthDate];
     self.patientIdField.text = self.detailItem.patientId;
     self.gebHeftField.text = self.detailItem.gebheftId;
     
@@ -208,7 +209,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   Examination *e = [self.detailItem.examinations objectAtIndex:indexPath.row];
-  cell.textLabel.text = [[Constants sharedInstance] mediumDate:e.examinationDate];
+  cell.textLabel.text = [[Utils sharedInstance] mediumDate:e.examinationDate];
 }
 
 
