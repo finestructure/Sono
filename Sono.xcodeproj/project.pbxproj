@@ -27,6 +27,7 @@
 		5A7E1D0614FD178900B93367 /* Examination.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D0514FD178900B93367 /* Examination.m */; };
 		5A7E1D1314FD217500B93367 /* Patient+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D0E14FD196000B93367 /* Patient+Additions.m */; };
 		5A7E1D1C14FD23B100B93367 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D1B14FD23B100B93367 /* Patient.m */; };
+		5A7E1D2014FE1D7A00B93367 /* ExaminationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D1F14FE1D7A00B93367 /* ExaminationViewController.m */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		5A7E1D0E14FD196000B93367 /* Patient+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Patient+Additions.m"; sourceTree = "<group>"; };
 		5A7E1D1A14FD23B000B93367 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
 		5A7E1D1B14FD23B100B93367 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		5A7E1D1E14FE1D7A00B93367 /* ExaminationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExaminationViewController.h; sourceTree = "<group>"; };
+		5A7E1D1F14FE1D7A00B93367 /* ExaminationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExaminationViewController.m; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +187,8 @@
 				5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */,
 				5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */,
 				5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */,
+				5A7E1D1E14FE1D7A00B93367 /* ExaminationViewController.h */,
+				5A7E1D1F14FE1D7A00B93367 /* ExaminationViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				5A7E1D0614FD178900B93367 /* Examination.m in Sources */,
 				5A7E1D1314FD217500B93367 /* Patient+Additions.m in Sources */,
 				5A7E1D1C14FD23B100B93367 /* Patient.m in Sources */,
+				5A7E1D2014FE1D7A00B93367 /* ExaminationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

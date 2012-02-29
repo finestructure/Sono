@@ -443,11 +443,11 @@
             </objects>
             <point key="canvasLocation" x="2381" y="-346"/>
         </scene>
-        <!--View Controller-->
+        <!--Examination View Controller - Untersuchung-->
         <scene sceneID="dwg-hH-1d1">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3r-vh-voO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="ZpL-3S-d6A" sceneMemberID="viewController">
+                <viewController id="ZpL-3S-d6A" customClass="ExaminationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SPJ-B3-vFY">
                         <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -703,11 +703,18 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.98039215690000003" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Teiluntersuchungen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="uSk-WV-AT6">
+                                <rect key="frame" x="28" y="363" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.13725490200000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.76862745099999996" green="0.7725490196" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3EM-CA-W1N"/>
+                    <navigationItem key="navigationItem" title="Untersuchung" id="3EM-CA-W1N"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2381" y="520"/>
@@ -819,6 +826,9 @@
                 <relationship kind="outlet" name="patientIdField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="praenatDiagPicker" candidateClass="DropdownButton"/>
             </relationships>
+        </class>
+        <class className="ExaminationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExaminationViewController.h"/>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
