@@ -101,4 +101,26 @@
 }
 
 
+- (NSString *)shortDate:(NSDate *)date {
+  static NSDateFormatter *dateFormatter = nil;
+  if (dateFormatter == nil) {
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+  }
+  return [dateFormatter stringFromDate:date];
+}
+
+
+- (NSString *)mediumDate:(NSDate *)date {
+  static NSDateFormatter *dateFormatter = nil;
+  if (dateFormatter == nil) {
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+  }
+  return [dateFormatter stringFromDate:date];
+}
+
+
 @end

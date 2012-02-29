@@ -208,14 +208,8 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-  static NSDateFormatter *dateFormatter = nil;
-  if (dateFormatter == nil) {
-    dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-  }
   Examination *e = [self.detailItem.examinations objectAtIndex:indexPath.row];
-  cell.textLabel.text = [dateFormatter stringFromDate:e.examinationDate];
+  cell.textLabel.text = [[Constants sharedInstance] mediumDate:e.examinationDate];
 }
 
 
