@@ -58,7 +58,7 @@
   if (self.detailItem) {
     self.firstNameField.text = self.detailItem.firstName;
     self.lastNameField.text = self.detailItem.lastName;
-    self.birthDateField.text = self.detailItem.birthDate.description;
+    self.birthDateField.text = [[Constants sharedInstance] shortDate:self.detailItem.birthDate];
     self.patientIdField.text = self.detailItem.patientId;
     self.gebHeftField.text = self.detailItem.gebheftId;
     

@@ -105,8 +105,7 @@
   static NSDateFormatter *dateFormatter = nil;
   if (dateFormatter == nil) {
     dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy"];
   }
   return [dateFormatter stringFromDate:date];
 }
