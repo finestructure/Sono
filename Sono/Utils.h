@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Helpers : NSObject
+@interface Utils : NSObject
 
 
-+ (Helpers *)sharedInstance;
++ (Utils *)sharedInstance;
 
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 abstracture GmbH & Co. KG. All rights reserved.
 //
 
-#import "Helpers.h"
+#import "Utils.h"
 
-@implementation Helpers
+@implementation Utils
 
 
-+ (Helpers *)sharedInstance {
-  static Helpers *sharedInstance = nil;
++ (Utils *)sharedInstance {
+  static Utils *sharedInstance = nil;
 
   if (sharedInstance) {
     return sharedInstance;
@@ -20,7 +20,7 @@
   
   @synchronized(self) {
     if (! sharedInstance) {
-      sharedInstance = [[Helpers alloc] init];
+      sharedInstance = [[Utils alloc] init];
     }
     
     return sharedInstance;
