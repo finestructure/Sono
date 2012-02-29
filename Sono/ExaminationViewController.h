@@ -14,4 +14,12 @@
 
 @property (strong, nonatomic) Examination *detailItem;
 
+@property (weak, nonatomic) IBOutlet UILabel *patientDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *examinationDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *heightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *examinerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
 @end

@@ -715,6 +715,15 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Untersuchung" id="3EM-CA-W1N"/>
+                    <connections>
+                        <outlet property="ageLabel" destination="enH-rs-O8A" id="Vmi-uQ-Yfh"/>
+                        <outlet property="examinationDateLabel" destination="rk4-sA-Jav" id="0Mw-Fi-mqy"/>
+                        <outlet property="examinerLabel" destination="S5r-8O-elh" id="YxL-Hf-uic"/>
+                        <outlet property="heightLabel" destination="LxY-4c-PQa" id="1A1-5r-Hvw"/>
+                        <outlet property="locationLabel" destination="Sni-Va-PlS" id="xgj-Z7-I72"/>
+                        <outlet property="patientDescriptionLabel" destination="hVu-VG-gED" id="5sw-kk-TP6"/>
+                        <outlet property="weightLabel" destination="pVY-SN-IIv" id="12Q-d0-P2U"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2381" y="520"/>
@@ -829,6 +838,15 @@
         </class>
         <class className="ExaminationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExaminationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="examinationDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="examinerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="heightLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weightLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
