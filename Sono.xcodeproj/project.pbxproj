@@ -122,14 +122,7 @@
 				5A0F6AD714FBD48B00D45EA4 /* AppDelegate.h */,
 				5A0F6AD814FBD48B00D45EA4 /* AppDelegate.m */,
 				5A0F6ADA14FBD48B00D45EA4 /* MainStoryboard.storyboard */,
-				5A0F6AE014FBD48B00D45EA4 /* MasterViewController.h */,
-				5A0F6AE114FBD48B00D45EA4 /* MasterViewController.m */,
-				5A0F6AE314FBD48B00D45EA4 /* DetailViewController.h */,
-				5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */,
-				5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */,
-				5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */,
-				5A389F4814FCBBBA001F7C04 /* RoundedView.h */,
-				5A389F4914FCBBBA001F7C04 /* RoundedView.m */,
+				5A7E1D1D14FE1D2700B93367 /* View Controllers */,
 				5A389F5714FCCE37001F7C04 /* Controls */,
 				5A389F4F14FCCDEF001F7C04 /* Resources */,
 				5A0F6ACF14FBD48B00D45EA4 /* Supporting Files */,
@@ -174,10 +167,25 @@
 		5A389F5714FCCE37001F7C04 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				5A389F4814FCBBBA001F7C04 /* RoundedView.h */,
+				5A389F4914FCBBBA001F7C04 /* RoundedView.m */,
 				5A389F5414FCCE25001F7C04 /* DropdownButton.h */,
 				5A389F5514FCCE26001F7C04 /* DropdownButton.m */,
 			);
 			name = Controls;
+			sourceTree = "<group>";
+		};
+		5A7E1D1D14FE1D2700B93367 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A0F6AE014FBD48B00D45EA4 /* MasterViewController.h */,
+				5A0F6AE114FBD48B00D45EA4 /* MasterViewController.m */,
+				5A0F6AE314FBD48B00D45EA4 /* DetailViewController.h */,
+				5A0F6AE414FBD48B00D45EA4 /* DetailViewController.m */,
+				5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */,
+				5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
