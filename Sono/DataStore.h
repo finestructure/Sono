@@ -17,6 +17,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (BOOL)saveContext:(NSError **)error;
+- (void)rollback;
 
 - (NSURL *)applicationDocumentsDirectory;
 - (NSFetchedResultsController *)fetchEntity:(NSString *)entityName sortDescriptor:(NSArray *)sortDescriptors delegate:(id<NSFetchedResultsControllerDelegate>)delegate;

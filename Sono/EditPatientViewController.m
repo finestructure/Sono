@@ -48,16 +48,17 @@
 }
 
 
--(void)backButtonPressed:(id)sender {
-  [self save];
-}
-
-
 #pragma mark - Actions
 
 
 - (IBAction)saveButtonPressed:(id)sender {
   [self save];
+}
+
+
+-(void)backButtonPressed:(id)sender {
+  [[DataStore sharedInstance] rollback];
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -110,7 +111,7 @@
   self.praenatDiagPicker.delegate = self;
   self.birthDatePicker.delegate = self;
   
-  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Patient" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Abbrechen" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
   self.navigationItem.leftBarButtonItem = backButton;
 
   [self configureView];
