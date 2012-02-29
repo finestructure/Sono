@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Examination;
+
 @interface ExaminationViewController : UIViewController
+
+@property (strong, nonatomic) Examination *detailItem;
 
 @end

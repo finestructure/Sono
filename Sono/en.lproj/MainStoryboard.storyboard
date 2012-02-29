@@ -255,7 +255,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <connections>
-                                                    <segue destination="ZpL-3S-d6A" kind="push" id="9se-HD-VkN"/>
+                                                    <segue destination="ZpL-3S-d6A" kind="push" identifier="ShowExamination" id="9se-HD-VkN"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

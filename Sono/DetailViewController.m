@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 #import "EditPatientViewController.h"
+#import "ExaminationViewController.h"
 #import "Constants.h"
 #import "Examination.h"
 #import "DataStore.h"
@@ -148,6 +149,11 @@
     NSLog(@"segue EditPatient");
     EditPatientViewController *vc = segue.destinationViewController;
     vc.detailItem = self.detailItem;
+  } else if ([segue.identifier isEqualToString:@"ShowExamination"]) {
+    NSLog(@"segue ShowExamination");
+    ExaminationViewController *vc = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    vc.detailItem = [self.detailItem.examinations objectAtIndex:indexPath.row];
   }
 }
 
@@ -197,13 +203,6 @@
 {
   // The table view should not be re-orderable.
   return NO;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//  Examination *object = [self.detailItem.examinations objectAtIndex:indexPath.row];
-#warning Implement me!
 }
 
 
