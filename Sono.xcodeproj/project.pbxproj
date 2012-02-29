@@ -31,6 +31,7 @@
 		5A7E1D2814FE2D9600B93367 /* DatePopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E1D2514FE2D9600B93367 /* DatePopupController.xib */; };
 		5A7E1D2914FE2D9600B93367 /* DatePopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D2714FE2D9600B93367 /* DatePopupController.m */; };
 		5A7E1D2C14FE310B00B93367 /* DateDropDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D2B14FE310B00B93367 /* DateDropDown.m */; };
+		5A7E1D5B14FE47B100B93367 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D5A14FE47B000B93367 /* Helpers.m */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		5A7E1D2714FE2D9600B93367 /* DatePopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePopupController.m; sourceTree = "<group>"; };
 		5A7E1D2A14FE310B00B93367 /* DateDropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateDropDown.h; sourceTree = "<group>"; };
 		5A7E1D2B14FE310B00B93367 /* DateDropDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateDropDown.m; sourceTree = "<group>"; };
+		5A7E1D5914FE47B000B93367 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
+		5A7E1D5A14FE47B000B93367 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +132,8 @@
 				5A389F5914FCDE15001F7C04 /* Constants.m */,
 				5A7E1D0114FCF40C00B93367 /* DataStore.h */,
 				5A7E1D0214FCF40C00B93367 /* DataStore.m */,
+				5A7E1D5914FE47B000B93367 /* Helpers.h */,
+				5A7E1D5A14FE47B000B93367 /* Helpers.m */,
 				5A0F6AEE14FBDB3A00D45EA4 /* Model */,
 				5A0F6AD714FBD48B00D45EA4 /* AppDelegate.h */,
 				5A0F6AD814FBD48B00D45EA4 /* AppDelegate.m */,
@@ -288,6 +293,7 @@
 				5A7E1D2014FE1D7A00B93367 /* ExaminationViewController.m in Sources */,
 				5A7E1D2914FE2D9600B93367 /* DatePopupController.m in Sources */,
 				5A7E1D2C14FE310B00B93367 /* DateDropDown.m in Sources */,
+				5A7E1D5B14FE47B100B93367 /* Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
