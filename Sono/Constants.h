@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kValidationErrorDomain;
+
+
 @interface Constants : NSObject
 
 @property (readonly) NSString *version;

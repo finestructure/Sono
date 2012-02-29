@@ -8,6 +8,10 @@
 
 #import "Constants.h"
 
+
+NSString * const kValidationErrorDomain = @"Validierungsfehler";
+
+
 @implementation Constants
 
 

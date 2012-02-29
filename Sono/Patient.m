@@ -8,6 +8,7 @@
 
 #import "Patient.h"
 #import "Examination.h"
+#import "Constants.h"
 
 
 @implementation Patient
@@ -36,7 +37,7 @@
     if (error != nil) {
       NSString *errorStr = @"Geburtsdatum ist Pflichtfeld";
       NSDictionary *userInfoDict = [NSDictionary dictionaryWithObject:errorStr forKey:NSLocalizedDescriptionKey];
-      NSError *e = [[NSError alloc] initWithDomain:@"Patient" code:1 userInfo:userInfoDict];
+      NSError *e = [[NSError alloc] initWithDomain:kValidationErrorDomain code:1 userInfo:userInfoDict];
       *error = e;
     }
     return NO;
@@ -45,7 +46,7 @@
     if (error != nil) {
       NSString *errorStr = @"Geburtsdatum muss in der Vegangenheit liegen";
       NSDictionary *userInfoDict = [NSDictionary dictionaryWithObject:errorStr forKey:NSLocalizedDescriptionKey];
-      NSError *e = [[NSError alloc] initWithDomain:@"Patient" code:2 userInfo:userInfoDict];
+      NSError *e = [[NSError alloc] initWithDomain:kValidationErrorDomain code:2 userInfo:userInfoDict];
       *error = e;
     }
     return NO;
