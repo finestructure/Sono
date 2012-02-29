@@ -18,7 +18,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="448" y="-630"/>
+            <point key="canvasLocation" x="596" y="-1122"/>
         </scene>
         <!--Detail View Controller - Patient-->
         <scene sceneID="16">
@@ -237,15 +237,15 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="9V4-6n-1j9" style="IBUITableViewCellStyleDefault" id="Ewf-kz-Ewt">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="9V4-6n-1j9" style="IBUITableViewCellStyleDefault" id="Ewf-kz-Ewt">
                                                 <rect key="frame" x="0.0" y="22" width="623" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="623" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="603" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="9V4-6n-1j9">
-                                                            <rect key="frame" x="10" y="0.0" width="603" height="43"/>
+                                                            <rect key="frame" x="10" y="0.0" width="583" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -254,6 +254,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <connections>
+                                                    <segue destination="ZpL-3S-d6A" kind="push" id="9se-HD-VkN"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -289,7 +292,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="448" y="248"/>
+            <point key="canvasLocation" x="1436" y="44"/>
         </scene>
         <!--Edit Patient View Controller - Patient Bearbeiten-->
         <scene sceneID="Ozk-a9-7o0">
@@ -438,7 +441,23 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1311" y="248"/>
+            <point key="canvasLocation" x="2381" y="-346"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dwg-hH-1d1">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A3r-vh-voO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="ZpL-3S-d6A" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SPJ-B3-vFY">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3EM-CA-W1N"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2381" y="520"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="18">
@@ -496,7 +515,7 @@
                     <navigationItem key="navigationItem" title="Patienten" id="40"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="859" y="-631"/>
+            <point key="canvasLocation" x="1007" y="-1123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="50">
@@ -511,7 +530,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-366" y="248"/>
+            <point key="canvasLocation" x="622" y="44"/>
         </scene>
     </scenes>
     <resources>
