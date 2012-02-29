@@ -170,7 +170,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   NSOrderedSet *e = self.detailItem.examinations;
-  NSLog(@"examinations count: %d", e.count);
   return e.count;
 }
 
