@@ -70,6 +70,8 @@
     index = self.detailItem.praenatDiag.integerValue;
     text = [[[Constants sharedInstance] praenatDiagValues] objectAtIndex:index];
     self.praenatDiagField.text = text;
+    
+    [self.tableView reloadData];
   }
 }
 
