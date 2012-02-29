@@ -28,7 +28,7 @@
 		5A7E1D1314FD217500B93367 /* Patient+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D0E14FD196000B93367 /* Patient+Additions.m */; };
 		5A7E1D1C14FD23B100B93367 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D1B14FD23B100B93367 /* Patient.m */; };
 		5A7E1D2014FE1D7A00B93367 /* ExaminationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D1F14FE1D7A00B93367 /* ExaminationViewController.m */; };
-		5A7E1D2814FE2D9600B93367 /* DatePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E1D2514FE2D9600B93367 /* DatePopup.xib */; };
+		5A7E1D2814FE2D9600B93367 /* DatePopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E1D2514FE2D9600B93367 /* DatePopupController.xib */; };
 		5A7E1D2914FE2D9600B93367 /* DatePopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D2714FE2D9600B93367 /* DatePopupController.m */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
@@ -69,7 +69,7 @@
 		5A7E1D1B14FD23B100B93367 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		5A7E1D1E14FE1D7A00B93367 /* ExaminationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExaminationViewController.h; sourceTree = "<group>"; };
 		5A7E1D1F14FE1D7A00B93367 /* ExaminationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExaminationViewController.m; sourceTree = "<group>"; };
-		5A7E1D2514FE2D9600B93367 /* DatePopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePopup.xib; sourceTree = "<group>"; };
+		5A7E1D2514FE2D9600B93367 /* DatePopupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePopupController.xib; sourceTree = "<group>"; };
 		5A7E1D2614FE2D9600B93367 /* DatePopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePopupController.h; sourceTree = "<group>"; };
 		5A7E1D2714FE2D9600B93367 /* DatePopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePopupController.m; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		5A389F5714FCCE37001F7C04 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				5A7E1D2514FE2D9600B93367 /* DatePopup.xib */,
+				5A7E1D2514FE2D9600B93367 /* DatePopupController.xib */,
 				5A7E1D2614FE2D9600B93367 /* DatePopupController.h */,
 				5A7E1D2714FE2D9600B93367 /* DatePopupController.m */,
 				5A389F4814FCBBBA001F7C04 /* RoundedView.h */,
@@ -256,7 +256,7 @@
 				5A0F6ADC14FBD48B00D45EA4 /* MainStoryboard.storyboard in Resources */,
 				5A389F5214FCCDF0001F7C04 /* dropdown_button.png in Resources */,
 				5A389F5314FCCDF0001F7C04 /* dropdown_button_pressed.png in Resources */,
-				5A7E1D2814FE2D9600B93367 /* DatePopup.xib in Resources */,
+				5A7E1D2814FE2D9600B93367 /* DatePopupController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
