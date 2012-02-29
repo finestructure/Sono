@@ -40,9 +40,16 @@
   self.detailItem.gebheftId = self.gebHeftField.text;
   
   NSError *error = nil;
-  if (! [[DataStore sharedInstance] saveContext:&error]) {
+  if ([[DataStore sharedInstance] saveContext:&error]) {
+    [self.navigationController popViewControllerAnimated:YES];
+  } else {
     [[Utils sharedInstance] showError:error];
   }
+}
+
+
+-(void)backButtonPressed:(id)sender {
+  [self save];
 }
 
 
@@ -51,7 +58,6 @@
 
 - (IBAction)saveButtonPressed:(id)sender {
   [self save];
-  [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -83,15 +89,6 @@
 }
 
 
-#pragma mark - View delegates
-
-
-- (void)viewWillDisappear:(BOOL)animated {
-  [self save];
-}
-
-
-
 #pragma mark - Init
 
 
@@ -112,7 +109,10 @@
   self.praenatDiagPicker.values = [[Constants sharedInstance] praenatDiagValues];
   self.praenatDiagPicker.delegate = self;
   self.birthDatePicker.delegate = self;
-	// Do any additional setup after loading the view, typically from a nib.
+  
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Patient" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
+  self.navigationItem.leftBarButtonItem = backButton;
+
   [self configureView];
 }
 
