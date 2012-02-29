@@ -9,8 +9,10 @@
 #import "ExaminationViewController.h"
 
 #import "Examination.h"
+#import "Examination+Additions.h"
 #import "Patient+Additions.h"
 #import "Utils.h"
+#import "EditExaminationViewController.h"
 
 
 @interface ExaminationViewController ()
@@ -49,13 +51,9 @@
     
     self.examinationDateLabel.text = [[Utils sharedInstance] shortDate:self.detailItem.examinationDate];
     
-    NSTimeInterval age = [self.detailItem.examinationDate timeIntervalSinceDate:patient.birthDate];
-    int ageInDays = age / 86400.; // 86400 seconds per day
-    NSString *formatString = age == 1 ? @"%d Tag" : @"%d Tage";
-    self.ageLabel.text = [NSString stringWithFormat:formatString, ageInDays];
-    
-    self.heightLabel.text = [NSString stringWithFormat:@"%d cm", self.detailItem.height];
-    self.weightLabel.text = [NSString stringWithFormat:@"%d g", self.detailItem.weight];
+    self.ageLabel.text = self.detailItem.ageAsString;    
+    self.heightLabel.text = self.detailItem.heightAsString;
+    self.weightLabel.text = self.detailItem.weightAsString;
     self.examinerLabel.text = self.detailItem.examiner;
     self.locationLabel.text = self.detailItem.location;
   }
@@ -100,6 +98,20 @@
 {
 	return YES;
 }
+
+
+#pragma mark - Segue related
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"EditExamination"]) {
+    NSLog(@"segue EditExamination");
+    EditExaminationViewController *vc = segue.destinationViewController;
+    vc.detailItem = self.detailItem;
+  }
+}
+
 
 
 @end

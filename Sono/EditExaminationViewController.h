@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class Examination;
+@class DateDropDown;
+
 @interface EditExaminationViewController : UIViewController
+
+@property (strong, nonatomic) Examination *detailItem;
+
+@property (weak, nonatomic) IBOutlet UILabel *patientDescriptionLabel;
+@property (weak, nonatomic) IBOutlet DateDropDown *examinationDatePicker;
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
+@property (weak, nonatomic) IBOutlet UITextField *heightField;
+@property (weak, nonatomic) IBOutlet UITextField *weightField;
+@property (weak, nonatomic) IBOutlet UITextField *examinerField;
+@property (weak, nonatomic) IBOutlet UITextField *locationField;
+
+- (IBAction)saveButtonPressed:(id)sender;
+- (void)backButtonPressed:(id)sender;
 
 @end

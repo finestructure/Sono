@@ -15,8 +15,8 @@
 
 @property (nonatomic, retain) NSDate * examinationDate;
 @property (nonatomic, retain) NSString * examiner;
-@property (nonatomic, retain) NSDecimalNumber * weight;
-@property (nonatomic, retain) NSDecimalNumber * height;
+@property (nonatomic, retain) NSNumber * weight;
+@property (nonatomic, retain) NSNumber * height;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) Patient *patient;
 

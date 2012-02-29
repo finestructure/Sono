@@ -33,6 +33,7 @@
 		5A7E1D2C14FE310B00B93367 /* DateDropDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D2B14FE310B00B93367 /* DateDropDown.m */; };
 		5A7E1D5B14FE47B100B93367 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D5A14FE47B000B93367 /* Utils.m */; };
 		5A7E1DAE14FE59D500B93367 /* EditExaminationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1DAD14FE59D500B93367 /* EditExaminationViewController.m */; };
+		5A7E1DB114FE5FE300B93367 /* Examination+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1DB014FE5FE300B93367 /* Examination+Additions.m */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,8 @@
 		5A7E1D5A14FE47B000B93367 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		5A7E1DAC14FE59D500B93367 /* EditExaminationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditExaminationViewController.h; sourceTree = "<group>"; };
 		5A7E1DAD14FE59D500B93367 /* EditExaminationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditExaminationViewController.m; sourceTree = "<group>"; };
+		5A7E1DAF14FE5FE300B93367 /* Examination+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Examination+Additions.h"; sourceTree = "<group>"; };
+		5A7E1DB014FE5FE300B93367 /* Examination+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Examination+Additions.m"; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +173,8 @@
 				5A7E1D1B14FD23B100B93367 /* Patient.m */,
 				5A7E1D0D14FD196000B93367 /* Patient+Additions.h */,
 				5A7E1D0E14FD196000B93367 /* Patient+Additions.m */,
+				5A7E1DAF14FE5FE300B93367 /* Examination+Additions.h */,
+				5A7E1DB014FE5FE300B93367 /* Examination+Additions.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				5A7E1D2C14FE310B00B93367 /* DateDropDown.m in Sources */,
 				5A7E1D5B14FE47B100B93367 /* Utils.m in Sources */,
 				5A7E1DAE14FE59D500B93367 /* EditExaminationViewController.m in Sources */,
+				5A7E1DB114FE5FE300B93367 /* Examination+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

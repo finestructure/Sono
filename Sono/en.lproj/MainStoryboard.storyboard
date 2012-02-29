@@ -819,6 +819,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveButtonPressed:" destination="uen-Yu-Fol" eventType="touchUpInside" id="Pfi-CU-lQN"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="GcS-OR-LvP">
                                         <rect key="frame" x="200" y="98" width="308" height="31"/>
@@ -897,6 +900,15 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Untersuchung bearbeiten" id="8oF-zv-VEn"/>
+                    <connections>
+                        <outlet property="ageLabel" destination="HM5-eR-SSt" id="Kel-ih-Sdn"/>
+                        <outlet property="examinationDatePicker" destination="8Bb-CN-1V2" id="gLZ-EH-ECJ"/>
+                        <outlet property="examinerField" destination="B6n-pa-9yc" id="Xjo-da-7EV"/>
+                        <outlet property="heightField" destination="GcS-OR-LvP" id="0Um-a0-Npa"/>
+                        <outlet property="locationField" destination="k6R-ex-8DW" id="0Lv-uk-Cwi"/>
+                        <outlet property="patientDescriptionLabel" destination="2UJ-hh-cc2" id="3Ly-NN-WzP"/>
+                        <outlet property="weightField" destination="q6h-o7-kWV" id="XCA-Fb-w9c"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="3279" y="520"/>
@@ -1002,6 +1014,16 @@
         </class>
         <class className="EditExaminationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditExaminationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveButtonPressed:"/>
+                <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="examinationDatePicker" candidateClass="DateDropDown"/>
+                <relationship kind="outlet" name="examinerField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="heightField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="locationField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="patientDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weightField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="EditPatientViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPatientViewController.h"/>
