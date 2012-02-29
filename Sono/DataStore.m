@@ -8,6 +8,7 @@
 
 #import "DataStore.h"
 
+
 @implementation DataStore
 
 @synthesize managedObjectContext = __managedObjectContext;
@@ -72,18 +73,26 @@
 }
 
 
-- (void)saveContext
+- (BOOL)saveContext:(NSError **)error
 {
-  NSError *error = nil;
   NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-  if (managedObjectContext != nil) {
-    if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-      // Replace this implementation with code to handle the error appropriately.
-      // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-#warning Handle validation errors!
-      abort();
-    } 
+  if (managedObjectContext == nil) {
+    NSString *errorStr = @"Kein Speicherkontext";
+    NSDictionary *userInfoDict = [NSDictionary dictionaryWithObject:errorStr forKey:NSLocalizedDescriptionKey];
+    NSError *e = [[NSError alloc] initWithDomain:@"DataStore" code:1 userInfo:userInfoDict];
+    *error = e;
+    return NO;
+  }
+  
+  if (! [managedObjectContext hasChanges]) {
+    return YES;
+  }
+  
+  if ([managedObjectContext save:error]) {
+    return YES;
+  } else {
+    NSLog(@"Unresolved error %@, %@", *error, [*error userInfo]);
+    return NO;
   }
 }
 

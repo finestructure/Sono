@@ -82,7 +82,11 @@
   Examination *newObject = [[DataStore sharedInstance] insertNewObject:@"Examination"];
   newObject.examinationDate = [NSDate date];
   [self.detailItem addExaminationsObject:newObject];
-  [[DataStore sharedInstance] saveContext];
+
+  NSError *error = nil;
+  if (! [[DataStore sharedInstance] saveContext:&error]) {
+    [[Utils sharedInstance] showError:error];
+  }
   [self.tableView reloadData];
 }
 
@@ -194,7 +198,11 @@
 {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     [self.detailItem removeObjectFromExaminationsAtIndex:indexPath.row];
-    [[DataStore sharedInstance] saveContext];
+
+    NSError *error = nil;
+    if (! [[DataStore sharedInstance] saveContext:&error]) {
+      [[Utils sharedInstance] showError:error];
+    }
   }   
 }
 

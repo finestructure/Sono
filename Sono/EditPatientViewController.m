@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "Constants.h"
 #import "DataStore.h"
+#import "Utils.h"
 
 
 @interface EditPatientViewController ()
@@ -38,7 +39,10 @@
   self.detailItem.patientId = self.patientIdField.text;
   self.detailItem.gebheftId = self.gebHeftField.text;
   
-  [[DataStore sharedInstance] saveContext];
+  NSError *error = nil;
+  if (! [[DataStore sharedInstance] saveContext:&error]) {
+    [[Utils sharedInstance] showError:error];
+  }
 }
 
 

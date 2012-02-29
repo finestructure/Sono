@@ -12,6 +12,7 @@
 #import "DataStore.h"
 #import "Patient.h"
 #import "Patient+Additions.h"
+#import "Utils.h"
 
 
 @interface MasterViewController ()
@@ -76,7 +77,11 @@
   Patient *newObject = [[DataStore sharedInstance] insertNewObject:@"Patient"];
   newObject.firstName = @"Neuer";
   newObject.lastName = @"Patient";
-  [[DataStore sharedInstance] saveContext];
+
+  NSError *error = nil;
+  if (! [[DataStore sharedInstance] saveContext:&error]) {
+    [[Utils sharedInstance] showError:error];
+  }
 }
 
 
@@ -115,8 +120,12 @@
 {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     [[DataStore sharedInstance] deleteObject:[self.patients objectAtIndexPath:indexPath]];
-    [[DataStore sharedInstance] saveContext];
-    }   
+
+    NSError *error = nil;
+    if (! [[DataStore sharedInstance] saveContext:&error]) {
+      [[Utils sharedInstance] showError:error];
+    }
+  }   
 }
 
 

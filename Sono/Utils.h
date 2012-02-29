@@ -16,6 +16,7 @@
 
 - (NSString *)shortDate:(NSDate *)date;
 - (NSString *)mediumDate:(NSDate *)date;
+- (void)showError:(NSError *)error;
 
 
 @end

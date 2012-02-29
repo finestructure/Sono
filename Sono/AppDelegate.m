@@ -10,6 +10,8 @@
 
 #import "MasterViewController.h"
 #import "DataStore.h"
+#import "Utils.h"
+
 
 @implementation AppDelegate
 
@@ -61,7 +63,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Saves changes in the application's managed object context before the application terminates.
-  [[DataStore sharedInstance] saveContext];
+  NSError *error = nil;
+  if (! [[DataStore sharedInstance] saveContext:&error]) {
+    [[Utils sharedInstance] showError:error];
+  }
 }
 
 
