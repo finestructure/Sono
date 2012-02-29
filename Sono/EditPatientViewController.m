@@ -22,11 +22,11 @@
 @synthesize detailItem = _detailItem;
 @synthesize lastNameField = _lastNameField;
 @synthesize firstNameField = _firstNameField;
-@synthesize birthDateField = _birthDateField;
 @synthesize patientIdField = _patientIdField;
 @synthesize gebHeftField = _gebHeftField;
 @synthesize famBelastungPicker = _famBelastungPicker;
 @synthesize praenatDiagPicker = _praenatDiagPicker;
+@synthesize birthDatePicker = _birthDatePicker;
 
 
 # pragma mark - Worker
@@ -71,11 +71,12 @@
   if (self.detailItem) {
     self.firstNameField.text = self.detailItem.firstName;
     self.lastNameField.text = self.detailItem.lastName;
-    self.birthDateField.text = self.detailItem.birthDate.description;
     self.patientIdField.text = self.detailItem.patientId;
     self.gebHeftField.text = self.detailItem.gebheftId;
     self.famBelastungPicker.selectedRow = self.detailItem.famBelastung.integerValue;
     self.praenatDiagPicker.selectedRow = self.detailItem.praenatDiag.integerValue;
+    
+#warning Set birth date!
   }
 }
 
@@ -116,6 +117,7 @@
 {
   [self setFamBelastungPicker:nil];
   [self setPraenatDiagPicker:nil];
+  [self setBirthDatePicker:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
