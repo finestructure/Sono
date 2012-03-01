@@ -32,6 +32,7 @@
 @synthesize famBelastungField = _famBelastungField;
 @synthesize praenatDiagField = _praenatDiagField;
 @synthesize tableView = _tableView;
+@synthesize versionLabel = _versionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 
 
@@ -107,7 +108,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+  self.versionLabel.text = [[Constants sharedInstance] version];
+  self.versionLabel.textColor = [UIColor lightTextColor];
   [self configureView];
 }
 
@@ -121,6 +123,7 @@
   [self setFamBelastungField:nil];
   [self setPraenatDiagField:nil];
   [self setTableView:nil];
+  [self setVersionLabel:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }

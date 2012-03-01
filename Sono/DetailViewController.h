@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *famBelastungField;
 @property (weak, nonatomic) IBOutlet UILabel *praenatDiagField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 - (IBAction)insertNewObject:(id)sender;
 
