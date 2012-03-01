@@ -58,6 +58,11 @@
     [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
     Patient *object = [self.patients objectAtIndexPath:indexPath];
     self.detailViewController.detailItem = object;
+  } else {
+    // or show intro screen
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"IntroViewController"];
+    [self.detailViewController.navigationController pushViewController:vc animated:NO];
   }
 }
 

@@ -37,6 +37,7 @@
 		5A7E1DEC14FFAB4300B93367 /* dropdown_button-150.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E1DEA14FFAB4300B93367 /* dropdown_button-150.png */; };
 		5A7E1DEF14FFAE0900B93367 /* dropdown_button_pressed-250.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E1DED14FFAE0900B93367 /* dropdown_button_pressed-250.png */; };
 		5A7E1DF014FFAE0900B93367 /* dropdown_button-250.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E1DEE14FFAE0900B93367 /* dropdown_button-250.png */; };
+		5A7E1DF314FFB39D00B93367 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1DF214FFB39D00B93367 /* IntroViewController.m */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		5A7E1DEA14FFAB4300B93367 /* dropdown_button-150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_button-150.png"; sourceTree = "<group>"; };
 		5A7E1DED14FFAE0900B93367 /* dropdown_button_pressed-250.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_button_pressed-250.png"; sourceTree = "<group>"; };
 		5A7E1DEE14FFAE0900B93367 /* dropdown_button-250.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_button-250.png"; sourceTree = "<group>"; };
+		5A7E1DF114FFB39D00B93367 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		5A7E1DF214FFB39D00B93367 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +229,8 @@
 				5A7E1D1F14FE1D7A00B93367 /* ExaminationViewController.m */,
 				5A7E1DAC14FE59D500B93367 /* EditExaminationViewController.h */,
 				5A7E1DAD14FE59D500B93367 /* EditExaminationViewController.m */,
+				5A7E1DF114FFB39D00B93367 /* IntroViewController.h */,
+				5A7E1DF214FFB39D00B93367 /* IntroViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				5A7E1DAE14FE59D500B93367 /* EditExaminationViewController.m in Sources */,
 				5A7E1DB114FE5FE300B93367 /* Examination+Additions.m in Sources */,
 				5A7E1DB414FE65F700B93367 /* Examination.m in Sources */,
+				5A7E1DF314FFB39D00B93367 /* IntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
