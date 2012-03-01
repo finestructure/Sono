@@ -60,16 +60,7 @@
 
   self.patients = [[DataStore sharedInstance] fetchEntity:@"Patient" sortDescriptor:sortDescriptors delegate:self];
   
-  // select first row (if available)
-  if (self.patients.fetchedObjects.count > 0) {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
-    Patient *object = [self.patients objectAtIndexPath:indexPath];
-    self.detailViewController.detailItem = object;
-  } else {
-    // or show intro screen
-    [self showIntroViewControllerAnimated:NO];
-  }
+  [self showIntroViewControllerAnimated:NO];
 }
 
 
@@ -220,7 +211,7 @@
 {
   [self.tableView endUpdates];
   if (self.insertedIndexPath) {
-    [self.tableView selectRowAtIndexPath:self.insertedIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self.tableView selectRowAtIndexPath:self.insertedIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
     self.insertedIndexPath = nil;
   }
 }
