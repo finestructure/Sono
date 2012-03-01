@@ -27,8 +27,6 @@
 
 
 - (void)initialize {
-  [self setBackgroundImage:[UIImage imageNamed:@"dropdown_button"] forState:UIControlStateNormal];
-  [self setBackgroundImage:[UIImage imageNamed:@"dropdown_button_pressed"] forState:UIControlStateHighlighted];
   [self addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
