@@ -23,9 +23,19 @@
 @dynamic praenatDiag;
 @dynamic examinations;
 
+
+// core data bug override
 - (void)addExaminationsObject:(Examination *)value {
   NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.examinations];
   [tempSet addObject:value];
+  self.examinations = tempSet;
+}
+
+
+// core data but override
+- (void)removeObjectFromExaminationsAtIndex:(NSUInteger)idx {
+  NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.examinations];
+  [tempSet removeObjectAtIndex:idx];
   self.examinations = tempSet;
 }
 

@@ -214,6 +214,7 @@
     if (! [[DataStore sharedInstance] saveContext:&error]) {
       [[Utils sharedInstance] showError:error];
     }
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
   }   
 }
 
