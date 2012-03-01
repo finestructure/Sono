@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 
+#import "EditExaminationViewController.h"
 #import "EditPatientViewController.h"
 #import "ExaminationViewController.h"
 #import "Constants.h"
@@ -162,6 +163,11 @@
   } else if ([segue.identifier isEqualToString:@"ShowExamination"]) {
     NSLog(@"segue ShowExamination");
     ExaminationViewController *vc = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    vc.detailItem = [self.detailItem.examinations objectAtIndex:indexPath.row];
+  } else if ([segue.identifier isEqualToString:@"EditExamination"]) {
+    NSLog(@"segue EditExamination");
+    EditExaminationViewController *vc = segue.destinationViewController;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     vc.detailItem = [self.detailItem.examinations objectAtIndex:indexPath.row];
   }
