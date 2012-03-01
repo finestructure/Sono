@@ -85,7 +85,7 @@
 		5A7E1DB014FE5FE300B93367 /* Examination+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Examination+Additions.m"; sourceTree = "<group>"; };
 		5A7E1DB214FE65F700B93367 /* Examination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examination.h; sourceTree = "<group>"; };
 		5A7E1DB314FE65F700B93367 /* Examination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examination.m; sourceTree = "<group>"; };
-		5A7E1DDE14FFA38B00B93367 /* app_icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon-72.png"; sourceTree = "<group>"; };
+		5A7E1DDE14FFA38B00B93367 /* app_icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app_icon-72.png"; path = "../../app_icon-72.png"; sourceTree = "<group>"; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +108,6 @@
 		5A0F6AB714FBD48A00D45EA4 = {
 			isa = PBXGroup;
 			children = (
-				5A7E1DDE14FFA38B00B93367 /* app_icon-72.png */,
 				5A0F6ACE14FBD48A00D45EA4 /* Sono */,
 				5A0F6AC514FBD48A00D45EA4 /* Frameworks */,
 				5A0F6AC314FBD48A00D45EA4 /* Products */,
@@ -185,6 +184,7 @@
 		5A389F4F14FCCDEF001F7C04 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A7E1DDE14FFA38B00B93367 /* app_icon-72.png */,
 				5A389F5014FCCDF0001F7C04 /* dropdown_button.png */,
 				5A389F5114FCCDF0001F7C04 /* dropdown_button_pressed.png */,
 			);
