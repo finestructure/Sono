@@ -110,7 +110,7 @@
   if ([self.delegate respondsToSelector:@selector(dropdownButton:didSelectRow:inComponent:)]) {
     [self.delegate dropdownButton:self didSelectRow:row inComponent:component];
   }
-  [self.popover dismissPopoverAnimated:YES];
+//  [self.popover dismissPopoverAnimated:YES];
 }
 
 
