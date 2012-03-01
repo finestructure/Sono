@@ -119,6 +119,7 @@
   self.famBelastungPicker.delegate = self;
   self.praenatDiagPicker.values = [[Constants sharedInstance] praenatDiagValues];
   self.praenatDiagPicker.delegate = self;
+  self.praenatDiagPicker.pickerContentWidth = 300;
   self.birthDatePicker.delegate = self;
   
   UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Abbrechen" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
