@@ -16,6 +16,8 @@
 
 
 @interface MasterViewController ()
+@property (strong, nonatomic) NSIndexPath *insertedIndexPath;
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
@@ -23,6 +25,7 @@
 
 @synthesize detailViewController = _detailViewController;
 @synthesize patients = _patients;
+@synthesize insertedIndexPath = _insertedIndexPath;
 
 
 - (void)awakeFromNib
@@ -176,6 +179,7 @@
   switch(type) {
     case NSFetchedResultsChangeInsert:
       [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      self.insertedIndexPath = newIndexPath;
       break;
       
     case NSFetchedResultsChangeDelete:
@@ -197,6 +201,10 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
   [self.tableView endUpdates];
+  if (self.insertedIndexPath) {
+    [self.tableView selectRowAtIndexPath:self.insertedIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    self.insertedIndexPath = nil;
+  }
 }
 
 
