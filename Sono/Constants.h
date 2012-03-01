@@ -16,6 +16,11 @@ extern NSString * const kValidationErrorDomain;
 @property (readonly) NSString *version;
 @property (readonly) NSArray *booleanValues;
 @property (readonly) NSArray *praenatDiagValues;
+@property (readonly) UIColor *color1;
+@property (readonly) UIColor *color2;
+@property (readonly) UIColor *color3;
+@property (readonly) UIColor *color4;
+@property (readonly) UIColor *color5;
 
 + (Constants *)sharedInstance;
 

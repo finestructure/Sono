@@ -8,11 +8,14 @@
 
 #import "IntroViewController.h"
 
+#import "Constants.h"
+
 @interface IntroViewController ()
 
 @end
 
 @implementation IntroViewController
+@synthesize vendorLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,11 +31,13 @@
 {
   [super viewDidLoad];
   self.navigationItem.hidesBackButton = YES;
+  self.vendorLabel.textColor = [[Constants sharedInstance] color4];
 }
 
 
 - (void)viewDidUnload
 {
+  [self setVendorLabel:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }

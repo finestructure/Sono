@@ -10,4 +10,6 @@
 
 @interface IntroViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *vendorLabel;
+
 @end

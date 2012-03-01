@@ -49,6 +49,31 @@ NSString * const kValidationErrorDomain = @"Validierungsfehler";
 }
 
 
+- (UIColor *)color1 {
+  return [UIColor colorWithRed:52/255. green:35/255. blue:38/255. alpha:1];
+}
+
+
+- (UIColor *)color2 {
+  return [UIColor colorWithRed:148/255. green:143/255. blue:112/255. alpha:1];
+}
+
+
+- (UIColor *)color3 {
+  return [UIColor colorWithRed:196/255. green:197/255. blue:150/255. alpha:1];
+}
+
+
+- (UIColor *)color4 {
+  return [UIColor colorWithRed:244/255. green:250/255. blue:186/255. alpha:1];
+}
+
+
+- (UIColor *)color5 {
+  return [UIColor colorWithRed:154/255. green:147/255. blue:82/255. alpha:1];
+}
+
+
 - (NSArray *)booleanValues {
   static NSArray *values = nil;
   
