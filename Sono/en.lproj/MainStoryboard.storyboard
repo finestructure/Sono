@@ -276,13 +276,6 @@
                                 <color key="textColor" red="0.20392156859999999" green="0.13725490200000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="v0.10 asdwasasdas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2wq-wg-2jk">
-                                <rect key="frame" x="0.0" y="689" width="325" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.76862745099999996" green="0.7725490196" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -298,7 +291,6 @@
                         <outlet property="patientIdField" destination="nXX-Ew-INd" id="o2C-eF-mWy"/>
                         <outlet property="praenatDiagField" destination="ShU-Hi-LTT" id="zaS-hP-sE6"/>
                         <outlet property="tableView" destination="kPZ-nR-hFo" id="0X0-Jm-LuG"/>
-                        <outlet property="versionLabel" destination="2wq-wg-2jk" id="HgS-ea-Qyl"/>
                     </connections>
                 </viewController>
             </objects>
@@ -329,9 +321,16 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="© 2012 abstracture GmbH &amp; Co KG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5zE-HB-6eN">
                                 <rect key="frame" x="20" y="245" width="663" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.95686274510000002" green="0.98039215690000003" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="v0.10 asdwasasdas" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="oFI-KH-xLS">
+                                <rect key="frame" x="0.0" y="733" width="703" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -342,6 +341,7 @@
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="vendorLabel" destination="5zE-HB-6eN" id="0um-3W-jTk"/>
+                        <outlet property="versionLabel" destination="oFI-KH-xLS" id="aiD-Eo-oLr"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1088,7 +1088,6 @@
                 <relationship kind="outlet" name="patientIdField" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="praenatDiagField" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="DropdownButton" superclassName="UIButton">
@@ -1138,6 +1137,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IntroViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="vendorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">

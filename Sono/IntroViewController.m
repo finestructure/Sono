@@ -16,6 +16,7 @@
 
 @implementation IntroViewController
 @synthesize vendorLabel;
+@synthesize versionLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,12 +33,15 @@
   [super viewDidLoad];
   self.navigationItem.hidesBackButton = YES;
   self.vendorLabel.textColor = [[Constants sharedInstance] color4];
+  self.versionLabel.text = [[Constants sharedInstance] version];
+  self.versionLabel.textColor = [[Constants sharedInstance] color4];
 }
 
 
 - (void)viewDidUnload
 {
   [self setVendorLabel:nil];
+  [self setVersionLabel:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
