@@ -10,6 +10,7 @@
 
 #import "DetailViewController.h"
 #import "DataStore.h"
+#import "IntroViewController.h"
 #import "Patient.h"
 #import "Patient+Additions.h"
 #import "Utils.h"
@@ -61,7 +62,7 @@
   } else {
     // or show intro screen
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"IntroViewController"];
+    IntroViewController *vc = [sb instantiateViewControllerWithIdentifier:@"IntroViewController"];
     [self.detailViewController.navigationController pushViewController:vc animated:NO];
   }
 }
@@ -82,6 +83,11 @@
 
 - (void)insertNewObject:(id)sender
 {
+  // get rid of intro view controller if it's up
+  if ([self.detailViewController.navigationController.topViewController isKindOfClass:[IntroViewController class]]) {
+    [self.detailViewController.navigationController popViewControllerAnimated:NO];
+  }
+  
   Patient *newObject = [[DataStore sharedInstance] insertNewObject:@"Patient"];
   newObject.firstName = @"Neuer";
   newObject.lastName = @"Patient";
