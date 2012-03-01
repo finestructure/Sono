@@ -27,5 +27,6 @@
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (void)backButtonPressed:(id)sender;
+- (IBAction)editingChanged:(id)sender;
 
 @end

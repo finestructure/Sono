@@ -48,6 +48,14 @@
 }
 
 
+- (void)updateModel {
+  self.detailItem.firstName = self.firstNameField.text;
+  self.detailItem.lastName = self.lastNameField.text;
+  self.detailItem.patientId = self.patientIdField.text;
+  self.detailItem.gebheftId = self.gebHeftField.text;
+}
+
+
 #pragma mark - Actions
 
 
@@ -59,6 +67,10 @@
 -(void)backButtonPressed:(id)sender {
   [[DataStore sharedInstance] rollback];
   [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)editingChanged:(id)sender {
+  [self updateModel];
 }
 
 

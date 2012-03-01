@@ -356,6 +356,9 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="editingChanged:" destination="b6t-Ig-E9N" eventType="editingChanged" id="iol-6z-TOF"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="4bZ-gF-EVd">
                                         <rect key="frame" x="200" y="59" width="281" height="31"/>
@@ -363,6 +366,9 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="editingChanged:" destination="b6t-Ig-E9N" eventType="editingChanged" id="hkI-Pc-NCJ"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="GFh-RN-wDl">
                                         <rect key="frame" x="200" y="137" width="281" height="31"/>
@@ -370,6 +376,9 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="editingChanged:" destination="b6t-Ig-E9N" eventType="editingChanged" id="6px-bs-0Hh"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="3kA-Jh-w1m">
                                         <rect key="frame" x="200" y="176" width="281" height="31"/>
@@ -377,6 +386,9 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="editingChanged:" destination="b6t-Ig-E9N" eventType="editingChanged" id="lRd-Dk-Bp0"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Familiäre Belastung:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="GGL-T9-Mzf">
                                         <rect key="frame" x="25" y="243" width="167" height="21"/>
@@ -1038,6 +1050,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPatientViewController.h"/>
             <relationships>
                 <relationship kind="action" name="saveButtonPressed:"/>
+                <relationship kind="action" name="valueChanged:"/>
                 <relationship kind="outlet" name="birthDatePicker" candidateClass="DateDropDown"/>
                 <relationship kind="outlet" name="famBelastungPicker" candidateClass="DropdownButton"/>
                 <relationship kind="outlet" name="firstNameField" candidateClass="UITextField"/>
