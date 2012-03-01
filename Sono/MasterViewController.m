@@ -29,6 +29,13 @@
 @synthesize insertedIndexPath = _insertedIndexPath;
 
 
+- (void)showIntroViewControllerAnimated:(BOOL)animated {
+  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+  IntroViewController *vc = [sb instantiateViewControllerWithIdentifier:@"IntroViewController"];
+  [self.detailViewController.navigationController pushViewController:vc animated:animated];
+}
+
+
 - (void)awakeFromNib
 {
   self.clearsSelectionOnViewWillAppear = NO;
@@ -61,9 +68,7 @@
     self.detailViewController.detailItem = object;
   } else {
     // or show intro screen
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    IntroViewController *vc = [sb instantiateViewControllerWithIdentifier:@"IntroViewController"];
-    [self.detailViewController.navigationController pushViewController:vc animated:NO];
+    [self showIntroViewControllerAnimated:NO];
   }
 }
 
@@ -194,6 +199,9 @@
       
     case NSFetchedResultsChangeDelete:
       [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      if (self.patients.fetchedObjects.count == 0) {
+        [self showIntroViewControllerAnimated:YES];
+      }
       break;
       
     case NSFetchedResultsChangeUpdate:
