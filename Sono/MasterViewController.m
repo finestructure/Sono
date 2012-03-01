@@ -141,6 +141,7 @@
 {
   Patient *object = [self.patients objectAtIndexPath:indexPath];
   self.detailViewController.detailItem = object;
+  [self.detailViewController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
