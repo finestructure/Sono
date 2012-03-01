@@ -33,11 +33,16 @@
 # pragma mark - Worker
 
 
-- (void)save {
+- (void)updateModel {
   self.detailItem.firstName = self.firstNameField.text;
   self.detailItem.lastName = self.lastNameField.text;
   self.detailItem.patientId = self.patientIdField.text;
   self.detailItem.gebheftId = self.gebHeftField.text;
+}
+
+
+- (void)save {
+  [self updateModel];
   
   NSError *error = nil;
   if ([[DataStore sharedInstance] saveContext:&error]) {
@@ -45,14 +50,6 @@
   } else {
     [[Utils sharedInstance] showError:error];
   }
-}
-
-
-- (void)updateModel {
-  self.detailItem.firstName = self.firstNameField.text;
-  self.detailItem.lastName = self.lastNameField.text;
-  self.detailItem.patientId = self.patientIdField.text;
-  self.detailItem.gebheftId = self.gebHeftField.text;
 }
 
 
@@ -68,6 +65,7 @@
   [[DataStore sharedInstance] rollback];
   [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 - (IBAction)editingChanged:(id)sender {
   [self updateModel];

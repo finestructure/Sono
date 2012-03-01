@@ -32,21 +32,16 @@
 # pragma mark - Worker
 
 
-- (void)save {
-  static NSNumberFormatter *f = nil;
-  if (f == nil) {
-    f = [[NSNumberFormatter alloc] init];
-    [f setNumberStyle:NSNumberFormatterDecimalStyle];
-  }
-
-  Patient *patient = self.detailItem.patient;
-  
-  self.patientDescriptionLabel.text = [NSString stringWithFormat:@"%@, geboren am %@", patient.fullName, [[Utils sharedInstance] shortDate:patient.birthDate]];
-
+- (void)updateModel {
   [self.detailItem setHeightFromString:self.heightField.text];
   [self.detailItem setWeightFromString:self.weightField.text];
   self.detailItem.examiner = self.examinerField.text;
   self.detailItem.location = self.locationField.text;
+}
+
+
+- (void)save {
+  [self updateModel];
   
   NSError *error = nil;
   if ([[DataStore sharedInstance] saveContext:&error]) {
@@ -57,16 +52,22 @@
 }
 
 
--(void)backButtonPressed:(id)sender {
-  [self save];
-}
-
-
 #pragma mark - Actions
 
 
 - (IBAction)saveButtonPressed:(id)sender {
   [self save];
+}
+
+
+-(void)backButtonPressed:(id)sender {
+  [[DataStore sharedInstance] rollback];
+  [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (IBAction)editingChanged:(id)sender {
+  [self updateModel];
 }
 
 
@@ -111,9 +112,12 @@
   [super viewDidLoad];
   self.examinationDatePicker.delegate = self;
   
-  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Untersuchung" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Abbrechen" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
   self.navigationItem.leftBarButtonItem = backButton;
   
+  Patient *patient = self.detailItem.patient;
+  self.patientDescriptionLabel.text = [NSString stringWithFormat:@"%@, geboren am %@", patient.fullName, [[Utils sharedInstance] shortDate:patient.birthDate]];
+
   [self configureView];
 }
 
