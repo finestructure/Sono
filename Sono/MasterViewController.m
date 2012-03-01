@@ -81,10 +81,8 @@
   newObject.firstName = @"Neuer";
   newObject.lastName = @"Patient";
 
-  NSError *error = nil;
-  if (! [[DataStore sharedInstance] saveContext:&error]) {
-    [[Utils sharedInstance] showError:error];
-  }
+  self.detailViewController.detailItem = newObject;
+  [self.detailViewController performSegueWithIdentifier:@"EditPatient" sender:self];
 }
 
 
