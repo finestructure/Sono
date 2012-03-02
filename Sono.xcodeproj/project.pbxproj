@@ -21,6 +21,11 @@
 		5A389F4A14FCBBBA001F7C04 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F4914FCBBBA001F7C04 /* RoundedView.m */; };
 		5A389F5614FCCE26001F7C04 /* DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5514FCCE26001F7C04 /* DropdownButton.m */; };
 		5A389F5A14FCDE15001F7C04 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5914FCDE15001F7C04 /* Constants.m */; };
+		5A629D901500E0B400939DD0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A629D8F1500E0B400939DD0 /* SenTestingKit.framework */; };
+		5A629D911500E0B400939DD0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0F6AC614FBD48A00D45EA4 /* UIKit.framework */; };
+		5A629D921500E0B400939DD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0F6AC814FBD48A00D45EA4 /* Foundation.framework */; };
+		5A629D981500E0B400939DD0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A629D961500E0B400939DD0 /* InfoPlist.strings */; };
+		5A629D9B1500E0B400939DD0 /* SonoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A629D9A1500E0B400939DD0 /* SonoTests.m */; };
 		5A7E1D0314FCF40C00B93367 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D0214FCF40C00B93367 /* DataStore.m */; };
 		5A7E1D1314FD217500B93367 /* Patient+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D0E14FD196000B93367 /* Patient+Additions.m */; };
 		5A7E1D1C14FD23B100B93367 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D1B14FD23B100B93367 /* Patient.m */; };
@@ -65,6 +70,12 @@
 		5A389F5514FCCE26001F7C04 /* DropdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownButton.m; sourceTree = "<group>"; };
 		5A389F5814FCDE15001F7C04 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5A389F5914FCDE15001F7C04 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		5A629D8E1500E0B400939DD0 /* SonoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SonoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A629D8F1500E0B400939DD0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5A629D951500E0B400939DD0 /* SonoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SonoTests-Info.plist"; sourceTree = "<group>"; };
+		5A629D971500E0B400939DD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5A629D9A1500E0B400939DD0 /* SonoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SonoTests.m; sourceTree = "<group>"; };
+		5A629D9C1500E0B400939DD0 /* SonoTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SonoTests-Prefix.pch"; sourceTree = "<group>"; };
 		5A7E1D0114FCF40C00B93367 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
 		5A7E1D0214FCF40C00B93367 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		5A7E1D0D14FD196000B93367 /* Patient+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Patient+Additions.h"; sourceTree = "<group>"; };
@@ -109,6 +120,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A629D8A1500E0B400939DD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A629D901500E0B400939DD0 /* SenTestingKit.framework in Frameworks */,
+				5A629D911500E0B400939DD0 /* UIKit.framework in Frameworks */,
+				5A629D921500E0B400939DD0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -116,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0F6ACE14FBD48A00D45EA4 /* Sono */,
+				5A629D931500E0B400939DD0 /* SonoTests */,
 				5A0F6AC514FBD48A00D45EA4 /* Frameworks */,
 				5A0F6AC314FBD48A00D45EA4 /* Products */,
 			);
@@ -125,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0F6AC214FBD48A00D45EA4 /* Sono.app */,
+				5A629D8E1500E0B400939DD0 /* SonoTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +159,7 @@
 				5A0F6AC814FBD48A00D45EA4 /* Foundation.framework */,
 				5A0F6ACA14FBD48A00D45EA4 /* CoreGraphics.framework */,
 				5A0F6ACC14FBD48A00D45EA4 /* CoreData.framework */,
+				5A629D8F1500E0B400939DD0 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,6 +240,25 @@
 			name = Controls;
 			sourceTree = "<group>";
 		};
+		5A629D931500E0B400939DD0 /* SonoTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A629D9A1500E0B400939DD0 /* SonoTests.m */,
+				5A629D941500E0B400939DD0 /* Supporting Files */,
+			);
+			path = SonoTests;
+			sourceTree = "<group>";
+		};
+		5A629D941500E0B400939DD0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A629D951500E0B400939DD0 /* SonoTests-Info.plist */,
+				5A629D961500E0B400939DD0 /* InfoPlist.strings */,
+				5A629D9C1500E0B400939DD0 /* SonoTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5A7E1D1D14FE1D2700B93367 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +299,24 @@
 			productReference = 5A0F6AC214FBD48A00D45EA4 /* Sono.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5A629D8D1500E0B400939DD0 /* SonoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A629D9F1500E0B400939DD0 /* Build configuration list for PBXNativeTarget "SonoTests" */;
+			buildPhases = (
+				5A629D891500E0B400939DD0 /* Sources */,
+				5A629D8A1500E0B400939DD0 /* Frameworks */,
+				5A629D8B1500E0B400939DD0 /* Resources */,
+				5A629D8C1500E0B400939DD0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SonoTests;
+			productName = SonoTests;
+			productReference = 5A629D8E1500E0B400939DD0 /* SonoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -278,6 +339,7 @@
 			projectRoot = "";
 			targets = (
 				5A0F6AC114FBD48A00D45EA4 /* Sono */,
+				5A629D8D1500E0B400939DD0 /* SonoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -298,9 +360,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A629D8B1500E0B400939DD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A629D981500E0B400939DD0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5A629D8C1500E0B400939DD0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		5A7E1DDD14FF732800B93367 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,6 +427,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A629D891500E0B400939DD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A629D9B1500E0B400939DD0 /* SonoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -361,6 +452,14 @@
 				5A0F6ADB14FBD48B00D45EA4 /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		5A629D961500E0B400939DD0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A629D971500E0B400939DD0 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -435,6 +534,36 @@
 			};
 			name = Release;
 		};
+		5A629D9D1500E0B400939DD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SonoTests/SonoTests-Prefix.pch";
+				INFOPLIST_FILE = "SonoTests/SonoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5A629D9E1500E0B400939DD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SonoTests/SonoTests-Prefix.pch";
+				INFOPLIST_FILE = "SonoTests/SonoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -455,6 +584,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5A629D9F1500E0B400939DD0 /* Build configuration list for PBXNativeTarget "SonoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A629D9D1500E0B400939DD0 /* Debug */,
+				5A629D9E1500E0B400939DD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
