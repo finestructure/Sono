@@ -17,22 +17,40 @@
 
 
 @interface MasterViewController ()
+
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) NSIndexPath *insertedIndexPath;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
 @end
+
 
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController;
+@synthesize introViewController = _introViewController;
 @synthesize patients = _patients;
+@synthesize masterPopoverController = _masterPopoverController;
 @synthesize insertedIndexPath = _insertedIndexPath;
 
 
 - (void)showIntroViewControllerAnimated:(BOOL)animated {
-  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-  IntroViewController *vc = [sb instantiateViewControllerWithIdentifier:@"IntroViewController"];
-  [self.detailViewController.navigationController pushViewController:vc animated:animated];
+  if (self.introViewController == nil) {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    self.introViewController = [sb instantiateViewControllerWithIdentifier:@"IntroViewController"];
+  }
+  UINavigationController *nc = [self.splitViewController.viewControllers lastObject];
+  nc.viewControllers = [NSArray arrayWithObject:self.introViewController];
+}
+
+
+- (void)hideIntroViewController {
+  if (self.introViewController != nil) {
+    self.introViewController = nil;
+    UINavigationController *nc = [self.splitViewController.viewControllers lastObject];
+    nc.viewControllers = [NSArray arrayWithObject:self.detailViewController];
+  }
 }
 
 
@@ -79,17 +97,35 @@
 
 - (void)insertNewObject:(id)sender
 {
-  // get rid of intro view controller if it's up
-  if ([self.detailViewController.navigationController.topViewController isKindOfClass:[IntroViewController class]]) {
-    [self.detailViewController.navigationController popViewControllerAnimated:NO];
-  }
-  
   Patient *newObject = [[DataStore sharedInstance] insertNewObject:@"Patient"];
   newObject.firstName = @"Neuer";
   newObject.lastName = @"Patient";
 
+  [self hideIntroViewController];
   self.detailViewController.detailItem = newObject;
   [self.detailViewController performSegueWithIdentifier:@"EditPatient" sender:self];
+  if (self.masterPopoverController != nil) {
+    [self.masterPopoverController dismissPopoverAnimated:YES];
+  }        
+}
+
+
+#pragma mark - Split view
+
+
+- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
+{
+  barButtonItem.title = @"Patienten";
+  [self.introViewController.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+  [self.detailViewController.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+  self.masterPopoverController = popoverController;
+}
+
+- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+  [self.introViewController.navigationItem setLeftBarButtonItem:nil animated:YES];
+  [self.detailViewController.navigationItem setLeftBarButtonItem:nil animated:YES];
+  self.masterPopoverController = nil;
 }
 
 
@@ -146,9 +182,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  [self hideIntroViewController];
   Patient *object = [self.patients objectAtIndexPath:indexPath];
   self.detailViewController.detailItem = object;
-  [self.detailViewController.navigationController popToRootViewControllerAnimated:YES];
+  [self.detailViewController.navigationController popToRootViewControllerAnimated:YES];  
+  if (self.masterPopoverController != nil) {
+    [self.masterPopoverController dismissPopoverAnimated:YES];
+  }        
 }
 
 

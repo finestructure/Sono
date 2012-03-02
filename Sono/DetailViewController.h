@@ -10,7 +10,7 @@
 
 #import "Patient.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) Patient *detailItem;
 

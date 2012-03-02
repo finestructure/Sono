@@ -30,7 +30,7 @@
 {
   // Override point for customization after application launch.
   UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-  UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+  UINavigationController *navigationController = [splitViewController.viewControllers objectAtIndex:0];
   splitViewController.delegate = (id)navigationController.topViewController;
   
   [self setAppearance];

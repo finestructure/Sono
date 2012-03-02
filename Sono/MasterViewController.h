@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class DetailViewController;
+@class IntroViewController;
 
 #import <CoreData/CoreData.h>
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+@property (strong, nonatomic) IntroViewController *introViewController;
 @property (strong, nonatomic) NSFetchedResultsController *patients;
 
 
