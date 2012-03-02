@@ -26,6 +26,8 @@
 		5A629D921500E0B400939DD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0F6AC814FBD48A00D45EA4 /* Foundation.framework */; };
 		5A629D981500E0B400939DD0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A629D961500E0B400939DD0 /* InfoPlist.strings */; };
 		5A629D9B1500E0B400939DD0 /* SonoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A629D9A1500E0B400939DD0 /* SonoTests.m */; };
+		5A629DA41500E74300939DD0 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A629DA31500E74300939DD0 /* CSVParser.m */; };
+		5A629DA51500E75800939DD0 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A629DA31500E74300939DD0 /* CSVParser.m */; };
 		5A7E1D0314FCF40C00B93367 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D0214FCF40C00B93367 /* DataStore.m */; };
 		5A7E1D1314FD217500B93367 /* Patient+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D0E14FD196000B93367 /* Patient+Additions.m */; };
 		5A7E1D1C14FD23B100B93367 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1D1B14FD23B100B93367 /* Patient.m */; };
@@ -76,6 +78,8 @@
 		5A629D971500E0B400939DD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A629D9A1500E0B400939DD0 /* SonoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SonoTests.m; sourceTree = "<group>"; };
 		5A629D9C1500E0B400939DD0 /* SonoTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SonoTests-Prefix.pch"; sourceTree = "<group>"; };
+		5A629DA21500E74300939DD0 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
+		5A629DA31500E74300939DD0 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVParser.m; sourceTree = "<group>"; };
 		5A7E1D0114FCF40C00B93367 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
 		5A7E1D0214FCF40C00B93367 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		5A7E1D0D14FD196000B93367 /* Patient+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Patient+Additions.h"; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			children = (
 				5A0F6ACE14FBD48A00D45EA4 /* Sono */,
 				5A629D931500E0B400939DD0 /* SonoTests */,
+				5A629DA11500E74300939DD0 /* Vendor */,
 				5A0F6AC514FBD48A00D45EA4 /* Frameworks */,
 				5A0F6AC314FBD48A00D45EA4 /* Products */,
 			);
@@ -257,6 +262,15 @@
 				5A629D9C1500E0B400939DD0 /* SonoTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A629DA11500E74300939DD0 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				5A629DA21500E74300939DD0 /* CSVParser.h */,
+				5A629DA31500E74300939DD0 /* CSVParser.m */,
+			);
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		5A7E1D1D14FE1D2700B93367 /* View Controllers */ = {
@@ -424,6 +438,7 @@
 				5A7E1DB114FE5FE300B93367 /* Examination+Additions.m in Sources */,
 				5A7E1DB414FE65F700B93367 /* Examination.m in Sources */,
 				5A7E1DF314FFB39D00B93367 /* IntroViewController.m in Sources */,
+				5A629DA41500E74300939DD0 /* CSVParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A629D9B1500E0B400939DD0 /* SonoTests.m in Sources */,
+				5A629DA51500E75800939DD0 /* CSVParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
