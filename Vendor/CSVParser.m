@@ -35,6 +35,7 @@
 @synthesize receiverSelector = _receiverSelector;
 @synthesize endTextCharacterSet = _endTextCharacterSet;
 @synthesize separatorIsSingleChar = _separatorIsSingleChar;
+@synthesize block = _block;
 
 //
 // initWithString:separator:hasHeader:fieldNames:
@@ -99,29 +100,18 @@
 	return result;
 }
 
-//
-// parseRowsForReceiver:selector:
-//
-// Performs a parsing of the csvString, sending the entries, 1 row at a time,
-// to the receiver.
-//
-// Parameters:
-//    aReceiver - the target that will receive each row as it is parsed
-//    aSelector - the selector that will receive each row as it is parsed
-//		(should be a method that takes a single NSDictionary argument)
-//
-- (void)parseRowsForReceiver:(id)aReceiver selector:(SEL)aSelector
-{
-	self.scanner = [[NSScanner alloc] initWithString:self.csvString];
+
+- (void)parseRowsUsingBlock:(void (^)(NSDictionary *record))aBlock {
+  self.scanner = [[NSScanner alloc] initWithString:self.csvString];
 	[self.scanner setCharactersToBeSkipped:[[NSCharacterSet alloc] init]];
-  self.receiver = aReceiver;
-	self.receiverSelector = aSelector;
-	
+  self.block = aBlock;
+  
 	[self parseFile];
 	
 	self.scanner = nil;
-	self.receiver = nil;
+  self.block = nil;
 }
+
 
 //
 // parseFile
@@ -143,7 +133,7 @@
 	}
 	
 	NSMutableArray *records = nil;
-	if (!self.receiver)
+	if (!self.block)
 	{
 		records = [NSMutableArray array];
 	}
@@ -156,23 +146,24 @@
 	
 	while (record)
 	{
-    @autoreleasepool {
-		
-      if (self.receiver)
-      {
-        [self.receiver performSelector:self.receiverSelector withObject:record];
-      }
-      else
-      {
-        [records addObject:record];
-      }
-		
-      if (![self parseLineSeparator])
-      {
-        break;
-      }
-		
-      record = [self parseRecord];
+		@autoreleasepool {
+			
+			if (self.block)
+			{
+				self.block(record);
+			}
+			else
+			{
+				[records addObject:record];
+			}
+			
+			if (![self parseLineSeparator])
+			{
+				break;
+			}
+			
+			record = [self parseRecord];
+			
 		}
 	}
 	

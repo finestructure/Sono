@@ -23,8 +23,9 @@
 
 
 
-@interface CSVParser : NSObject {
-}
+typedef void (^ParseRowsBlock)(NSDictionary *row);
+
+@interface CSVParser : NSObject
 
 @property (nonatomic, strong) NSString *csvString;
 @property (nonatomic, strong) NSString *separator;
@@ -35,7 +36,7 @@
 @property (nonatomic, assign) SEL receiverSelector;
 @property (nonatomic, strong) NSCharacterSet *endTextCharacterSet;
 @property (nonatomic, assign) BOOL separatorIsSingleChar;
-
+@property (nonatomic, strong) ParseRowsBlock block;
 
 - (id)initWithString:(NSString *)aCSVString
     separator:(NSString *)aSeparatorString
@@ -43,7 +44,7 @@
     fieldNames:(NSArray *)names;
 
 - (NSArray *)arrayOfParsedRows;
-- (void)parseRowsForReceiver:(id)aReceiver selector:(SEL)aSelector;
+- (void)parseRowsUsingBlock:(ParseRowsBlock)aBlock;
 
 - (NSArray *)parseFile;
 - (NSMutableArray *)parseHeader;
