@@ -8,7 +8,7 @@ MANIFEST_TEMPLATE = "Resources/sono_manifest.plist"
 INDEX_HTML_TEMPLATE = "Resources/index.html"
 DEV_CERTIFICATE = "iPhone Developer: Sven Schmidt (L686FULC28)"
 PROV_PROFILES_DIR = "/Users/sas/Library/MobileDevice/Provisioning Profiles"
-PROV_PROFILE = "CAAD0DB4-2590-4787-B211-C4057B373A3A.mobileprovision"
+PROV_PROFILE = "CB2C9073-B182-4783-B4EF-A6B609B26018.mobileprovision"
 
 # more constants, probably no need to update
 PROJECT_DIR = Dir.pwd
