@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IntroViewController : UIViewController
+#import "CorePlot-CocoaTouch.h"
+
+
+@interface IntroViewController : UIViewController<CPTPlotDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *vendorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
