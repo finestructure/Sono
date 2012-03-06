@@ -17,12 +17,14 @@ NSString * const kP15 = @"P15";
 NSString * const kP50 = @"P50";
 NSString * const kP85 = @"P85";
 NSString * const kP97 = @"P97";
+NSString * const kUserValue = @"UserValue";
 
 
 @interface WHOPlotViewController ()
 
 @property (assign) CGRect frame;
 @property (nonatomic, strong) NSArray *records;
+@property (nonatomic, strong) CPTScatterPlot *userPlot;
 
 @end
 
@@ -31,6 +33,8 @@ NSString * const kP97 = @"P97";
 
 @synthesize frame = _frame;
 @synthesize records = _records;
+@synthesize userValue = _userValue;
+@synthesize userPlot = _userPlot;
 
 
 #pragma mark - Init
@@ -102,6 +106,16 @@ NSString * const kP97 = @"P97";
 #pragma mark - Workers
 
 
+- (void)setUserValueX:(double)x Y:(double)y
+{
+  self.userValue = [NSArray arrayWithObjects:
+                    [NSDecimalNumber numberWithDouble:x],
+                    [NSDecimalNumber numberWithDouble:y],
+                    nil];
+  [self.userPlot reloadData];
+}
+
+
 - (void)configureGraph:(CPTXYGraph *)graph {
 	CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
   [graph applyTheme:theme];
@@ -165,16 +179,29 @@ NSString * const kP97 = @"P97";
                           [CPTColor colorWithComponentRed:0 green:102/255. blue:51/255. alpha:1], kP50,
                           [CPTColor orangeColor], kP85,
                           [CPTColor redColor], kP97,
+                          [CPTColor blackColor], kUserValue,
                           nil];
   CPTColor *color = [colors objectForKey:identifier];
+
   plot.dataSource = self;
   plot.identifier = identifier;
   
-  // Line style
+  // line style
   CPTMutableLineStyle *lineStyle = [plot.dataLineStyle mutableCopy];
 	lineStyle.lineWidth = 1.5;
   lineStyle.lineColor = color;
   plot.dataLineStyle = lineStyle;
+  
+  // symbol
+  if (identifier == kUserValue) {
+    CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
+    symbolLineStyle.lineColor = [CPTColor blackColor];
+    CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    plotSymbol.fill		 = [CPTFill fillWithColor:[CPTColor lightGrayColor]];
+    plotSymbol.lineStyle = symbolLineStyle;
+    plotSymbol.size		 = CGSizeMake(10.0, 10.0);
+    plot.plotSymbol	 = plotSymbol;
+  }
 }
 
 
@@ -192,11 +219,14 @@ NSString * const kP97 = @"P97";
   [self configurePlotSpace:(CPTXYPlotSpace *)graph.defaultPlotSpace];
   [self configureAxes:(CPTXYAxisSet *)graph.axisSet];
   
-  NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, nil];
+  NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, kUserValue, nil];
   for (NSString *identifier in identifiers) {
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
     [self configurePlot:plot withIdentifier:identifier];
     [graph addPlot:plot];
+    if (identifier == kUserValue) {
+      self.userPlot = plot;
+    }
   }
 }
 
@@ -205,18 +235,37 @@ NSString * const kP97 = @"P97";
 
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-  return self.records.count -1; // skip header row
+  if (plot.identifier == kUserValue) {
+    if (self.userValue != 0) {
+      return 1;
+    } else {
+      return 0;
+    }
+  } else {
+    return self.records.count -1; // skip header row
+  }
 }
 
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index  {
-  NSUInteger recordIndex = index +1; // skip header row
-  if (fieldEnum == CPTCoordinateX) {
-    return [[self.records objectAtIndex:recordIndex] objectForKey:@"Age"];
-  } else if (fieldEnum == CPTCoordinateY) {
-    return [[self.records objectAtIndex:recordIndex] objectForKey:plot.identifier];
+  if (plot.identifier == kUserValue) {
+    if (self.userValue == nil) {
+      return [NSNumber numberWithDouble:NAN];
+    }
+    if (fieldEnum == CPTCoordinateX) {
+      return [self.userValue objectAtIndex:0];
+    } else {
+      return [self.userValue objectAtIndex:1];
+    }
   } else {
-    return [NSNumber numberWithDouble:NAN];
+    NSUInteger recordIndex = index +1; // skip header row
+    if (fieldEnum == CPTCoordinateX) {
+      return [[self.records objectAtIndex:recordIndex] objectForKey:@"Age"];
+    } else if (fieldEnum == CPTCoordinateY) {
+      return [[self.records objectAtIndex:recordIndex] objectForKey:plot.identifier];
+    } else {
+      return [NSNumber numberWithDouble:NAN];
+    }
   }
 }
 

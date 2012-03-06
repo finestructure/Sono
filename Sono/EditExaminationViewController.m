@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) UIPopoverController *popover;
 @property (nonatomic, weak) UIView *popoverTarget;
+@property (nonatomic, strong) WHOPlotViewController *whoController;
 
 @end
 
@@ -37,6 +38,7 @@
 @synthesize boundingBox = _boundingBox;
 @synthesize popover = _popover;
 @synthesize popoverTarget = _popoverTarget;
+@synthesize whoController = _whoController;
 
 
 # pragma mark - Worker
@@ -83,8 +85,8 @@
   float width = 300;
   float height = 200;
   CGRect frame = CGRectMake(0, 0, width, height);
-  WHOPlotViewController *vc = [[WHOPlotViewController alloc] initWithWithFrame:frame];
-  self.popover = [[UIPopoverController alloc] initWithContentViewController:vc];
+  self.whoController = [[WHOPlotViewController alloc] initWithWithFrame:frame];
+  self.popover = [[UIPopoverController alloc] initWithContentViewController:self.whoController];
   self.popover.popoverContentSize = frame.size;
   [self.popover presentPopoverFromRect:self.popoverTarget.frame inView:self.boundingBox permittedArrowDirections:arrowDirection animated:animated];
 }
@@ -106,6 +108,11 @@
 
 - (IBAction)editingChanged:(id)sender {
   [self updateModel];
+  if (sender == self.heightField) {
+    [self.whoController setUserValueX:self.detailItem.ageInDays Y:self.detailItem.height.doubleValue];
+  } else if (sender == self.weightField) {
+    [self.whoController setUserValueX:self.detailItem.ageInDays Y:self.detailItem.weight.doubleValue];
+  }
 }
 
 

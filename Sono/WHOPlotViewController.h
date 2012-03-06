@@ -13,6 +13,9 @@
 
 @interface WHOPlotViewController : UIViewController<CPTPlotDataSource>
 
+@property (nonatomic, strong) NSArray *userValue;
+
 - (id)initWithWithFrame:(CGRect)frame;
+- (void)setUserValueX:(double)x Y:(double)y;
 
 @end
