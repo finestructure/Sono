@@ -28,6 +28,40 @@
 }
 
 
+- (WHOPlotViewController *)heightPlot {
+  static WHOPlotViewController *plot = nil;
+  if (plot) {
+    return plot;
+  }
+  @synchronized(self) {
+    if (! plot) {
+      float width = 300;
+      float height = 200;
+      CGRect frame = CGRectMake(0, 0, width, height);
+      plot = [[WHOPlotViewController alloc] initWithWithFrame:frame];
+    }
+  }
+  return plot;
+}
+
+
+- (WHOPlotViewController *)weightPlot {
+  static WHOPlotViewController *plot = nil;
+  if (plot) {
+    return plot;
+  }
+  @synchronized(self) {
+    if (! plot) {
+      float width = 300;
+      float height = 200;
+      CGRect frame = CGRectMake(0, 0, width, height);
+      plot = [[WHOPlotViewController alloc] initWithWithFrame:frame];
+    }
+  }
+  return plot;
+}
+
+
 - (NSString *)shortDate:(NSDate *)date {
   static NSDateFormatter *dateFormatter = nil;
   if (dateFormatter == nil) {

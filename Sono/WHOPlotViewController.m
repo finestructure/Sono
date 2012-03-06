@@ -39,12 +39,8 @@ NSString * const kUserValue = @"UserValue";
 
 #pragma mark - Init
 
-
-- (id)initWithWithFrame:(CGRect)frame
-{
-  self = [super init];
-  if (self) {
-    self.frame = frame;
+- (void)initInBackground {
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"wfa_boys_p_exp" withExtension:@"txt"];
     NSAssert(url != nil, @"url must not be nil");
     NSError *error = nil;
@@ -67,11 +63,22 @@ NSString * const kUserValue = @"UserValue";
           [records addObject:values];
         }
       }
-
+      
       self.records = records;
     } else {
       NSLog(@"Warning: no data for WHO plot");
     }
+  });
+}
+
+
+- (id)initWithWithFrame:(CGRect)frame
+{
+  self = [super init];
+  if (self) {
+    self.frame = frame;
+    self.records = [NSArray array];
+    [self initInBackground];
   }
   return self;
 }

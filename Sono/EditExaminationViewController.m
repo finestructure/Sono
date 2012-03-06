@@ -176,15 +176,10 @@
   Patient *patient = self.detailItem.patient;
   self.patientDescriptionLabel.text = [NSString stringWithFormat:@"%@, geboren am %@", patient.fullName, [[Utils sharedInstance] shortDate:patient.birthDate]];
 
-  {
-    float width = 300;
-    float height = 200;
-    CGRect frame = CGRectMake(0, 0, width, height);
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-      self.weightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame];
-      self.heightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame];
-    });
-  }
+  self.weightPlot = [[Utils sharedInstance] weightPlot];
+  self.weightPlot.userValue = nil;
+  self.heightPlot = [[Utils sharedInstance] heightPlot];
+  self.heightPlot.userValue = nil;
 
   [self configureView];
 }
