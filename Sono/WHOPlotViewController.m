@@ -9,11 +9,13 @@
 #import "WHOPlotViewController.h"
 
 #import "Constants.h"
+#import "CSVParser.h"
 
 
 @interface WHOPlotViewController ()
 
 @property (assign) CGRect frame;
+@property (nonatomic, strong) NSArray *records;
 
 @end
 
@@ -21,6 +23,7 @@
 @implementation WHOPlotViewController
 
 @synthesize frame = _frame;
+@synthesize records = _records;
 
 
 #pragma mark - Init
@@ -31,6 +34,16 @@
   self = [super init];
   if (self) {
     self.frame = frame;
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"wfa_boys_p_exp" withExtension:@"txt"];
+    NSAssert(url != nil, @"url must not be nil");
+    NSError *error = nil;
+    NSString *data = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (error == nil) {
+      CSVParser *parser = [[CSVParser alloc] initWithString:data separator:@"\t" hasHeader:YES fieldNames:nil];
+      self.records = [parser arrayOfParsedRows];
+    } else {
+      NSLog(@"Warning: no data for WHO plot");
+    }
   }
   return self;
 }
@@ -84,8 +97,8 @@
 
 - (void)configurePlotSpace:(CPTXYPlotSpace *)plotSpace {
   plotSpace.allowsUserInteraction = YES;
-  plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(10)];
-  plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(15)];
+  plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(2000)];
+  plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(20)];
 }
 
 
@@ -103,14 +116,14 @@
   
   {
     CPTXYAxis *x = axisSet.xAxis;
-    x.majorIntervalLength = CPTDecimalFromInt(5);
-    x.minorTicksPerInterval = 1;
+    x.majorIntervalLength = CPTDecimalFromInt(500);
+    x.minorTicksPerInterval = 10;
     x.majorGridLineStyle = gridLineStyle;
   }
   {
     CPTXYAxis *y = axisSet.yAxis;
     y.majorIntervalLength = CPTDecimalFromInt(5);
-    y.minorTicksPerInterval = 1;
+    y.minorTicksPerInterval = 0;
     y.majorGridLineStyle = gridLineStyle;
   }
 }
@@ -140,27 +153,18 @@
 
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-  return 10;
+  return self.records.count -1; // skip header row
 }
 
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index  {
-  NSArray *data = [NSArray arrayWithObjects:
-                   [NSNumber numberWithInt:1],
-                   [NSNumber numberWithInt:3],
-                   [NSNumber numberWithInt:2],
-                   [NSNumber numberWithInt:4],
-                   [NSNumber numberWithInt:6],
-                   [NSNumber numberWithInt:5],
-                   [NSNumber numberWithInt:7],
-                   [NSNumber numberWithInt:8],
-                   [NSNumber numberWithInt:9],
-                   [NSNumber numberWithInt:6],
-                   nil];
+  NSUInteger recordIndex = index +1; // skip header row
   if (fieldEnum == CPTCoordinateX) {
-    return [NSNumber numberWithInt:index];
+    NSString *value = [[self.records objectAtIndex:recordIndex] objectForKey:@"Age"];
+    return [NSDecimalNumber decimalNumberWithString:value];
   } else {
-    return [data objectAtIndex:index];
+    NSString *value = [[self.records objectAtIndex:recordIndex] objectForKey:@"P50"];
+    return [NSDecimalNumber decimalNumberWithString:value];
   }
 }
 

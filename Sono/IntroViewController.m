@@ -44,8 +44,9 @@
   self.versionLabel.textColor = [[Constants sharedInstance] color4];
   
   float fullwidth = self.view.frame.size.width;
-  float width = 400;
-  CGRect frame = CGRectMake(fullwidth/2 - width/2, 300, width, 300);
+  float width = 600;
+  float height = 400;
+  CGRect frame = CGRectMake(fullwidth/2 - width/2, 300, width, height);
   self.plotViewController = [[WHOPlotViewController alloc] initWithWithFrame:frame];
   [self.view addSubview:self.plotViewController.view];
 }
