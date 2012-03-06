@@ -56,6 +56,7 @@
 		5A7E1DF314FFB39D00B93367 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1DF214FFB39D00B93367 /* IntroViewController.m */; };
 		5A7E1DF51500CB5E00B93367 /* app_icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E1DF41500CB5E00B93367 /* app_icon-72.png */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
+		5AFF0A4A15051D7D001B3615 /* WHOPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +206,8 @@
 		5A7E1DF41500CB5E00B93367 /* app_icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app_icon-72.png"; path = "Resources/app_icon-72.png"; sourceTree = SOURCE_ROOT; };
 		5A86032E14FBF16300BD64E1 /* EditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPatientViewController.h; sourceTree = "<group>"; };
 		5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPatientViewController.m; sourceTree = "<group>"; };
+		5AFF0A4815051D7D001B3615 /* WHOPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHOPlotViewController.h; sourceTree = "<group>"; };
+		5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHOPlotViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +482,8 @@
 				5A7E1DAD14FE59D500B93367 /* EditExaminationViewController.m */,
 				5A7E1DF114FFB39D00B93367 /* IntroViewController.h */,
 				5A7E1DF214FFB39D00B93367 /* IntroViewController.m */,
+				5AFF0A4815051D7D001B3615 /* WHOPlotViewController.h */,
+				5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -638,6 +643,7 @@
 				5A7E1DB414FE65F700B93367 /* Examination.m in Sources */,
 				5A7E1DF314FFB39D00B93367 /* IntroViewController.m in Sources */,
 				5A629DA41500E74300939DD0 /* CSVParser.m in Sources */,
+				5AFF0A4A15051D7D001B3615 /* WHOPlotViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +823,7 @@
 				5A629D9E1500E0B400939DD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
