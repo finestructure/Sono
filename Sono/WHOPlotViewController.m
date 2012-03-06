@@ -47,7 +47,24 @@ NSString * const kP97 = @"P97";
     NSString *data = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     if (error == nil) {
       CSVParser *parser = [[CSVParser alloc] initWithString:data separator:@"\t" hasHeader:YES fieldNames:nil];
-      self.records = [parser arrayOfParsedRows];
+      NSArray *rows = [parser arrayOfParsedRows];
+      NSMutableArray *records = [NSMutableArray array];
+      NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, nil];
+      int filter = 50;
+      
+      for (NSDictionary *row in rows) {
+        NSDecimalNumber *x = [row objectForKey:@"Age"];
+        int int_x = x.doubleValue / filter;
+        if (fabs(int_x * filter - x.doubleValue) < 0.1) {
+          NSMutableDictionary *values = [NSMutableDictionary dictionaryWithObject:x forKey:@"Age"];
+          for (NSString *identifier in identifiers) {
+            [values setObject:[NSDecimalNumber decimalNumberWithString:[row objectForKey:identifier]] forKey:identifier];
+          }
+          [records addObject:values];
+        }
+      }
+
+      self.records = records;
     } else {
       NSLog(@"Warning: no data for WHO plot");
     }
@@ -195,11 +212,9 @@ NSString * const kP97 = @"P97";
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index  {
   NSUInteger recordIndex = index +1; // skip header row
   if (fieldEnum == CPTCoordinateX) {
-    NSString *value = [[self.records objectAtIndex:recordIndex] objectForKey:@"Age"];
-    return [NSDecimalNumber decimalNumberWithString:value];
+    return [[self.records objectAtIndex:recordIndex] objectForKey:@"Age"];
   } else if (fieldEnum == CPTCoordinateY) {
-    NSString *value = [[self.records objectAtIndex:recordIndex] objectForKey:plot.identifier];
-    return [NSDecimalNumber decimalNumberWithString:value];
+    return [[self.records objectAtIndex:recordIndex] objectForKey:plot.identifier];
   } else {
     return [NSNumber numberWithDouble:NAN];
   }
