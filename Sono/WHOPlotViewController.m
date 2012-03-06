@@ -12,6 +12,13 @@
 #import "CSVParser.h"
 
 
+NSString * const kP3 = @"P3";
+NSString * const kP15 = @"P15";
+NSString * const kP50 = @"P50";
+NSString * const kP85 = @"P85";
+NSString * const kP97 = @"P97";
+
+
 @interface WHOPlotViewController ()
 
 @property (assign) CGRect frame;
@@ -98,7 +105,7 @@
 - (void)configurePlotSpace:(CPTXYPlotSpace *)plotSpace {
   plotSpace.allowsUserInteraction = YES;
   plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(2000)];
-  plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(20)];
+  plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(25)];
 }
 
 
@@ -147,9 +154,13 @@
   [self configurePlotSpace:(CPTXYPlotSpace *)graph.defaultPlotSpace];
   [self configureAxes:(CPTXYAxisSet *)graph.axisSet];
   
-  CPTScatterPlot *plot1 = [[CPTScatterPlot alloc] init];
-  plot1.dataSource = self;
-  [graph addPlot:plot1];
+  NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, nil];
+  for (NSString *identifier in identifiers) {
+    CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
+    plot.dataSource = self;
+    plot.identifier = identifier;
+    [graph addPlot:plot];
+  }
 }
 
 
@@ -166,9 +177,11 @@
   if (fieldEnum == CPTCoordinateX) {
     NSString *value = [[self.records objectAtIndex:recordIndex] objectForKey:@"Age"];
     return [NSDecimalNumber decimalNumberWithString:value];
-  } else {
-    NSString *value = [[self.records objectAtIndex:recordIndex] objectForKey:@"P50"];
+  } else if (fieldEnum == CPTCoordinateY) {
+    NSString *value = [[self.records objectAtIndex:recordIndex] objectForKey:plot.identifier];
     return [NSDecimalNumber decimalNumberWithString:value];
+  } else {
+    return [NSNumber numberWithDouble:NAN];
   }
 }
 
