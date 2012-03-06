@@ -8,11 +8,28 @@
 
 #import "Constants.h"
 
+#import "CSVParser.h"
+
 
 NSString * const kValidationErrorDomain = @"Validierungsfehler";
+NSString * const kWhoWeightGirls = @"WhoWeightGirls";
+NSString * const kWhoHeightGirls = @"WhoHeightGirls";
+NSString * const kWhoWeightBoys = @"WhoWeightBoys";
+NSString * const kWhoHeightBoys = @"WhoHeightBoys";
+
+
+@interface Constants () {
+  dispatch_queue_t whoDataSerialQueue;
+}
+
+@property (strong) NSMutableDictionary *whoData;
+
+@end
 
 
 @implementation Constants
+
+@synthesize whoData = _whoData;
 
 
 + (Constants *)sharedInstance {
@@ -29,6 +46,56 @@ NSString * const kValidationErrorDomain = @"Validierungsfehler";
     
     return sharedInstance;
   }
+}
+
+
+- (NSArray *)parseDataForResource:(NSString *)resource {
+  NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"txt"];
+  
+  if (url == nil) {
+    return nil;
+  }
+  
+  NSError *error = nil;
+  NSString *data = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+  if (error == nil) {
+    CSVParser *parser = [[CSVParser alloc] initWithString:data separator:@"\t" hasHeader:YES fieldNames:nil];
+    NSArray *rows = [parser arrayOfParsedRows];
+    return rows;
+  } else {
+    return nil;
+  }
+}
+
+
+- (id)init {
+  self = [super init];
+  if (self) {
+    whoDataSerialQueue = dispatch_queue_create("de.abstracture.Sono.whoDataSerialQueue", NULL);
+    self.whoData = [NSMutableDictionary dictionary];
+    
+    NSDictionary *resourceMap = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 @"lfa_boys_p_exp", kWhoHeightBoys,
+                                 @"lfa_girls_p_exp", kWhoHeightGirls,
+                                 @"wfa_boys_p_exp", kWhoWeightBoys,
+                                 @"wfa_girls_p_exp", kWhoWeightGirls,
+                                 nil];
+    [resourceMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *resource = obj;
+        NSArray *rows = [self parseDataForResource:resource];
+        dispatch_async(whoDataSerialQueue, ^{
+          [self.whoData setObject:rows forKey:key];
+        });
+      });
+    }];
+  }
+  return self;
+}
+
+
+- (void)dealloc {
+  dispatch_release(whoDataSerialQueue);
 }
 
 
@@ -127,6 +194,26 @@ NSString * const kValidationErrorDomain = @"Validierungsfehler";
   }
   
   return values;
+}
+
+
+- (NSArray *)whoData:(NSString *)dataSet {
+  __block NSArray *result = nil;
+  
+  dispatch_sync(whoDataSerialQueue, ^{
+    result = [self.whoData objectForKey:dataSet];
+  });
+
+  while (result == nil) {
+    NSLog(@"no value...");
+    // keep polling until there's a value
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+      dispatch_sync(whoDataSerialQueue, ^{
+        result = [self.whoData objectForKey:dataSet];
+      });
+    });
+  }
+  return result;
 }
 
 

@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const kValidationErrorDomain;
+extern NSString * const kWhoWeightGirls;
+extern NSString * const kWhoHeightGirls;
+extern NSString * const kWhoWeightBoys;
+extern NSString * const kWhoHeightBoys;
 
 
 @interface Constants : NSObject
@@ -23,5 +27,7 @@ extern NSString * const kValidationErrorDomain;
 @property (readonly) UIColor *color5;
 
 + (Constants *)sharedInstance;
+
+- (NSArray *)whoData:(NSString *)dataSet;
 
 @end
