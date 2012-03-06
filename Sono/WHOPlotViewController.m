@@ -119,12 +119,16 @@
     x.majorIntervalLength = CPTDecimalFromInt(500);
     x.minorTicksPerInterval = 10;
     x.majorGridLineStyle = gridLineStyle;
+    x.labelFormatter = [[NSNumberFormatter alloc] init];
+    [x.labelFormatter setMaximumFractionDigits:0];
   }
   {
     CPTXYAxis *y = axisSet.yAxis;
     y.majorIntervalLength = CPTDecimalFromInt(5);
     y.minorTicksPerInterval = 0;
     y.majorGridLineStyle = gridLineStyle;
+    y.labelFormatter = [[NSNumberFormatter alloc] init];
+    [y.labelFormatter setMaximumFractionDigits:0];
   }
 }
 
