@@ -12,10 +12,17 @@
 #import "Examination.h"
 #import "Examination+Additions.h"
 #import "Patient+Additions.h"
+#import "RoundedView.h"
+#import "WHOPlotViewController.h"
+
 
 @interface EditExaminationViewController ()
 
+@property (nonatomic, strong) UIPopoverController *popover;
+@property (nonatomic, weak) UIView *popoverTarget;
+
 @end
+
 
 @implementation EditExaminationViewController
 
@@ -27,6 +34,9 @@
 @synthesize weightField = _weightField;
 @synthesize examinerField = _examinerField;
 @synthesize locationField = _locationField;
+@synthesize boundingBox = _boundingBox;
+@synthesize popover = _popover;
+@synthesize popoverTarget = _popoverTarget;
 
 
 # pragma mark - Worker
@@ -52,6 +62,34 @@
 }
 
 
+- (void)showPopoverAnimated:(BOOL)animated
+{
+  int arrowDirection = UIPopoverArrowDirectionLeft;
+  NSLog(@"orientation: %d", [[UIDevice currentDevice] orientation]);
+  
+  switch ([[UIDevice currentDevice] orientation]) {
+    case UIDeviceOrientationLandscapeLeft:
+    case UIDeviceOrientationLandscapeRight:
+      arrowDirection = UIPopoverArrowDirectionLeft;
+      break;
+    case UIDeviceOrientationPortrait:
+    case UIDeviceOrientationPortraitUpsideDown:
+      arrowDirection = UIPopoverArrowDirectionLeft;
+      break;
+    default:
+      break;
+  }
+
+  float width = 300;
+  float height = 200;
+  CGRect frame = CGRectMake(0, 0, width, height);
+  WHOPlotViewController *vc = [[WHOPlotViewController alloc] initWithWithFrame:frame];
+  self.popover = [[UIPopoverController alloc] initWithContentViewController:vc];
+  self.popover.popoverContentSize = frame.size;
+  [self.popover presentPopoverFromRect:self.popoverTarget.frame inView:self.boundingBox permittedArrowDirections:arrowDirection animated:animated];
+}
+
+
 #pragma mark - Actions
 
 
@@ -68,6 +106,12 @@
 
 - (IBAction)editingChanged:(id)sender {
   [self updateModel];
+}
+
+
+- (IBAction)editingDidBegin:(id)sender {
+  self.popoverTarget = sender;
+  [self showPopoverAnimated:YES];
 }
 
 
@@ -131,6 +175,7 @@
   [self setExaminerField:nil];
   [self setLocationField:nil];
   [self setPatientDescriptionLabel:nil];
+  [self setBoundingBox:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
@@ -147,6 +192,15 @@
 - (void)dateDropDown:(DateDropDown *)dateDropDown didSelectDate:(NSDate *)date {
   self.detailItem.examinationDate = date;
   [self configureView];
+}
+
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+  if (self.popover != nil) {
+    [self.popover dismissPopoverAnimated:NO];
+    [self showPopoverAnimated:NO];
+  }
 }
 
 

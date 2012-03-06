@@ -898,6 +898,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="editingChanged:" destination="uen-Yu-Fol" eventType="editingChanged" id="Sqq-EJ-6Hi"/>
+                                            <action selector="editingDidBegin:" destination="uen-Yu-Fol" eventType="editingDidBegin" id="37S-7b-LLe"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="q6h-o7-kWV">
@@ -908,6 +909,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="editingChanged:" destination="uen-Yu-Fol" eventType="editingChanged" id="Rgp-YN-pe6"/>
+                                            <action selector="editingDidBegin:" destination="uen-Yu-Fol" eventType="editingDidBegin" id="BgC-gO-YxE"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="B6n-pa-9yc">
@@ -981,6 +983,7 @@
                     <navigationItem key="navigationItem" title="Untersuchung bearbeiten" id="8oF-zv-VEn"/>
                     <connections>
                         <outlet property="ageLabel" destination="HM5-eR-SSt" id="Kel-ih-Sdn"/>
+                        <outlet property="boundingBox" destination="Bdf-zu-yjY" id="Ukt-EM-EBq"/>
                         <outlet property="examinationDatePicker" destination="8Bb-CN-1V2" id="gLZ-EH-ECJ"/>
                         <outlet property="examinerField" destination="B6n-pa-9yc" id="Xjo-da-7EV"/>
                         <outlet property="heightField" destination="GcS-OR-LvP" id="0Um-a0-Npa"/>
@@ -1097,8 +1100,10 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditExaminationViewController.h"/>
             <relationships>
                 <relationship kind="action" name="editingChanged:"/>
+                <relationship kind="action" name="editingDidBegin:"/>
                 <relationship kind="action" name="saveButtonPressed:"/>
                 <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="boundingBox" candidateClass="RoundedView"/>
                 <relationship kind="outlet" name="examinationDatePicker" candidateClass="DateDropDown"/>
                 <relationship kind="outlet" name="examinerField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="heightField" candidateClass="UITextField"/>

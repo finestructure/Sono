@@ -11,6 +11,7 @@
 #import "DateDropDown.h"
 
 @class Examination;
+@class RoundedView;
 
 
 @interface EditExaminationViewController : UIViewController<DateDropdownDelegate>
@@ -24,9 +25,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *weightField;
 @property (weak, nonatomic) IBOutlet UITextField *examinerField;
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
+@property (weak, nonatomic) IBOutlet RoundedView *boundingBox;
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (void)backButtonPressed:(id)sender;
 - (IBAction)editingChanged:(id)sender;
+- (IBAction)editingDidBegin:(id)sender;
 
 @end
