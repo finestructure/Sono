@@ -140,6 +140,27 @@ NSString * const kP97 = @"P97";
 }
 
 
+- (void)configurePlot:(CPTScatterPlot *)plot withIdentifier:(NSString *)identifier
+{
+  NSDictionary *colors = [NSDictionary dictionaryWithObjectsAndKeys:
+                          [CPTColor redColor], kP3,
+                          [CPTColor orangeColor], kP15,
+                          [CPTColor colorWithComponentRed:0 green:102/255. blue:51/255. alpha:1], kP50,
+                          [CPTColor orangeColor], kP85,
+                          [CPTColor redColor], kP97,
+                          nil];
+  CPTColor *color = [colors objectForKey:identifier];
+  plot.dataSource = self;
+  plot.identifier = identifier;
+  
+  // Line style
+  CPTMutableLineStyle *lineStyle = [plot.dataLineStyle mutableCopy];
+	lineStyle.lineWidth = 1.5;
+  lineStyle.lineColor = color;
+  plot.dataLineStyle = lineStyle;
+}
+
+
 - (void)createGraph {
   CPTGraphHostingView *gv = [[CPTGraphHostingView alloc] init];
   gv.frame = self.view.bounds;
@@ -157,8 +178,7 @@ NSString * const kP97 = @"P97";
   NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, nil];
   for (NSString *identifier in identifiers) {
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
-    plot.dataSource = self;
-    plot.identifier = identifier;
+    [self configurePlot:plot withIdentifier:identifier];
     [graph addPlot:plot];
   }
 }
