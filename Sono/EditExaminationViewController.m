@@ -20,7 +20,8 @@
 
 @property (nonatomic, strong) UIPopoverController *popover;
 @property (nonatomic, weak) UIView *popoverTarget;
-@property (nonatomic, strong) WHOPlotViewController *whoController;
+@property (nonatomic, strong) WHOPlotViewController *weightPlot;
+@property (nonatomic, strong) WHOPlotViewController *heightPlot;
 
 @end
 
@@ -38,7 +39,8 @@
 @synthesize boundingBox = _boundingBox;
 @synthesize popover = _popover;
 @synthesize popoverTarget = _popoverTarget;
-@synthesize whoController = _whoController;
+@synthesize weightPlot = _weightPlot;
+@synthesize heightPlot = _heightPlot;
 
 
 # pragma mark - Worker
@@ -82,12 +84,17 @@
       break;
   }
 
-  float width = 300;
-  float height = 200;
-  CGRect frame = CGRectMake(0, 0, width, height);
-  self.whoController = [[WHOPlotViewController alloc] initWithWithFrame:frame];
-  self.popover = [[UIPopoverController alloc] initWithContentViewController:self.whoController];
-  self.popover.popoverContentSize = frame.size;
+  if (self.popoverTarget == self.heightField) {
+    if (self.heightPlot != nil) {
+      self.popover = [[UIPopoverController alloc] initWithContentViewController:self.heightPlot];
+      self.popover.popoverContentSize = self.heightPlot.view.frame.size;
+    }
+  } else {
+    if (self.weightPlot != nil) {
+      self.popover = [[UIPopoverController alloc] initWithContentViewController:self.weightPlot];
+      self.popover.popoverContentSize = self.weightPlot.view.frame.size;
+    }
+  }
   [self.popover presentPopoverFromRect:self.popoverTarget.frame inView:self.boundingBox permittedArrowDirections:arrowDirection animated:animated];
 }
 
@@ -109,9 +116,9 @@
 - (IBAction)editingChanged:(id)sender {
   [self updateModel];
   if (sender == self.heightField) {
-    [self.whoController setUserValueX:self.detailItem.ageInDays Y:self.detailItem.height.doubleValue];
+    [self.heightPlot setUserValueX:self.detailItem.ageInDays Y:self.detailItem.height.doubleValue];
   } else if (sender == self.weightField) {
-    [self.whoController setUserValueX:self.detailItem.ageInDays Y:self.detailItem.weight.doubleValue];
+    [self.weightPlot setUserValueX:self.detailItem.ageInDays Y:self.detailItem.weight.doubleValue];
   }
 }
 
@@ -168,6 +175,16 @@
   
   Patient *patient = self.detailItem.patient;
   self.patientDescriptionLabel.text = [NSString stringWithFormat:@"%@, geboren am %@", patient.fullName, [[Utils sharedInstance] shortDate:patient.birthDate]];
+
+  {
+    float width = 300;
+    float height = 200;
+    CGRect frame = CGRectMake(0, 0, width, height);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+      self.weightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame];
+      self.heightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame];
+    });
+  }
 
   [self configureView];
 }
