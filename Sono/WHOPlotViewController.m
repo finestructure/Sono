@@ -242,7 +242,7 @@ NSString * const kUserValue = @"UserValue";
       return 0;
     }
   } else {
-    return self.records.count -1; // skip header row
+    return self.records.count;
   }
 }
 
@@ -258,11 +258,10 @@ NSString * const kUserValue = @"UserValue";
       return [self.userValue objectAtIndex:1];
     }
   } else {
-    NSUInteger recordIndex = index +1; // skip header row
     if (fieldEnum == CPTCoordinateX) {
-      return [[self.records objectAtIndex:recordIndex] objectForKey:@"Age"];
+      return [[self.records objectAtIndex:index] objectForKey:@"Age"];
     } else if (fieldEnum == CPTCoordinateY) {
-      return [[self.records objectAtIndex:recordIndex] objectForKey:plot.identifier];
+      return [[self.records objectAtIndex:index] objectForKey:plot.identifier];
     } else {
       return [NSNumber numberWithDouble:NAN];
     }
