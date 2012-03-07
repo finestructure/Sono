@@ -67,7 +67,7 @@ NSString * const kUserValue = @"UserValue";
       NSDecimalNumber *x = [row objectForKey:xKey];
       int int_x = x.doubleValue / filter;
       if (fabs(int_x * filter - x.doubleValue) < 0.1) {
-        NSMutableDictionary *values = [NSMutableDictionary dictionaryWithObject:x forKey:xKey];
+        NSMutableDictionary *values = [NSMutableDictionary dictionaryWithObject:x forKey:@"x"];
         for (NSString *identifier in identifiers) {
           [values setObject:[NSDecimalNumber decimalNumberWithString:[row objectForKey:identifier]] forKey:identifier];
         }
@@ -151,8 +151,17 @@ NSString * const kUserValue = @"UserValue";
 
 - (void)configurePlotSpace:(CPTXYPlotSpace *)plotSpace {
   plotSpace.allowsUserInteraction = YES;
-  plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(500)];
-  plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(15)];
+  float xMax, yMin, yMax;
+  xMax = 400;
+  if (self.dataSet == kWhoHeightBoys || self.dataSet == kWhoHeightGirls) {
+    yMin = 40;
+    yMax = 80;
+  } else {
+    yMin = 0;
+    yMax = 10;
+  }
+  plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(xMax)];
+  plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax-yMin)];
 }
 
 
@@ -170,7 +179,7 @@ NSString * const kUserValue = @"UserValue";
   
   {
     CPTXYAxis *x = axisSet.xAxis;
-    x.majorIntervalLength = CPTDecimalFromInt(500);
+    x.majorIntervalLength = CPTDecimalFromInt(100);
     x.minorTicksPerInterval = 10;
     x.majorGridLineStyle = gridLineStyle;
     x.labelFormatter = [[NSNumberFormatter alloc] init];
@@ -275,7 +284,7 @@ NSString * const kUserValue = @"UserValue";
     }
   } else {
     if (fieldEnum == CPTCoordinateX) {
-      return [[self.records objectAtIndex:index] objectForKey:@"Age"];
+      return [[self.records objectAtIndex:index] objectForKey:@"x"];
     } else if (fieldEnum == CPTCoordinateY) {
       return [[self.records objectAtIndex:index] objectForKey:plot.identifier];
     } else {
