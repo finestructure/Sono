@@ -183,9 +183,9 @@
   CGRect frame = CGRectMake(0, 0, width, height);
 
   self.weightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame dataSet:kWhoWeightBoys];
-  self.weightPlot.userValue = nil;
+  [self.weightPlot setUserValueX:self.detailItem.ageInDays Y:self.detailItem.weight.doubleValue];
   self.heightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame dataSet:kWhoHeightBoys];
-  self.heightPlot.userValue = nil;
+  [self.heightPlot setUserValueX:self.detailItem.ageInDays Y:self.detailItem.height.doubleValue];
 
   [self configureView];
 }
