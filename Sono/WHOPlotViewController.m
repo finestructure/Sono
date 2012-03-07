@@ -31,6 +31,7 @@ NSString * const kUserValue = @"UserValue";
 
 @implementation WHOPlotViewController
 
+@synthesize dataSet = _dataSet;
 @synthesize frame = _frame;
 @synthesize records = _records;
 @synthesize userValue = _userValue;
@@ -41,42 +42,50 @@ NSString * const kUserValue = @"UserValue";
 
 - (void)initInBackground {
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"wfa_boys_p_exp" withExtension:@"txt"];
-    NSAssert(url != nil, @"url must not be nil");
-    NSError *error = nil;
-    NSString *data = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
-    if (error == nil) {
-      CSVParser *parser = [[CSVParser alloc] initWithString:data separator:@"\t" hasHeader:YES fieldNames:nil];
-      NSArray *rows = [parser arrayOfParsedRows];
-      NSMutableArray *records = [NSMutableArray array];
-      NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, nil];
-      int filter = 50;
+    NSArray *rows = [[Constants sharedInstance] whoData:self.dataSet];
+    NSMutableArray *records = [NSMutableArray array];
+    NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, nil];
+    int filter = 50;
+    
+    __block NSString *xKey = nil;
       
-      for (NSDictionary *row in rows) {
-        NSDecimalNumber *x = [row objectForKey:@"Age"];
-        int int_x = x.doubleValue / filter;
-        if (fabs(int_x * filter - x.doubleValue) < 0.1) {
-          NSMutableDictionary *values = [NSMutableDictionary dictionaryWithObject:x forKey:@"Age"];
-          for (NSString *identifier in identifiers) {
-            [values setObject:[NSDecimalNumber decimalNumberWithString:[row objectForKey:identifier]] forKey:identifier];
+    for (NSDictionary *row in rows) {
+      if (xKey == nil) {
+        // try to find the x column in the header row
+        [[NSArray arrayWithObjects:@"Age", @"Day", nil]
+         enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+          if ([row objectForKey:obj] != nil) {
+            xKey = obj;
+            *stop = YES;
           }
-          [records addObject:values];
+        }];
+        if (xKey == nil) {
+          break;
         }
       }
-      
-      self.records = records;
-    } else {
-      NSLog(@"Warning: no data for WHO plot");
+        
+      NSDecimalNumber *x = [row objectForKey:xKey];
+      int int_x = x.doubleValue / filter;
+      if (fabs(int_x * filter - x.doubleValue) < 0.1) {
+        NSMutableDictionary *values = [NSMutableDictionary dictionaryWithObject:x forKey:xKey];
+        for (NSString *identifier in identifiers) {
+          [values setObject:[NSDecimalNumber decimalNumberWithString:[row objectForKey:identifier]] forKey:identifier];
+        }
+        [records addObject:values];
+      }
     }
+    
+    self.records = records;
   });
 }
 
 
-- (id)initWithWithFrame:(CGRect)frame
+- (id)initWithWithFrame:(CGRect)frame dataSet:(NSString *)dataSet
 {
   self = [super init];
   if (self) {
     self.frame = frame;
+    self.dataSet = dataSet;
     self.records = [NSArray array];
     [self initInBackground];
   }

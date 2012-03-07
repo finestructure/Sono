@@ -7,6 +7,8 @@
 //
 
 #import "EditExaminationViewController.h"
+
+#import "Constants.h"
 #import "DataStore.h"
 #import "Utils.h"
 #import "Examination.h"
@@ -176,9 +178,13 @@
   Patient *patient = self.detailItem.patient;
   self.patientDescriptionLabel.text = [NSString stringWithFormat:@"%@, geboren am %@", patient.fullName, [[Utils sharedInstance] shortDate:patient.birthDate]];
 
-  self.weightPlot = [[Utils sharedInstance] weightPlot];
+  float width = 300;
+  float height = 200;
+  CGRect frame = CGRectMake(0, 0, width, height);
+
+  self.weightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame dataSet:kWhoWeightBoys];
   self.weightPlot.userValue = nil;
-  self.heightPlot = [[Utils sharedInstance] heightPlot];
+  self.heightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame dataSet:kWhoHeightBoys];
   self.heightPlot.userValue = nil;
 
   [self configureView];

@@ -8,16 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "WHOPlotViewController.h"
-
 
 @interface Utils : NSObject
 
 
 + (Utils *)sharedInstance;
-
-@property (readonly) WHOPlotViewController *heightPlot;
-@property (readonly) WHOPlotViewController *weightPlot;
 
 - (NSString *)shortDate:(NSDate *)date;
 - (NSString *)mediumDate:(NSDate *)date;
