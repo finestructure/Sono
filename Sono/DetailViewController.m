@@ -115,17 +115,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+  NSLog(@"segue %@", segue.identifier);
 	if ([segue.identifier isEqualToString:@"EditPatient"]) {
-    NSLog(@"segue EditPatient");
     EditPatientViewController *vc = segue.destinationViewController;
     vc.detailItem = self.detailItem;
-  } else if ([segue.identifier isEqualToString:@"ShowExamination"]) {
-    NSLog(@"segue ShowExamination");
+  } else if ([segue.identifier isEqualToString:@"ShowExamination"] ||
+             [segue.identifier isEqualToString:@"EditExamination"]) {
     ExaminationViewController *vc = segue.destinationViewController;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     vc.detailItem = [self.detailItem.examinations objectAtIndex:indexPath.row];
   } else if ([segue.identifier isEqualToString:@"NewExamination"]) {
-    NSLog(@"segue NewExamination");
     Examination *newObject = [[DataStore sharedInstance] insertNewObject:@"Examination"];
     newObject.examinationDate = [NSDate date];
     [self.detailItem addExaminationsObject:newObject];
