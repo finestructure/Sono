@@ -13,6 +13,7 @@
 #import "Utils.h"
 #import "Examination.h"
 #import "Examination+Additions.h"
+#import "ExaminationViewController.h"
 #import "Patient+Additions.h"
 #import "RoundedView.h"
 #import "WHOPlotViewController.h"
@@ -61,7 +62,22 @@
   
   NSError *error = nil;
   if ([[DataStore sharedInstance] saveContext:&error]) {
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
+    NSMutableArray *vcs = [self.navigationController.viewControllers mutableCopy];
+    [vcs removeLastObject];
+    if ([[vcs lastObject] isKindOfClass:[ExaminationViewController class]]) {
+      // if the top of the stack is an examination vc, just pop to it -- in this case
+      // we got here via the examination vc
+      [self.navigationController popViewControllerAnimated:YES];
+    } else {
+      // otherwise we got here via the patient vc (new examination), so we need to
+      // put the examination view on the stack ourselves
+      UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+      ExaminationViewController *examVc = [sb instantiateViewControllerWithIdentifier:@"ExaminationViewController"];
+      examVc.detailItem = self.detailItem;
+      [vcs addObject:examVc];
+      [self.navigationController setViewControllers:vcs animated:NO];
+    }
   } else {
     [[Utils sharedInstance] showError:error];
   }
