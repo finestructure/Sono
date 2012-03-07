@@ -70,6 +70,9 @@
 
 
 - (void)buttonPressed:(id)sender {
+  // hide keyboard if it's up
+  [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+
   UIViewController *vc = [[UIViewController alloc] init];
   
   UIPickerView *picker = [[UIPickerView alloc] init];
@@ -87,6 +90,7 @@
   self.popover.delegate = self;
   self.popover.popoverContentSize = contentSize;
   [self.popover presentPopoverFromRect:self.frame inView:self.superview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+  
   // keep button selected while the popover is up
   self.selected = YES;
 }

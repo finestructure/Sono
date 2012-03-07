@@ -68,6 +68,9 @@
 
 
 - (void)buttonPressed:(id)sender {
+  // hide keyboard if it's up
+  [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+
   self.datePopupController = [[DatePopupController alloc] initWithNibName:@"DatePopupController" bundle:nil];
   
   self.datePopupController.delegate = self;
