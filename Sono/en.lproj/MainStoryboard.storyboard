@@ -262,8 +262,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="insertNewObject:" destination="4" eventType="touchUpInside" id="d2Z-Xm-DAt"/>
-                                            <segue destination="uen-Yu-Fol" kind="push" identifier="EditExamination" id="dYV-58-YMh"/>
+                                            <segue destination="uen-Yu-Fol" kind="push" identifier="NewExamination" id="dYV-58-YMh"/>
                                         </connections>
                                     </button>
                                 </subviews>

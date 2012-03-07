@@ -23,6 +23,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *praenatDiagField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-- (IBAction)insertNewObject:(id)sender;
-
 @end

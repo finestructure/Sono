@@ -73,23 +73,6 @@
 }
 
 
-#pragma mark - Actions
-
-
-- (IBAction)insertNewObject:(id)sender
-{
-  Examination *newObject = [[DataStore sharedInstance] insertNewObject:@"Examination"];
-  newObject.examinationDate = [NSDate date];
-  [self.detailItem addExaminationsObject:newObject];
-
-  NSError *error = nil;
-  if (! [[DataStore sharedInstance] saveContext:&error]) {
-    [[Utils sharedInstance] showError:error];
-  }
-  [self.tableView reloadData];
-}
-
-
 #pragma mark - View delegates
 
 
@@ -141,11 +124,16 @@
     ExaminationViewController *vc = segue.destinationViewController;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     vc.detailItem = [self.detailItem.examinations objectAtIndex:indexPath.row];
-  } else if ([segue.identifier isEqualToString:@"EditExamination"]) {
-    NSLog(@"segue EditExamination");
+  } else if ([segue.identifier isEqualToString:@"NewExamination"]) {
+    NSLog(@"segue NewExamination");
+    Examination *newObject = [[DataStore sharedInstance] insertNewObject:@"Examination"];
+    newObject.examinationDate = [NSDate date];
+    [self.detailItem addExaminationsObject:newObject];
+
     EditExaminationViewController *vc = segue.destinationViewController;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    vc.detailItem = [self.detailItem.examinations objectAtIndex:indexPath.row];
+    vc.detailItem = newObject;
+    
+    [self.tableView reloadData];    
   }
 }
 
