@@ -51,8 +51,13 @@ NSString * const kWhoHeightBoys = @"WhoHeightBoys";
 
 - (NSArray *)parseDataForResource:(NSString *)resource {
   NSURL *url = [[NSBundle mainBundle] URLForResource:resource withExtension:@"txt"];
-  
   if (url == nil) {
+    // unit tests require this
+    NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
+    url = [thisBundle URLForResource:resource withExtension:@"txt"];
+  }
+  if (url == nil) {
+    NSLog(@"warning: no valid resource url!");
     return nil;
   }
   
@@ -75,8 +80,8 @@ NSString * const kWhoHeightBoys = @"WhoHeightBoys";
     self.whoData = [NSMutableDictionary dictionary];
     
     NSDictionary *resourceMap = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 @"lfa_boys_p_exp", kWhoHeightBoys,
-                                 @"lfa_girls_p_exp", kWhoHeightGirls,
+                                 @"lhfa_boys_p_exp", kWhoHeightBoys,
+                                 @"lhfa_girls_p_exp", kWhoHeightGirls,
                                  @"wfa_boys_p_exp", kWhoWeightBoys,
                                  @"wfa_girls_p_exp", kWhoWeightGirls,
                                  nil];
@@ -205,12 +210,9 @@ NSString * const kWhoHeightBoys = @"WhoHeightBoys";
   });
 
   while (result == nil) {
-    NSLog(@"no value...");
     // keep polling until there's a value
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
-      dispatch_sync(whoDataSerialQueue, ^{
-        result = [self.whoData objectForKey:dataSet];
-      });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), whoDataSerialQueue, ^{
+      result = [self.whoData objectForKey:dataSet];
     });
   }
   return result;

@@ -8,6 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+#import "Constants.h"
 #import "CSVParser.h"
 
 @interface SonoTests : SenTestCase
@@ -66,6 +67,18 @@
   STAssertEquals(rows.count, 1857u, nil);
   STAssertEqualObjects([[rows objectAtIndex:0] objectForKey:@"Age"], @"0", nil);
   STAssertEqualObjects([[rows objectAtIndex:1856] objectForKey:@"Age"], @"1856", nil);
+}
+
+
+- (void)test_03_Constants_who_data {
+  NSArray *rows = [[Constants sharedInstance] whoData:kWhoHeightBoys];
+  STAssertEquals(rows.count, 1857u, nil);
+  rows = [[Constants sharedInstance] whoData:kWhoWeightBoys];
+  STAssertEquals(rows.count, 1857u, nil);
+  rows = [[Constants sharedInstance] whoData:kWhoHeightGirls];
+  STAssertEquals(rows.count, 1857u, nil);
+  rows = [[Constants sharedInstance] whoData:kWhoWeightGirls];
+  STAssertEquals(rows.count, 1857u, nil);
 }
 
 

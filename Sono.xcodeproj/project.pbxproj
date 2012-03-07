@@ -56,6 +56,7 @@
 		5A7E1DF314FFB39D00B93367 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E1DF214FFB39D00B93367 /* IntroViewController.m */; };
 		5A7E1DF51500CB5E00B93367 /* app_icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A7E1DF41500CB5E00B93367 /* app_icon-72.png */; };
 		5A86033014FBF16300BD64E1 /* EditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A86032F14FBF16300BD64E1 /* EditPatientViewController.m */; };
+		5AF8DBA4150743220036D62B /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5914FCDE15001F7C04 /* Constants.m */; };
 		5AFF0A4A15051D7D001B3615 /* WHOPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -653,6 +654,7 @@
 			files = (
 				5A629D9B1500E0B400939DD0 /* SonoTests.m in Sources */,
 				5A629DA51500E75800939DD0 /* CSVParser.m in Sources */,
+				5AF8DBA4150743220036D62B /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
