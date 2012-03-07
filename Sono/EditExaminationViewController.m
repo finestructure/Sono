@@ -62,7 +62,6 @@
   
   NSError *error = nil;
   if ([[DataStore sharedInstance] saveContext:&error]) {
-    //[self.navigationController popViewControllerAnimated:YES];
     NSMutableArray *vcs = [self.navigationController.viewControllers mutableCopy];
     [vcs removeLastObject];
     if ([[vcs lastObject] isKindOfClass:[ExaminationViewController class]]) {
@@ -87,7 +86,6 @@
 - (void)showPopoverAnimated:(BOOL)animated
 {
   int arrowDirection = UIPopoverArrowDirectionLeft;
-  NSLog(@"orientation: %d", [[UIDevice currentDevice] orientation]);
   
   switch ([[UIDevice currentDevice] orientation]) {
     case UIDeviceOrientationLandscapeLeft:
