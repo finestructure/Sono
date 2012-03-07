@@ -46,7 +46,11 @@ NSString * const kUserValue = @"UserValue";
     NSMutableArray *records = [NSMutableArray array];
     NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, nil];
     int filter = 50;
-    
+    NSDecimalNumber *scale = [NSDecimalNumber decimalNumberWithString:@"1"];
+    if (self.dataSet == kWhoWeightBoys || self.dataSet == kWhoWeightGirls) {
+      // scale weight data to grams
+      scale = [NSDecimalNumber decimalNumberWithString:@"1000"];
+    }
     __block NSString *xKey = nil;
       
     for (NSDictionary *row in rows) {
@@ -69,7 +73,9 @@ NSString * const kUserValue = @"UserValue";
       if (fabs(int_x * filter - x.doubleValue) < 0.1) {
         NSMutableDictionary *values = [NSMutableDictionary dictionaryWithObject:x forKey:@"x"];
         for (NSString *identifier in identifiers) {
-          [values setObject:[NSDecimalNumber decimalNumberWithString:[row objectForKey:identifier]] forKey:identifier];
+         NSDecimalNumber *y = [NSDecimalNumber decimalNumberWithString:[row objectForKey:identifier]];
+          y = [y decimalNumberByMultiplyingBy:scale];
+          [values setObject:y forKey:identifier];
         }
         [records addObject:values];
       }
@@ -143,7 +149,11 @@ NSString * const kUserValue = @"UserValue";
   
   graph.plotAreaFrame.paddingTop = 20;
   graph.plotAreaFrame.paddingBottom = 30;
-  graph.plotAreaFrame.paddingLeft = 40;
+  if (self.dataSet == kWhoWeightBoys || self.dataSet == kWhoWeightGirls) {
+    graph.plotAreaFrame.paddingLeft = 50;
+  } else {
+    graph.plotAreaFrame.paddingLeft = 40;
+  }
   graph.plotAreaFrame.paddingRight = 20;
   //graph.plotAreaFrame.cornerRadius = 8;
 }
@@ -157,8 +167,8 @@ NSString * const kUserValue = @"UserValue";
     yMin = 40;
     yMax = 80;
   } else {
-    yMin = 0;
-    yMax = 10;
+    yMin = 1000;
+    yMax = 9000;
   }
   plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(xMax)];
   plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax-yMin)];
@@ -180,18 +190,26 @@ NSString * const kUserValue = @"UserValue";
   {
     CPTXYAxis *x = axisSet.xAxis;
     x.majorIntervalLength = CPTDecimalFromInt(100);
-    x.minorTicksPerInterval = 10;
+    x.minorTicksPerInterval = 5;
     x.majorGridLineStyle = gridLineStyle;
     x.labelFormatter = [[NSNumberFormatter alloc] init];
     [x.labelFormatter setMaximumFractionDigits:0];
+    x.axisConstraints = [CPTConstraints constraintWithRelativeOffset:0];
   }
   {
+    int majorIntervalLength = 10;
+    int minorTicksPerInterval = 0;
+    if (self.dataSet == kWhoWeightBoys || self.dataSet == kWhoWeightGirls) {
+      majorIntervalLength = 2000;
+    }
+    
     CPTXYAxis *y = axisSet.yAxis;
-    y.majorIntervalLength = CPTDecimalFromInt(5);
-    y.minorTicksPerInterval = 0;
+    y.majorIntervalLength = CPTDecimalFromInt(majorIntervalLength);
+    y.minorTicksPerInterval = minorTicksPerInterval;
     y.majorGridLineStyle = gridLineStyle;
     y.labelFormatter = [[NSNumberFormatter alloc] init];
     [y.labelFormatter setMaximumFractionDigits:0];
+    y.axisConstraints = [CPTConstraints constraintWithRelativeOffset:0];
   }
 }
 
