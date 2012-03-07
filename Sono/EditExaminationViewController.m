@@ -145,6 +145,11 @@
 }
 
 
+- (IBAction)editingDidEnd:(id)sender {
+  [self.popover dismissPopoverAnimated:NO];
+}
+
+
 #pragma mark - Managing the detail item
 
 

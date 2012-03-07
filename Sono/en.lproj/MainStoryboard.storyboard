@@ -898,6 +898,7 @@
                                         <connections>
                                             <action selector="editingChanged:" destination="uen-Yu-Fol" eventType="editingChanged" id="Sqq-EJ-6Hi"/>
                                             <action selector="editingDidBegin:" destination="uen-Yu-Fol" eventType="editingDidBegin" id="37S-7b-LLe"/>
+                                            <action selector="editingDidEnd:" destination="uen-Yu-Fol" eventType="editingDidEnd" id="oL6-ef-rH9"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="q6h-o7-kWV">
@@ -909,6 +910,7 @@
                                         <connections>
                                             <action selector="editingChanged:" destination="uen-Yu-Fol" eventType="editingChanged" id="Rgp-YN-pe6"/>
                                             <action selector="editingDidBegin:" destination="uen-Yu-Fol" eventType="editingDidBegin" id="BgC-gO-YxE"/>
+                                            <action selector="editingDidEnd:" destination="uen-Yu-Fol" eventType="editingDidEnd" id="LDH-Y4-6MZ"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="B6n-pa-9yc">
@@ -1081,7 +1083,6 @@
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
-                <relationship kind="action" name="insertNewObject:"/>
                 <relationship kind="outlet" name="birthDateField" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="famBelastungField" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="firstNameField" candidateClass="UILabel"/>
@@ -1100,6 +1101,7 @@
             <relationships>
                 <relationship kind="action" name="editingChanged:"/>
                 <relationship kind="action" name="editingDidBegin:"/>
+                <relationship kind="action" name="editingDidEnd:"/>
                 <relationship kind="action" name="saveButtonPressed:"/>
                 <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="boundingBox" candidateClass="RoundedView"/>
@@ -1157,6 +1159,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dYV-58-YMh"/>
+        <segue reference="fGX-eg-b0E"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -31,5 +31,6 @@
 - (void)backButtonPressed:(id)sender;
 - (IBAction)editingChanged:(id)sender;
 - (IBAction)editingDidBegin:(id)sender;
+- (IBAction)editingDidEnd:(id)sender;
 
 @end
