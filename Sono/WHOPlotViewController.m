@@ -25,6 +25,7 @@ NSString * const kUserValue = @"UserValue";
 @property (assign) CGRect frame;
 @property (nonatomic, strong) NSArray *records;
 @property (nonatomic, strong) CPTScatterPlot *userPlot;
+@property (nonatomic, strong) CPTXYGraph *graph;
 
 @end
 
@@ -36,6 +37,7 @@ NSString * const kUserValue = @"UserValue";
 @synthesize records = _records;
 @synthesize userValue = _userValue;
 @synthesize userPlot = _userPlot;
+@synthesize graph = _graph;
 
 
 #pragma mark - Init
@@ -271,6 +273,11 @@ NSString * const kUserValue = @"UserValue";
 }
 
 
+- (void)handleDoubleTap {
+  [self configurePlotSpace:(CPTXYPlotSpace *)self.graph.defaultPlotSpace];
+}
+
+
 - (void)createGraph {
   CPTGraphHostingView *gv = [[CPTGraphHostingView alloc] init];
   gv.frame = self.view.bounds;
@@ -278,18 +285,22 @@ NSString * const kUserValue = @"UserValue";
   self.view.layer.borderWidth = 2;
   [self.view addSubview:gv];
   
-  CPTXYGraph *graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
-  gv.hostedGraph = graph;
+  UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap)];
+  gr.numberOfTapsRequired = 2;
+  [gv addGestureRecognizer:gr];
   
-  [self configureGraph:graph];
-  [self configurePlotSpace:(CPTXYPlotSpace *)graph.defaultPlotSpace];
-  [self configureAxes:(CPTXYAxisSet *)graph.axisSet];
+  self.graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
+  gv.hostedGraph = self.graph;
+  
+  [self configureGraph:self.graph];
+  [self configurePlotSpace:(CPTXYPlotSpace *)self.graph.defaultPlotSpace];
+  [self configureAxes:(CPTXYAxisSet *)self.graph.axisSet];
   
   NSArray *identifiers = [NSArray arrayWithObjects:kP3, kP15, kP50, kP85, kP97, kUserValue, nil];
   for (NSString *identifier in identifiers) {
     CPTScatterPlot *plot = [[CPTScatterPlot alloc] init];
     [self configurePlot:plot withIdentifier:identifier];
-    [graph addPlot:plot];
+    [self.graph addPlot:plot];
     if (identifier == kUserValue) {
       self.userPlot = plot;
     }
