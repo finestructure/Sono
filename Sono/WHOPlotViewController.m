@@ -161,8 +161,16 @@ NSString * const kUserValue = @"UserValue";
 
 - (void)configurePlotSpace:(CPTXYPlotSpace *)plotSpace {
   plotSpace.allowsUserInteraction = YES;
-  float xMax, yMin, yMax;
-  xMax = 400;
+
+  float xpos = 0;
+  float xlength = 400;
+  if (self.userValue) {
+    float x = [(NSDecimalNumber *)[self.userValue objectAtIndex:0] floatValue];
+    if (x > xlength/2) {
+      xpos = x - xlength/2;
+    }
+  }
+  float yMin, yMax;
   if (self.dataSet == kWhoHeightBoys || self.dataSet == kWhoHeightGirls) {
     yMin = 40;
     yMax = 80;
@@ -170,7 +178,7 @@ NSString * const kUserValue = @"UserValue";
     yMin = 1000;
     yMax = 9000;
   }
-  plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(xMax)];
+  plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xpos) length:CPTDecimalFromFloat(xlength)];
   plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax-yMin)];
 }
 
