@@ -52,8 +52,8 @@
     self.examinationDateLabel.text = [[Utils sharedInstance] shortDate:self.detailItem.examinationDate];
     
     self.ageLabel.text = self.detailItem.ageAsString;    
-    self.heightLabel.text = self.detailItem.heightAsString;
-    self.weightLabel.text = self.detailItem.weightAsString;
+    self.heightLabel.text = [self.detailItem heightAsStringWithUnits:YES];
+    self.weightLabel.text = [self.detailItem weightAsStringWithUnits:YES];
     self.examinerLabel.text = self.detailItem.examiner;
     self.locationLabel.text = self.detailItem.location;
   }

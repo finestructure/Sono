@@ -12,8 +12,8 @@
 
 - (NSUInteger)ageInDays;
 - (NSString *)ageAsString;
-- (NSString *)heightAsString;
-- (NSString *)weightAsString;
+- (NSString *)heightAsStringWithUnits:(BOOL)units;
+- (NSString *)weightAsStringWithUnits:(BOOL)units;
 
 - (void)setHeightFromString:(NSString *)value;
 - (void)setWeightFromString:(NSString *)value;

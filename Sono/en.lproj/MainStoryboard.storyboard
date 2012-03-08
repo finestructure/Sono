@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2177" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="5">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -838,6 +839,13 @@
                                         <color key="textColor" red="0.20392156859999999" green="0.13725490200000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(cm)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xXV-LW-8aU">
+                                        <rect key="frame" x="0.0" y="103" width="40" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.58039215690000001" green="0.56078431370000004" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Alter:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="OPV-kY-BK4">
                                         <rect key="frame" x="94" y="64" width="98" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -988,9 +996,12 @@
                         <outlet property="examinationDatePicker" destination="8Bb-CN-1V2" id="gLZ-EH-ECJ"/>
                         <outlet property="examinerField" destination="B6n-pa-9yc" id="Xjo-da-7EV"/>
                         <outlet property="heightField" destination="GcS-OR-LvP" id="0Um-a0-Npa"/>
+                        <outlet property="heightLabel" destination="dyj-6f-jkT" id="82s-g7-G5I"/>
                         <outlet property="locationField" destination="k6R-ex-8DW" id="0Lv-uk-Cwi"/>
                         <outlet property="patientDescriptionLabel" destination="2UJ-hh-cc2" id="3Ly-NN-WzP"/>
+                        <outlet property="unitLabel" destination="xXV-LW-8aU" id="ppE-XU-VeB"/>
                         <outlet property="weightField" destination="q6h-o7-kWV" id="XCA-Fb-w9c"/>
+                        <outlet property="weightLabel" destination="cCt-YF-i4O" id="Cvt-8c-3J9"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1076,83 +1087,6 @@
         <image name="dropdown_button_pressed-150.png" width="150" height="31"/>
         <image name="dropdown_button_pressed-250.png" width="250" height="31"/>
     </resources>
-    <classes>
-        <class className="DateDropDown" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DateDropDown.h"/>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="birthDateField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="famBelastungField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstNameField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gebHeftField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lastNameField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="patientIdField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="praenatDiagField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="DropdownButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DropdownButton.h"/>
-        </class>
-        <class className="EditExaminationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditExaminationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editingChanged:"/>
-                <relationship kind="action" name="editingDidBegin:"/>
-                <relationship kind="action" name="editingDidEnd:"/>
-                <relationship kind="action" name="saveButtonPressed:"/>
-                <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="boundingBox" candidateClass="RoundedView"/>
-                <relationship kind="outlet" name="examinationDatePicker" candidateClass="DateDropDown"/>
-                <relationship kind="outlet" name="examinerField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="heightField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="locationField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="patientDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="weightField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="EditPatientViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPatientViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editingChanged:"/>
-                <relationship kind="action" name="saveButtonPressed:"/>
-                <relationship kind="outlet" name="birthDatePicker" candidateClass="DateDropDown"/>
-                <relationship kind="outlet" name="famBelastungPicker" candidateClass="DropdownButton"/>
-                <relationship kind="outlet" name="firstNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="gebHeftField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="patientIdField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="praenatDiagPicker" candidateClass="DropdownButton"/>
-            </relationships>
-        </class>
-        <class className="ExaminationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExaminationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="examinationDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="examinerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="heightLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="patientDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="weightLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="IntroViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IntroViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="vendorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="RoundedView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

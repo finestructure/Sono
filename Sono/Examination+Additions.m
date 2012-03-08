@@ -27,13 +27,21 @@
 }
 
 
-- (NSString *)heightAsString {
-  return [NSString stringWithFormat:@"%d cm", self.height.intValue];
+- (NSString *)heightAsStringWithUnits:(BOOL)units {
+  if (units) {
+    return [NSString stringWithFormat:@"%d cm", self.height.intValue];
+  } else {
+    return [NSString stringWithFormat:@"%d", self.height.intValue];
+  }
 }
 
 
-- (NSString *)weightAsString {
-  return [NSString stringWithFormat:@"%d g", self.weight.intValue];
+- (NSString *)weightAsStringWithUnits:(BOOL)units {
+  if (units) {
+    return [NSString stringWithFormat:@"%d g", self.weight.intValue];
+  } else {
+    return [NSString stringWithFormat:@"%d", self.weight.intValue];
+  }
 }
 
 

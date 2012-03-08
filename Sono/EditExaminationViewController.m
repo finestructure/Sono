@@ -40,6 +40,9 @@
 @synthesize examinerField = _examinerField;
 @synthesize locationField = _locationField;
 @synthesize boundingBox = _boundingBox;
+@synthesize unitLabel = _unitLabel;
+@synthesize heightLabel = _heightLabel;
+@synthesize weightLabel = _weightLabel;
 @synthesize popover = _popover;
 @synthesize popoverTarget = _popoverTarget;
 @synthesize weightPlot = _weightPlot;
@@ -142,11 +145,48 @@
 - (IBAction)editingDidBegin:(id)sender {
   self.popoverTarget = sender;
   [self showPopoverAnimated:YES];
+  
+  // handle unit display
+  UIView *fieldLabel = nil;
+  if (sender == self.heightField) {
+    self.heightField.text = [self.detailItem heightAsStringWithUnits:NO];
+    fieldLabel = self.heightLabel;
+    self.unitLabel.text = @"(cm)";
+  } else if (sender == self.weightField) {
+    self.weightField.text = [self.detailItem weightAsStringWithUnits:NO];
+    fieldLabel = self.weightLabel;
+    self.unitLabel.text = @"(g)";
+  }
+  CGRect frame = fieldLabel.frame;
+  self.unitLabel.frame = frame;
+  CGSize size = [self.unitLabel sizeThatFits:frame.size];
+  frame.origin.x -= size.width +5;
+  [UIView animateWithDuration:0.2 animations:^{
+    fieldLabel.frame = frame;
+    self.unitLabel.alpha = 1;
+  }];
 }
 
 
 - (IBAction)editingDidEnd:(id)sender {
   [self.popover dismissPopoverAnimated:NO];
+  
+  // handle unit display
+  UIView *fieldLabel = nil;
+  if (sender == self.heightField) {
+    self.heightField.text = [self.detailItem heightAsStringWithUnits:YES];
+    fieldLabel = self.heightLabel;
+  } else if (sender == self.weightField) {
+    self.weightField.text = [self.detailItem weightAsStringWithUnits:YES];
+    fieldLabel = self.weightLabel;
+  }
+  CGRect frame = fieldLabel.frame;
+  CGSize size = [self.unitLabel sizeThatFits:frame.size];
+  frame.origin.x += size.width +5;
+  [UIView animateWithDuration:0.2 animations:^{
+    fieldLabel.frame = frame;
+    self.unitLabel.alpha = 0;
+  }];
 }
 
 
@@ -165,8 +205,8 @@
   if (self.detailItem) {
     self.examinationDatePicker.selectedDate = self.detailItem.examinationDate;
     self.ageLabel.text = self.detailItem.ageAsString;
-    self.heightField.text = self.detailItem.heightAsString;
-    self.weightField.text = self.detailItem.weightAsString;
+    self.heightField.text = [self.detailItem heightAsStringWithUnits:YES];
+    self.weightField.text = [self.detailItem weightAsStringWithUnits:YES];
     self.examinerField.text = self.detailItem.examiner;
     self.locationField.text = self.detailItem.location;
   }
@@ -206,6 +246,9 @@
   self.heightPlot = [[WHOPlotViewController alloc] initWithWithFrame:frame dataSet:kWhoHeightBoys];
   [self.heightPlot setUserValueX:self.detailItem.ageInDays Y:self.detailItem.height.doubleValue];
 
+  self.unitLabel.alpha = 0;
+  self.unitLabel.textColor = [UIColor grayColor];
+  
   [self configureView];
 }
 
@@ -220,6 +263,9 @@
   [self setLocationField:nil];
   [self setPatientDescriptionLabel:nil];
   [self setBoundingBox:nil];
+    [self setUnitLabel:nil];
+    [self setHeightLabel:nil];
+    [self setWeightLabel:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }

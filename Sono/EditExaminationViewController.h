@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *examinerField;
 @property (weak, nonatomic) IBOutlet UITextField *locationField;
 @property (weak, nonatomic) IBOutlet RoundedView *boundingBox;
+@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
+@property (weak, nonatomic) IBOutlet UILabel *heightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weightLabel;
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (void)backButtonPressed:(id)sender;
