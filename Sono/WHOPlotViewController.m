@@ -170,16 +170,31 @@ NSString * const kUserValue = @"UserValue";
       xpos = x - xlength/2;
     }
   }
-  float yMin, yMax;
+  float ypos, ylength;
   if (self.dataSet == kWhoHeightBoys || self.dataSet == kWhoHeightGirls) {
-    yMin = 40;
-    yMax = 80;
+    ypos = 40;
+    ylength = 40;
   } else {
-    yMin = 1000;
-    yMax = 9000;
+    ypos = 1000;
+    ylength = 8000;
   }
+  
+  // find y value near given x
+  NSDecimalNumber *ymean = nil;
+  for (NSDictionary *record in self.records) {
+    NSDecimalNumber *x = [record objectForKey:@"x"];
+    if (x.floatValue >= xpos + xlength/2) {
+      // we've found an x at or near the middle of our xrange, record the y
+      ymean = [record objectForKey:kP50];
+      break;
+    }
+  }
+  if (ymean != nil) {
+    ypos = ymean.floatValue - ylength/2;
+  }
+
   plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xpos) length:CPTDecimalFromFloat(xlength)];
-  plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax-yMin)];
+  plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(ypos) length:CPTDecimalFromFloat(ylength)];
 }
 
 
