@@ -211,7 +211,7 @@ NSString * const kWhoHeightBoys = @"WhoHeightBoys";
 
   while (result == nil) {
     // keep polling until there's a value
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), whoDataSerialQueue, ^{
+    dispatch_sync(whoDataSerialQueue, ^{
       result = [self.whoData objectForKey:dataSet];
     });
   }
