@@ -810,6 +810,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="m3h-fk-9i8" kind="push" id="0kz-as-tvW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.98039215690000003" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -831,6 +834,29 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2409" y="802"/>
+        </scene>
+        <!--View Controller - Ultraschallbilder-->
+        <scene sceneID="2ub-Ix-YrP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0mL-Rd-841" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="SonoImageViewController" id="m3h-fk-9i8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zm0-jT-mv3">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ac3-RD-k6W" customClass="RoundedView">
+                                <rect key="frame" x="20" y="20" width="663" height="664"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.98039215690000003" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.76862745099999996" green="0.7725490196" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ultraschallbilder" id="ZQl-8q-83L"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3301" y="948"/>
         </scene>
         <!--Edit Examination View Controller - Untersuchung bearbeiten-->
         <scene sceneID="Cbp-66-xBF">
