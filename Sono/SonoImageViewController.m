@@ -17,6 +17,11 @@
 @synthesize scrollView = _scrollView;
 
 
+- (void)tapHandler:(UITapGestureRecognizer *)sender {
+  [self performSegueWithIdentifier:@"ShowSonoImage" sender:self];
+}
+
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -37,6 +42,8 @@
     UIImage *image = [UIImage imageNamed:name];
     NSAssert(image, @"image must not be nil");
     UIImageView *view = [[UIImageView alloc] initWithImage:image];
+    view.userInteractionEnabled = YES;
+    [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandler:)]];
 
     int col = i % 2;
     int row = i / 2;

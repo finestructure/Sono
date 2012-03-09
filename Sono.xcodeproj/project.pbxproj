@@ -73,6 +73,7 @@
 		5AA21B271509FF5B007ED3A1 /* Image-1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5AA21B171509FF5B007ED3A1 /* Image-1.jpeg */; };
 		5AA21B281509FF5B007ED3A1 /* Image-0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5AA21B181509FF5B007ED3A1 /* Image-0.jpeg */; };
 		5AA21B2C150A0069007ED3A1 /* SonoImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21B2B150A0069007ED3A1 /* SonoImageViewController.m */; };
+		5AA21B2F150A12AD007ED3A1 /* SingleSonoImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21B2E150A12AD007ED3A1 /* SingleSonoImageViewController.m */; };
 		5AF8DBA4150743220036D62B /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5914FCDE15001F7C04 /* Constants.m */; };
 		5AFF0A4A15051D7D001B3615 /* WHOPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */; };
 /* End PBXBuildFile section */
@@ -242,6 +243,8 @@
 		5AA21B181509FF5B007ED3A1 /* Image-0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Image-0.jpeg"; sourceTree = "<group>"; };
 		5AA21B2A150A0069007ED3A1 /* SonoImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonoImageViewController.h; sourceTree = "<group>"; };
 		5AA21B2B150A0069007ED3A1 /* SonoImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonoImageViewController.m; sourceTree = "<group>"; };
+		5AA21B2D150A12AD007ED3A1 /* SingleSonoImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSonoImageViewController.h; sourceTree = "<group>"; };
+		5AA21B2E150A12AD007ED3A1 /* SingleSonoImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSonoImageViewController.m; sourceTree = "<group>"; };
 		5AFF0A4815051D7D001B3615 /* WHOPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHOPlotViewController.h; sourceTree = "<group>"; };
 		5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHOPlotViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -538,6 +541,8 @@
 				5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */,
 				5AA21B2A150A0069007ED3A1 /* SonoImageViewController.h */,
 				5AA21B2B150A0069007ED3A1 /* SonoImageViewController.m */,
+				5AA21B2D150A12AD007ED3A1 /* SingleSonoImageViewController.h */,
+				5AA21B2E150A12AD007ED3A1 /* SingleSonoImageViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -715,6 +720,7 @@
 				5A629DA41500E74300939DD0 /* CSVParser.m in Sources */,
 				5AFF0A4A15051D7D001B3615 /* WHOPlotViewController.m in Sources */,
 				5AA21B2C150A0069007ED3A1 /* SonoImageViewController.m in Sources */,
+				5AA21B2F150A12AD007ED3A1 /* SingleSonoImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
