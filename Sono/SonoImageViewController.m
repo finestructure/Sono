@@ -14,23 +14,44 @@
 
 @implementation SonoImageViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-  }
-  return self;
-}
+@synthesize scrollView = _scrollView;
+
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  NSLog(@"SonoImageViewController loaded");
+  
+  int totalWidth = self.scrollView.frame.size.width;
+  int sepWidth = 7;
+
+  float aspectRatio = 768./592;
+  int imageWidth = (totalWidth - sepWidth)/2;
+  int imageHeight = round(imageWidth/aspectRatio);
+  int colWidth = imageWidth + sepWidth;
+  int rowHeight = imageHeight + sepWidth;
+  
+  // load images
+  int imageCount = 16;
+  for (int i = 0; i < imageCount; ++i) {
+    NSString *name = [NSString stringWithFormat:@"Image-%d.jpeg", i];
+    UIImage *image = [UIImage imageNamed:name];
+    NSAssert(image, @"image must not be nil");
+    UIImageView *view = [[UIImageView alloc] initWithImage:image];
+
+    int col = i % 2;
+    int row = i / 2;
+    view.frame = CGRectMake(col*colWidth, row*rowHeight, imageWidth, imageHeight);
+    [self.scrollView addSubview:view];
+  }
+  int nRows = ceil(imageCount / 2);
+  CGSize contentSize = self.scrollView.contentSize;
+  contentSize.height = nRows * rowHeight - sepWidth; // rowHeight includes sepWidth, remove extra one
+  self.scrollView.contentSize = contentSize;
 }
 
 - (void)viewDidUnload
 {
+  [self setScrollView:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
