@@ -8,17 +8,31 @@
 
 #import "SonoImageViewController.h"
 
+#import "SingleSonoImageViewController.h"
+
 @interface SonoImageViewController ()
+
+@property (nonatomic, strong) UIImageView *tappedView;
 
 @end
 
 @implementation SonoImageViewController
 
 @synthesize scrollView = _scrollView;
+@synthesize tappedView = _tappedView;
 
 
 - (void)tapHandler:(UITapGestureRecognizer *)sender {
+  self.tappedView = (UIImageView *)sender.view;
   [self performSegueWithIdentifier:@"ShowSonoImage" sender:self];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"ShowSonoImage"]) {
+    SingleSonoImageViewController *vc = segue.destinationViewController;
+    vc.image = self.tappedView.image;
+  }
 }
 
 

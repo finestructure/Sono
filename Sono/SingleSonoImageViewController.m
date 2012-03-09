@@ -14,6 +14,7 @@
 
 @implementation SingleSonoImageViewController
 
+@synthesize image = _image;
 @synthesize imageView = _imageView;
 
 
@@ -34,6 +35,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  self.imageView.image = self.image;
   self.imageView.userInteractionEnabled = YES;
 	[self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)]];
 }
