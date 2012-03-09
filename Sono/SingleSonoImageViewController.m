@@ -14,6 +14,14 @@
 
 @implementation SingleSonoImageViewController
 
+@synthesize imageView = _imageView;
+
+
+- (void)handleTap {
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,12 +33,14 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+  [super viewDidLoad];
+  self.imageView.userInteractionEnabled = YES;
+	[self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)]];
 }
 
 - (void)viewDidUnload
 {
+  [self setImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
