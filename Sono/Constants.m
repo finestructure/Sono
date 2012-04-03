@@ -127,22 +127,22 @@ NSString * const kWhoHeightBoys = @"WhoHeightBoys";
 
 
 - (UIColor *)color2 {
-  return [UIColor colorWithRed:148/255. green:143/255. blue:112/255. alpha:1];
+  return [UIColor colorWithRed:148/255. green:143/255. blue:122/255. alpha:1];
 }
 
 
 - (UIColor *)color3 {
-  return [UIColor colorWithRed:196/255. green:197/255. blue:150/255. alpha:1];
+  return [UIColor colorWithRed:196/255. green:197/255. blue:160/255. alpha:1];
 }
 
 
 - (UIColor *)color4 {
-  return [UIColor colorWithRed:244/255. green:250/255. blue:186/255. alpha:1];
+  return [UIColor colorWithRed:244/255. green:250/255. blue:196/255. alpha:1];
 }
 
 
 - (UIColor *)color5 {
-  return [UIColor colorWithRed:154/255. green:147/255. blue:82/255. alpha:1];
+  return [UIColor colorWithRed:154/255. green:147/255. blue:92/255. alpha:1];
 }
 
 
