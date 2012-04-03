@@ -92,7 +92,7 @@ def publish
   cmd = %=sed "s/NAMES/#{names}/" #{INDEX_HTML_TEMPLATE} | sed "s/MANIFESTS/#{manifests}/" > #{RELEASE_DIR}/index.html=
   %x[#{cmd}]
 
-  ['Resources/app_icon-72.png'].each {|fname|
+  ['app_icon-72.png'].each {|fname|
     base = File.basename(fname)
     target = "#{RELEASE_DIR}/#{base}"
     if not File.exist?(target)
