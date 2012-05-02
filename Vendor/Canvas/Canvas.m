@@ -55,6 +55,15 @@ ccColor4F color;
   CGSize size = [[CCDirector sharedDirector] winSize];
   CCSprite *bg = [CCSprite spriteWithCGImage:image.CGImage key:nil];
   bg.position =  ccp( size.width /2 , size.height/2 );
+  
+  CGFloat startWidth = bg.contentSize.width;
+  CGFloat startHeight = bg.contentSize.height;
+  
+  CGFloat scaleX = size.width / startWidth;
+  CGFloat scaleY = size.height / startHeight;
+  
+  bg.scale = MIN(scaleX, scaleY);
+
   [scene addChild:bg];
 
   [scene addChild:layer];
