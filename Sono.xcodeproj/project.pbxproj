@@ -75,8 +75,6 @@
 		5AA21B2F150A12AD007ED3A1 /* SingleSonoImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21B2E150A12AD007ED3A1 /* SingleSonoImageViewController.m */; };
 		5AC2FFBA152AF69B00866FC5 /* app_icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC2FFB9152AF69B00866FC5 /* app_icon-72.png */; };
 		5AC2FFBC152AF6F200866FC5 /* app_icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC2FFBB152AF6F200866FC5 /* app_icon-144.png */; };
-		5AC2FFBF152AF74700866FC5 /* app_icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC2FFBD152AF74700866FC5 /* app_icon-72.png */; };
-		5AC2FFC0152AF74700866FC5 /* app_icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC2FFBE152AF74700866FC5 /* app_icon-144.png */; };
 		5AF8DBA4150743220036D62B /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A389F5914FCDE15001F7C04 /* Constants.m */; };
 		5AFF0A4A15051D7D001B3615 /* WHOPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */; };
 /* End PBXBuildFile section */
@@ -247,10 +245,8 @@
 		5AA21B2B150A0069007ED3A1 /* SonoImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SonoImageViewController.m; sourceTree = "<group>"; };
 		5AA21B2D150A12AD007ED3A1 /* SingleSonoImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSonoImageViewController.h; sourceTree = "<group>"; };
 		5AA21B2E150A12AD007ED3A1 /* SingleSonoImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSonoImageViewController.m; sourceTree = "<group>"; };
-		5AC2FFB9152AF69B00866FC5 /* app_icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon-72.png"; sourceTree = "<group>"; };
-		5AC2FFBB152AF6F200866FC5 /* app_icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon-144.png"; sourceTree = "<group>"; };
-		5AC2FFBD152AF74700866FC5 /* app_icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon-72.png"; sourceTree = SOURCE_ROOT; };
-		5AC2FFBE152AF74700866FC5 /* app_icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon-144.png"; sourceTree = SOURCE_ROOT; };
+		5AC2FFB9152AF69B00866FC5 /* app_icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app_icon-72.png"; path = "../../app_icon-72.png"; sourceTree = "<group>"; };
+		5AC2FFBB152AF6F200866FC5 /* app_icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app_icon-144.png"; path = "../../app_icon-144.png"; sourceTree = "<group>"; };
 		5AFF0A4815051D7D001B3615 /* WHOPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHOPlotViewController.h; sourceTree = "<group>"; };
 		5AFF0A4915051D7D001B3615 /* WHOPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHOPlotViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -285,8 +281,6 @@
 		5A0F6AB714FBD48A00D45EA4 = {
 			isa = PBXGroup;
 			children = (
-				5AC2FFBB152AF6F200866FC5 /* app_icon-144.png */,
-				5AC2FFB9152AF69B00866FC5 /* app_icon-72.png */,
 				5A0F6ACE14FBD48A00D45EA4 /* Sono */,
 				5A629D931500E0B400939DD0 /* SonoTests */,
 				5A629DA11500E74300939DD0 /* Vendor */,
@@ -368,8 +362,8 @@
 		5A389F4F14FCCDEF001F7C04 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5AC2FFBD152AF74700866FC5 /* app_icon-72.png */,
-				5AC2FFBE152AF74700866FC5 /* app_icon-144.png */,
+				5AC2FFBB152AF6F200866FC5 /* app_icon-144.png */,
+				5AC2FFB9152AF69B00866FC5 /* app_icon-72.png */,
 				5A629DA61500EDC300939DD0 /* lhfa_boys_p_exp.txt */,
 				5A629DA71500EDC300939DD0 /* lhfa_girls_p_exp.txt */,
 				5A629DA81500EDC300939DD0 /* wfa_boys_p_exp.txt */,
@@ -656,8 +650,6 @@
 				5AA21B281509FF5B007ED3A1 /* Image-0.jpeg in Resources */,
 				5AC2FFBA152AF69B00866FC5 /* app_icon-72.png in Resources */,
 				5AC2FFBC152AF6F200866FC5 /* app_icon-144.png in Resources */,
-				5AC2FFBF152AF74700866FC5 /* app_icon-72.png in Resources */,
-				5AC2FFC0152AF74700866FC5 /* app_icon-144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
