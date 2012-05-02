@@ -8,6 +8,8 @@
 
 #import "SingleSonoImageViewController.h"
 
+#import "Canvas.h"
+
 @interface SingleSonoImageViewController ()
 
 @end
@@ -15,7 +17,7 @@
 @implementation SingleSonoImageViewController
 
 @synthesize image = _image;
-@synthesize imageView = _imageView;
+@synthesize canvas = _canvas;
 
 
 - (void)handleTap {
@@ -32,24 +34,65 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)coder
+{
+  self = [super initWithCoder:coder];
+  if (self) {
+    
+  }
+  return self;
+}
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.imageView.image = self.image;
-  self.imageView.userInteractionEnabled = YES;
-	[self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)]];
+  self.canvas.userInteractionEnabled = YES;
+	[self.canvas addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)]];
+  [self setupCocos2d];
 }
 
 - (void)viewDidUnload
 {
-  [self setImageView:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+  [[CCDirector sharedDirector] end];
+  [self setCanvas:nil];
+  [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
 }
+
+
+- (void)setupCocos2d
+{
+  CCDirector *director = [CCDirector sharedDirector];
+  [director end];
+  [director.view removeFromSuperview];
+  director.view = nil;
+
+	CCGLView *glView = [CCGLView viewWithFrame:[self.canvas bounds]
+                                 pixelFormat:kEAGLColorFormatRGB565	//kEAGLColorFormatRGBA8
+                                 depthFormat:0	//GL_DEPTH_COMPONENT24_OES
+                          preserveBackbuffer:NO
+                                  sharegroup:nil
+                               multiSampling:NO
+                             numberOfSamples:0];
+  glView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  [self.canvas insertSubview:glView atIndex:0];
+  
+  director.view = glView;
+  director.displayStats = YES;
+  director.animationInterval = 1/60.;
+  director.delegate = self;
+  director.projection = kCCDirectorProjection2D;
+	if(! [director enableRetinaDisplay:YES]) {
+		CCLOG(@"Retina Display Not supported");
+  }
+  
+	[[CCDirector sharedDirector] pushScene:[Canvas sceneWithImage:self.image]];
+  [[CCDirector sharedDirector] startAnimation];
+}
+
 
 @end

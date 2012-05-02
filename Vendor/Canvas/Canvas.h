@@ -12,6 +12,7 @@
 
 @interface Canvas : CCLayer
 
+@property (nonatomic) ccColor4F penColor;
 @property (nonatomic) float penWidth;
 @property (nonatomic) float overdraw;
 @property (nonatomic, retain) NSMutableArray *points;
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) CCRenderTexture *renderTexture;
 
 + (CCScene *) scene;
++ (CCScene *) sceneWithImage:(UIImage *)image;
 
 - (void)startNewLineFrom:(CGPoint)newPoint withSize:(CGFloat)aSize;
 - (void)endLineAt:(CGPoint)aEndPoint withSize:(CGFloat)aSize;

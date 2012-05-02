@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SingleSonoImageViewController : UIViewController
+#import "cocos2d.h"
+
+@interface SingleSonoImageViewController : UIViewController<CCDirectorDelegate>
 
 @property (nonatomic, strong) UIImage *image;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *canvas;
 
 @end

@@ -74,7 +74,6 @@
 		5AA21B2C150A0069007ED3A1 /* SonoImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21B2B150A0069007ED3A1 /* SonoImageViewController.m */; };
 		5AA21B2F150A12AD007ED3A1 /* SingleSonoImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21B2E150A12AD007ED3A1 /* SingleSonoImageViewController.m */; };
 		5AB9F973155184F6007901D5 /* Canvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB9F96C155184F6007901D5 /* Canvas.m */; };
-		5AB9F974155184F6007901D5 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB9F96E155184F6007901D5 /* CanvasViewController.m */; };
 		5AB9F975155184F6007901D5 /* CCRenderTextureWithDepth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB9F970155184F6007901D5 /* CCRenderTextureWithDepth.m */; };
 		5AB9F976155184F6007901D5 /* LinePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB9F972155184F6007901D5 /* LinePoint.m */; };
 		5AB9F9D61551850B007901D5 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB9F9D51551850B007901D5 /* libcocos2d.a */; };
@@ -254,8 +253,6 @@
 		5AA21B2E150A12AD007ED3A1 /* SingleSonoImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSonoImageViewController.m; sourceTree = "<group>"; };
 		5AB9F96B155184F6007901D5 /* Canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
 		5AB9F96C155184F6007901D5 /* Canvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Canvas.m; sourceTree = "<group>"; };
-		5AB9F96D155184F6007901D5 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
-		5AB9F96E155184F6007901D5 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 		5AB9F96F155184F6007901D5 /* CCRenderTextureWithDepth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRenderTextureWithDepth.h; sourceTree = "<group>"; };
 		5AB9F970155184F6007901D5 /* CCRenderTextureWithDepth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRenderTextureWithDepth.m; sourceTree = "<group>"; };
 		5AB9F971155184F6007901D5 /* LinePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinePoint.h; sourceTree = "<group>"; };
@@ -689,8 +686,6 @@
 			children = (
 				5AB9F96B155184F6007901D5 /* Canvas.h */,
 				5AB9F96C155184F6007901D5 /* Canvas.m */,
-				5AB9F96D155184F6007901D5 /* CanvasViewController.h */,
-				5AB9F96E155184F6007901D5 /* CanvasViewController.m */,
 				5AB9F96F155184F6007901D5 /* CCRenderTextureWithDepth.h */,
 				5AB9F970155184F6007901D5 /* CCRenderTextureWithDepth.m */,
 				5AB9F971155184F6007901D5 /* LinePoint.h */,
@@ -1004,7 +999,6 @@
 				5AA21B2C150A0069007ED3A1 /* SonoImageViewController.m in Sources */,
 				5AA21B2F150A12AD007ED3A1 /* SingleSonoImageViewController.m in Sources */,
 				5AB9F973155184F6007901D5 /* Canvas.m in Sources */,
-				5AB9F974155184F6007901D5 /* CanvasViewController.m in Sources */,
 				5AB9F975155184F6007901D5 /* CCRenderTextureWithDepth.m in Sources */,
 				5AB9F976155184F6007901D5 /* LinePoint.m in Sources */,
 			);

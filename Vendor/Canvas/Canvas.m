@@ -22,6 +22,7 @@ ccColor4F color;
 
 @implementation Canvas
 
+@synthesize penColor = _penColor;
 @synthesize penWidth = _penWidth;
 @synthesize overdraw = _overdraw;
 @synthesize points = _points;
@@ -45,10 +46,27 @@ ccColor4F color;
 }
 
 
++ (CCScene *)sceneWithImage:(UIImage *)image
+{
+  CCScene *scene = [CCScene node];
+  Canvas *layer = [Canvas node];
+
+  // background image
+  CGSize size = [[CCDirector sharedDirector] winSize];
+  CCSprite *bg = [CCSprite spriteWithCGImage:image.CGImage key:nil];
+  bg.position =  ccp( size.width /2 , size.height/2 );
+  [scene addChild:bg];
+
+  [scene addChild:layer];
+  return scene;
+}
+
+
 - (id)init 
 {
   self = [super init];
   if (self) {
+    _penColor = ccc4f(1, 1, 0, 1); // yellow
     _penWidth = 2;
     _overdraw = 1;
     _points = [NSMutableArray array];
@@ -60,7 +78,7 @@ ccColor4F color;
     _renderTexture = [[CCRenderTextureWithDepth alloc] initWithWidth:(int)self.contentSize.width height:(int)self.contentSize.height andDepthFormat:GL_DEPTH_COMPONENT24_OES];
     _renderTexture.anchorPoint = ccp(0, 0);
     _renderTexture.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
-    [_renderTexture clear:1.0f g:1.0f b:1.0f a:0];
+    [_renderTexture clear:0.0f g:0.0f b:0.0f a:0];
     [self addChild:_renderTexture];
 
     self.isTouchEnabled = YES;
@@ -306,11 +324,10 @@ ccColor4F color;
 
 - (void)draw
 {
-  ccColor4F color = {0, 0, 0, 1};
   [_renderTexture begin];
   NSMutableArray *smoothedPoints = [self calculateSmoothLinePoints];
   if (smoothedPoints) {
-    [self drawLines:smoothedPoints withColor:color];
+    [self drawLines:smoothedPoints withColor:_penColor];
   }
   [_renderTexture end];
 }
