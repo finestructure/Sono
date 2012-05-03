@@ -26,7 +26,6 @@
 @property (nonatomic) CGPoint prevI;
 @property (nonatomic, strong) CCRenderTexture *renderTexture;
 
-+ (CCScene *) scene;
 + (CCScene *) sceneWithImage:(UIImage *)image;
 
 - (void)startNewLineFrom:(CGPoint)newPoint withSize:(CGFloat)aSize;

@@ -37,24 +37,15 @@ ccColor4F color;
 @synthesize renderTexture = _renderTexture;
 
 
-+ (CCScene *)scene
-{
-  CCScene *scene = [CCScene node];
-  Canvas *layer = [Canvas node];
-  [scene addChild:layer];
-  return scene;
-}
-
-
 + (CCScene *)sceneWithImage:(UIImage *)image
 {
   CCScene *scene = [CCScene node];
   Canvas *layer = [Canvas node];
 
-  // background image
-  CGSize size = [[CCDirector sharedDirector] winSize];
+  // hardcoded size for now
+  CGSize size = CGSizeMake(1024, 748);
   CCSprite *bg = [CCSprite spriteWithCGImage:image.CGImage key:nil];
-  bg.position =  ccp( size.width /2 , size.height/2 );
+  bg.position =  ccp(size.width/2, size.height/2);
   
   CGFloat startWidth = bg.contentSize.width;
   CGFloat startHeight = bg.contentSize.height;
