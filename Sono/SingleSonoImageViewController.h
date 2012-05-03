@@ -13,6 +13,6 @@
 @interface SingleSonoImageViewController : UIViewController<CCDirectorDelegate>
 
 @property (nonatomic, strong) UIImage *image;
-@property (weak, nonatomic) IBOutlet UIImageView *canvas;
+@property (weak, nonatomic) IBOutlet UIView *canvas;
 
 @end
