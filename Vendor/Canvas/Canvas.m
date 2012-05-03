@@ -74,10 +74,10 @@ ccColor4F color;
     _circlesPoints = [NSMutableArray array];
 
     shaderProgram_ = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_PositionColor];
-
-    _renderTexture = [[CCRenderTextureWithDepth alloc] initWithWidth:(int)self.contentSize.width height:(int)self.contentSize.height andDepthFormat:GL_DEPTH_COMPONENT24_OES];
+    
+    _renderTexture = [[CCRenderTextureWithDepth alloc] initWithWidth:self.contentSize.height height:self.contentSize.height andDepthFormat:GL_DEPTH_COMPONENT24_OES];
     _renderTexture.anchorPoint = ccp(0, 0);
-    _renderTexture.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
+    _renderTexture.position = ccp(self.contentSize.height/2, self.contentSize.height/2);
     [_renderTexture clear:0.0f g:0.0f b:0.0f a:0];
     [self addChild:_renderTexture];
 
