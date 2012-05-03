@@ -47,7 +47,9 @@
 {
   [super viewDidLoad];
   self.canvas.userInteractionEnabled = YES;
-	[self.canvas addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)]];
+  UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)];
+  gr.numberOfTapsRequired = 2;
+	[self.canvas addGestureRecognizer:gr];
   [self setupCocos2d];
 }
 
